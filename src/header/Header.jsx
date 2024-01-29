@@ -1,6 +1,5 @@
 import React from 'react'
-// import Hamburger from '../components/hamburger/Hamburger'
-import { StyledMenu } from '../menu/StyledComponents'
+// import { StyledMenu } from '../menu/StyledComponents'
 import { StyledLogo, StyledHeader } from './StyledComponents'
 
 const Header = () => {
@@ -8,7 +7,7 @@ const Header = () => {
     <div>
       <StyledHeader>
         <StyledLogo src='logo.png' />
-        <StyledMenu />
+        {/* <StyledMenu /> */}
       </StyledHeader>
     </div>
   )
