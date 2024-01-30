@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { StyledArrow } from './StyledComponents'
-
+import { getRandom } from '../utils/randomNumbers'
+import { motion, easeInOut } from 'framer-motion'
 const Main = ({ className }) => {
-  const list = (text) => (
+  const list = ['about', 'projects', 'contact']
+  
+  const linkComponent = (text) => (
     <Link
       to={`/${text}`}
       className='arrow'
@@ -15,16 +18,22 @@ const Main = ({ className }) => {
       {text}
     </Link>
   )
+
   return (
     <div className={className}>
-      <div className='wrapper'>
+      <motion.div
+        className='wrapper'
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: getRandom() }}
+        exit={{ scaleY: 0 }}
+        transition={{ duration: 1, ease: easeInOut }}
+      >
         <ol>
-          {/* <li>{list('home')}</li> */}
-          <li>{list('about')}</li>
-          <li>{list('projects')}</li>
-          <li>{list('contact')}</li>
+          {list.map((data, index) => (
+            <li key={index}>{linkComponent(data)}</li>
+          ))}
         </ol>
-      </div>
+      </motion.div>
     </div>
   )
 }

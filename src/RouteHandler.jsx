@@ -1,14 +1,32 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-// import Header from './header/Header'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import About from './about/About'
+import Contact from './contact/Contact'
 import { StyledMain } from './main/StyledComponents'
+import Projects from './projects/Projects'
 
 const RouteHandler = () => {
+  const location = useLocation()
   return (
-    <Routes>
+    <Routes
+      location={location}
+      key={location.pathname}
+    >
       <Route
         path='/'
         element={<StyledMain />}
+      />
+      <Route
+        path='/about'
+        element={<About />}
+      />
+      <Route
+        path='/projects'
+        element={<Projects />}
+      />
+      <Route
+        path='/contact'
+        element={<Contact />}
       />
     </Routes>
   )

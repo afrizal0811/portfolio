@@ -2,7 +2,14 @@ import styled from 'styled-components'
 import Main from './Main.jsx'
 
 export const StyledMain = styled(Main)`
-  .wrapper,{
+  .transition {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
