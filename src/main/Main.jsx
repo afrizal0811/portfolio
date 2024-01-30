@@ -1,6 +1,7 @@
 import { easeInOut, motion } from 'framer-motion'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import FuzzyEffect from '../components/fuzzyEffect/FuzzyEffect'
 import { getRandom } from '../utils/randomNumbers'
 import './style.css'
 const Main = () => {
@@ -22,7 +23,8 @@ const Main = () => {
   )
 
   return (
-    <div>
+    <div className='container'>
+      <FuzzyEffect className='noise' />
       <motion.div
         className='wrapper'
         initial={{ scaleY: 0, scaleX: 0 }}
