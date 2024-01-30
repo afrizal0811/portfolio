@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import About from './about/About'
 import Contact from './contact/Contact'
-import { StyledMain } from './main/StyledComponents'
+import Main from './main/Main'
 import Projects from './projects/Projects'
 
 const RouteHandler = () => {
@@ -14,7 +14,7 @@ const RouteHandler = () => {
     >
       <Route
         path='/'
-        element={<StyledMain />}
+        element={<Main />}
       />
       <Route
         path='/about'

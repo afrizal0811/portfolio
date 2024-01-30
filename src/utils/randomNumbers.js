@@ -14,9 +14,9 @@ export const getRandom = () => {
   let numberArrays = []
 
   for (let i = 0; i < 10; i++) {
-    numberArrays.push(randomNumber(0, 0.05))
+    numberArrays.push(randomNumber(0, 0.01))
   }
-  numberArrays.unshift(1,1)
-  numberArrays.push(1,1)
+  numberArrays.unshift(1, 0)
+  numberArrays.push(0, 1)
   return numberArrays
 }
