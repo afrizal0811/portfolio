@@ -1,7 +1,9 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import RouteHandler from './RouteHandler'
-const AnimatedHandler = () => {
+import FuzzyEffect from './components/fuzzyEffect/FuzzyEffect'
+
+export const AnimatedPresence = () => {
   return (
     <AnimatePresence mode='wait'>
       <RouteHandler />
@@ -9,4 +11,9 @@ const AnimatedHandler = () => {
   )
 }
 
-export default AnimatedHandler
+export const StyledBackground = (main) => (
+  <div style={{ backgroundColor: '#221' }}>
+    <FuzzyEffect />
+    {main}
+  </div>
+)

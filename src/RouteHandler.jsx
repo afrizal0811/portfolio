@@ -1,12 +1,13 @@
 import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import About from './about/About'
+import { StyledBackground } from './AnimatedHandler'
 import Contact from './contact/Contact'
 import Main from './main/Main'
 import Projects from './projects/Projects'
-
 const RouteHandler = () => {
   const location = useLocation()
+
   return (
     <Routes
       location={location}
@@ -14,19 +15,19 @@ const RouteHandler = () => {
     >
       <Route
         path='/'
-        element={<Main />}
+        element={StyledBackground(<Main />)}
       />
       <Route
         path='/about'
-        element={<About />}
+        element={StyledBackground(<About />)}
       />
       <Route
         path='/projects'
-        element={<Projects />}
+        element={StyledBackground(<Projects />)}
       />
       <Route
         path='/contact'
-        element={<Contact />}
+        element={StyledBackground(<Contact />)}
       />
     </Routes>
   )

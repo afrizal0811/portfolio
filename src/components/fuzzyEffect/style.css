@@ -1,3 +1,7 @@
+.fuzzy-container {
+  background-color: #221;
+}
+
 .fuzzy-overlay {
   position: absolute;
   height: 400%;
