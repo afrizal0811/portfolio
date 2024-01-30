@@ -10,13 +10,13 @@ const randomNumber = (min, max) => {
   return randomWithinRange
 }
 
-export const getRandom = () => {
+export const getRandom = (min, max) => {
   let numberArrays = []
 
   for (let i = 0; i < 10; i++) {
-    numberArrays.push(randomNumber(0, 0.01))
+    numberArrays.push(randomNumber(min, max))
   }
   numberArrays.unshift(1, 0)
-  numberArrays.push(0, 1)
+  numberArrays.push(1, 1)
   return numberArrays
 }

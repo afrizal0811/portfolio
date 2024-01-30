@@ -17,6 +17,7 @@
   height: 100vh;
   background-color: #221;
   text-transform: uppercase;
+  overflow: hidden;
 }
 h1 {
   color: #4faf44;

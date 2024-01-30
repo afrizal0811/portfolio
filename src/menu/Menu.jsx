@@ -1,6 +1,6 @@
 import { CaretRightFilled } from '@ant-design/icons'
 import React, { useEffect } from 'react'
-const Menu = ({ className }) => {
+const Menu = () => {
   useEffect(() => {
     let hamburgerMenu = document.querySelector('.hamburger-wrapper')
     const handleClick = () => {
@@ -15,7 +15,7 @@ const Menu = ({ className }) => {
   }, [])
 
   return (
-    <div className={className}>
+    <div>
       <div className='hamburger-container'>
         <div class='hamburger-wrapper'>
           <div class='line-menu half start'></div>

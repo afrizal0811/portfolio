@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { getRandom } from '../utils/randomNumbers'
 import './style.css'
-const Contact = ({ className }) => {
+const Contact = () => {
   const list = ['about', 'projects', 'contact']
 
   const linkComponent = (text) => (
@@ -22,12 +22,12 @@ const Contact = ({ className }) => {
   )
 
   return (
-    <div className={className}>
+    <div>
       <motion.div
         className='wrapper'
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: getRandom() }}
-        exit={{ scaleY: 0 }}
+        initial={{ scaleY: 0, scaleX: 0 }}
+        animate={{ scaleY: getRandom(0, 0.01), scaleX: getRandom(0.7, 1) }}
+        exit={{ scaleY: 0, scaleX: 0 }}
         transition={{ duration: 1, ease: easeInOut }}
       >
         <h1>Contact</h1>
