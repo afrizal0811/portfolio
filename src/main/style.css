@@ -1,26 +1,5 @@
-
-.transition {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 999;
-  overflow: hidden;
-}
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Press Start 2P';
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 2;
-  height: 100vh;
-  text-transform: uppercase;
-}
-h1 {
-  color: #4faf44;
-}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Offside&display=swap');
 
 a {
   text-decoration: none;
@@ -29,6 +8,7 @@ a {
 
 li {
   color: #4faf44;
+  list-style-type: none;
 }
 
 .arrow .sign {
@@ -41,6 +21,41 @@ li {
   color: #f6eb14;
 }
 
+.wrapper,
+.menu-list,
+.title, .title div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title div{
+  margin-top: 8rem;
+  line-height: 1;
+  align-items: center;
+}
+
+.title h1,
+h2 {
+  background: -webkit-linear-gradient(#4faf44, #f6eb14);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: perspective(200px) rotateX(40deg);
+}
+p {
+  font-size: 15px;
+  margin-left: -32px;
+  color: #fff;
+  font-family: 'Offside';
+}
+
+.menu-list {
+  font-family: 'Press Start 2P';
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 2;
+  height: 100vh;
+  text-transform: uppercase;
+}
 .arrow:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.2);
@@ -51,9 +66,6 @@ li {
   position: absolute;
   top: 0.2em;
   left: -2em;
-}
-li {
-  list-style-type: none;
 }
 
 .noise {

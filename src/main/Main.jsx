@@ -10,7 +10,7 @@ const Main = () => {
       className='arrow'
     >
       <img
-        height='65px'
+        height='30px'
         src='logo-yellow.png'
         className='sign'
         alt='cursor'
@@ -21,7 +21,14 @@ const Main = () => {
 
   return (
     <div className='wrapper'>
-      <ol>
+      <div className='title'>
+        <div>
+          <h2>Afrizal</h2>
+          <h1>Maulana</h1>
+        </div>
+        <p>Web Developer</p>
+      </div>
+      <ol className='menu-list'>
         {list.map((data, index) => (
           <li key={index}>{linkComponent(data)}</li>
         ))}
