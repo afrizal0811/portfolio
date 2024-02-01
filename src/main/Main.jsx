@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
@@ -21,8 +22,14 @@ const Main = () => {
 
   return (
     <div className='wrapper'>
+      {/* <motion.div
+        className='title-bg'
+        initial={{ opacity: 0, height: 0, width: 0 }}
+        animate={{ opacity: '20%', height: '170px', width: '490px' }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      /> */}
       <div className='title'>
-        <div>
+        <div className='title-name'>
           <h2>Afrizal</h2>
           <h1>Maulana</h1>
         </div>

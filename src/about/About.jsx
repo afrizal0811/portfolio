@@ -2,15 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 const About = () => {
-  const list = ['about', 'projects', 'contact']
+  const list = ['home', 'about', 'projects', 'contact']
 
   const linkComponent = (text) => (
     <Link
-      to={`/${text}`}
+      to={text === 'home' ? '/' : `/${text}`}
       className='arrow'
     >
       <img
-        height='60px'
+        height='65px'
         src='logo-yellow.png'
         className='sign'
         alt='cursor'

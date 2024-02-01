@@ -23,24 +23,35 @@ li {
 
 .wrapper,
 .menu-list,
-.title, .title div {
+.title,
+.title-name,
+.title-bg {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.title div{
+
+.title-name {
   margin-top: 8rem;
   line-height: 1;
   align-items: center;
 }
+/* .title-bg {
+  background-color: black;
+  position: absolute;
+  top: 12.5%;
+  transform: perspective(200px) rotateX(40deg);
+} */
 
-.title h1,
+.title div h1,
 h2 {
   background: -webkit-linear-gradient(#4faf44, #f6eb14);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: perspective(200px) rotateX(40deg);
 }
+
+
 p {
   font-size: 15px;
   margin-left: -32px;

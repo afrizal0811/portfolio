@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import './style.css'
 
 const Projects = () => {
-  const list = ['about', 'projects', 'contact']
+  const list = ['home', 'about', 'projects', 'contact']
 
   const linkComponent = (text) => (
     <Link
-      to={`/${text}`}
+      to={text === 'home' ? '/' : `/${text}`}
       className='arrow'
     >
       <img
@@ -19,7 +19,6 @@ const Projects = () => {
       {text}
     </Link>
   )
-
   return (
     <div>
       <div className='wrapper'>
