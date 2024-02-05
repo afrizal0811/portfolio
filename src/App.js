@@ -1,11 +1,11 @@
 import { BrowserRouter as Router } from 'react-router-dom'
-import { AnimatedPresence } from './AnimatedHandler'
 import './App.css'
+import RouteHandler from './RouteHandler'
 function App() {
   return (
     <div className='App'>
       <Router>
-        <AnimatedPresence />
+        <RouteHandler />
       </Router>
     </div>
   )
