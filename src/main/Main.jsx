@@ -1,25 +1,8 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import MenuList from '../components/menu-list/MenuList'
 import './style.css'
 const Main = () => {
-  const list = ['about', 'projects', 'contact']
-
-  const linkComponent = (text) => (
-    <Link
-      to={`/${text}`}
-      className='arrow'
-    >
-      <img
-        height='30px'
-        src='logo-yellow.png'
-        className='sign'
-        alt='cursor'
-      />
-      {text}
-    </Link>
-  )
-
   return (
     <motion.div
       className='wrapper'
@@ -41,9 +24,7 @@ const Main = () => {
         <p>Web Developer</p>
       </div>
       <ol className='menu-list'>
-        {list.map((data, index) => (
-          <li key={index}>{linkComponent(data)}</li>
-        ))}
+        <MenuList />
       </ol>
     </motion.div>
   )

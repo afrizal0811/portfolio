@@ -3,7 +3,7 @@
   position: absolute;
   height: 400%;
   width: 400%;
-  background-image: url('../../../../public/noise.jpg');
+  background-image: url('../../../../public/images/noise.jpg');
   inset: -200%;
   pointer-events: none;
 }

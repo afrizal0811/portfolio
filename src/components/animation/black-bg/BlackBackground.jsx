@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
+import { blackBackground } from '../../../constants/variants'
 import './style.css'
-import { blackBackground } from '../../../constants/animateVariants'
 
 const BlackBackground = () => {
   return (

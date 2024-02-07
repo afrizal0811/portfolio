@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { fuzzyVariant } from '../../../constants/animateVariants'
+import { fuzzyVariant } from '../../../constants/variants'
 import './style.css'
 
 const FuzzyEffect = () => {
