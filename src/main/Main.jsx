@@ -21,7 +21,12 @@ const Main = () => {
   )
 
   return (
-    <div className='wrapper'>
+    <motion.div
+      className='wrapper'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, 0, 0.5, 1, 1, 1, 1, 1] }}
+      transition={{ delay: 2.2, duration: 1 }}
+    >
       {/* <motion.div
         className='title-bg'
         initial={{ opacity: 0, height: 0, width: 0 }}
@@ -40,7 +45,7 @@ const Main = () => {
           <li key={index}>{linkComponent(data)}</li>
         ))}
       </ol>
-    </div>
+    </motion.div>
   )
 }
 

@@ -1,0 +1,9 @@
+.colorbar-container {
+    position: relative;
+}
+
+.colorbar {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
