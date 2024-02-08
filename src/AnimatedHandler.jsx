@@ -4,6 +4,7 @@ import BlackBackground from './components/animation/black-bg/BlackBackground'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
 import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
 import { transitionVariant } from './constants/variants'
+
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
   const isInView = useInView(ref)
@@ -15,7 +16,11 @@ export const StyledMenu = (menu) => {
       <BlackBackground />
     </div>
   )
-
+  const newMenus = (menu) => {
+    let menus = menu
+    menu = { ...menus, props: { isInView: isInView } }
+    return menu
+  }
   return (
     <motion.div
       ref={ref}
@@ -26,7 +31,7 @@ export const StyledMenu = (menu) => {
       exit='exit'
     >
       {isInView && intialTransition}
-      {menu}
+      {newMenus(menu)}
     </motion.div>
   )
 }

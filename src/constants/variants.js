@@ -30,7 +30,7 @@ export const fuzzyVariant = {
   exit: { opacity: 0 },
 }
 
-export const blackBackground = {
+export const blackBackgroundVariant = {
   initial: {
     opacity: 0,
   },
@@ -40,12 +40,22 @@ export const blackBackground = {
   },
 }
 
-export const colorBar = {
+export const colorBarVariant = {
   initial: {
     opacity: 0,
   },
   animate: {
     opacity: [0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
-    transition: { delay: 1, duration: 1.5 },
+    transition: { delay: 1.15, duration: 1.5 },
+  },
+}
+
+export const menuVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: [0, 0, 0.5, 1, 1, 1, 1, 1],
+    transition: { delay: 1.7, duration: 1 },
   },
 }

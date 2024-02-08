@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import MenuList from '../components/menu-list/MenuList'
+import { menuVariant } from '../constants/variants'
 import './style.css'
-const Main = () => {
+
+const Main = (props) => {
+  const { isInView } = props
+
   return (
     <motion.div
       className='wrapper'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 0, 0.5, 1, 1, 1, 1, 1] }}
-      transition={{ delay: 2.2, duration: 1 }}
+      variants={isInView ? menuVariant : ''}
+      initial='initial'
+      animate='animate'
     >
       {/* <motion.div
         className='title-bg'
