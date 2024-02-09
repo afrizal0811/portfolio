@@ -3,7 +3,9 @@ import React, { useRef } from 'react'
 import BlackBackground from './components/animation/black-bg/BlackBackground'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
 import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
-import { transitionVariant } from './constants/variants'
+import MenuList from './components/menu-list/MenuList'
+import StartButton from './components/start-button/StartButton'
+import { buttonListVariant, transitionVariant } from './constants/variants'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
@@ -32,6 +34,17 @@ export const StyledMenu = (menu) => {
     >
       {isInView && intialTransition}
       {newMenus(menu)}
+    </motion.div>
+  )
+}
+
+export const StyledButtonList = (isInView, started, setStarted) => {
+  return (
+    <motion.div animate={started ? 'click' : isInView ? 'unclick' : ''}>
+      {isInView && <StartButton setStarted={setStarted} />}
+      <motion.div variants={buttonListVariant}>
+        <MenuList />
+      </motion.div>
     </motion.div>
   )
 }

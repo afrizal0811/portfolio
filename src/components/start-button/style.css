@@ -1,0 +1,18 @@
+.start-button button {
+  color: black;
+  cursor: pointer;
+  font-family: 'Press Start 2P';
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.start-button h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #f6eb14;
+}

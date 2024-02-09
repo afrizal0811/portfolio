@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import About from './about/About'
 import { StyledMenu } from './AnimatedHandler'
 import Contact from './contact/Contact'
@@ -10,7 +10,7 @@ const RouteHandler = () => {
   const location = useLocation()
 
   return (
-    <AnimatePresence mode='wait' >
+    <AnimatePresence mode='wait'>
       <Routes
         location={location}
         key={location.pathname}
@@ -30,6 +30,10 @@ const RouteHandler = () => {
         <Route
           path='/contact'
           element={StyledMenu(<Contact />)}
+        />
+        <Route
+          path='*'
+          element={<Navigate to='/' />}
         />
       </Routes>
     </AnimatePresence>
