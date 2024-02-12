@@ -1,10 +1,18 @@
 .black-container {
-    position: relative;
+  position: relative;
 }
 
 .black-bg {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: #221;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #221;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-frame {
+  height: 96%;
+  width: 97%;
 }

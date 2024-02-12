@@ -3,15 +3,22 @@ import React from 'react'
 import { blackBackgroundVariant } from '../../../constants/variants'
 import './style.css'
 
-const BlackBackground = () => {
+const BlackBackground = (props) => {
+  const { isInView } = props
   return (
     <motion.div
       className='black-container'
-      variants={blackBackgroundVariant}
+      variants={isInView ? blackBackgroundVariant : ''}
       initial='initial'
       animate='animate'
     >
-      <div className='black-bg'></div>
+      <div className='black-bg'>
+        <img
+          className='main-frame'
+          src='./images/frame.png'
+          alt='colorbar'
+        />
+      </div>
     </motion.div>
   )
 }

@@ -15,7 +15,6 @@ export const StyledMenu = (menu) => {
     <div>
       <FuzzyEffect />
       <ColorBarEffect />
-      <BlackBackground />
     </div>
   )
   const newMenus = (menu) => {
@@ -33,6 +32,7 @@ export const StyledMenu = (menu) => {
       exit='exit'
     >
       {isInView && intialTransition}
+      <BlackBackground isInView={isInView} />
       {newMenus(menu)}
     </motion.div>
   )
