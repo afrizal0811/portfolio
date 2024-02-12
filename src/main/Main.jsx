@@ -9,7 +9,7 @@ const Main = (props) => {
 
   return (
     <motion.div
-      className='wrapper-menu'
+      className='wrapper'
       variants={isInView ? menuVariant : ''}
       initial='initial'
       animate='animate'

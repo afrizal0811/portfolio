@@ -15,3 +15,23 @@ body {
   background-color: #000;
   height: 100vh;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Press Start 2P';
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 2;
+  height: 100vh;
+  text-transform: uppercase;
+}
+
+.wrapper h1 {
+  background: -webkit-linear-gradient(#4faf44, #f6eb14);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 9999;
+}
