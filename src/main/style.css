@@ -3,24 +3,23 @@
 
 a {
   text-decoration: none;
-  color: #fff090;
 }
 
-li {
+.menu-list-menu li {
   list-style-type: none;
 }
 
-.arrow .sign {
+.arrow-menu .sign-menu {
   display: none;
 }
 
-.arrow {
+.arrow-menu {
   position: relative;
   display: block;
   color: #f6eb14;
 }
 
-.wrapper {
+.wrapper-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,23 +32,22 @@ li {
   text-transform: uppercase;
 }
 
-.menu-list,
-.title,
-.title-name,
-.title-bg {
+.menu-list-menu,
+.title-menu,
+.title-name-menu{
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: 9999;
 }
 
-.title-name {
+.title-name-menu {
   margin-top: 8rem;
   line-height: 1;
   align-items: center;
 }
 
-.title div h1,
+.title-menu div h1,
 h2 {
   background: -webkit-linear-gradient(#4faf44, #f6eb14);
   background-clip: text;
@@ -57,26 +55,26 @@ h2 {
   transform: perspective(200px) rotateX(40deg);
 }
 
-p {
+.title-menu p {
   font-size: 15px;
   margin-left: -32px;
   color: #fff;
   font-family: 'Offside';
 }
 
-.menu-list {
+.menu-list-menu {
   font-size: 25px;
   font-weight: 700;
   line-height: 2;
   height: 100vh;
   text-transform: uppercase;
 }
-.arrow:hover {
+.arrow-menu:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.arrow:hover .sign {
+.arrow-menu:hover .sign-menu {
   display: block;
   position: absolute;
   top: 0.2em;

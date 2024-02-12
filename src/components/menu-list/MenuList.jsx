@@ -6,12 +6,12 @@ const MenuList = (props) => {
   const linkComponent = (text) => (
     <Link
       to={text === 'home' ? '/' : `/${text}`}
-      className='arrow'
+      className='arrow-menu'
     >
       <img
         height='30px'
         src='logo-yellow.png'
-        className='sign'
+        className='sign-menu'
         alt='cursor'
       />
       {text}

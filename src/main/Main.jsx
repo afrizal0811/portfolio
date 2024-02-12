@@ -9,19 +9,19 @@ const Main = (props) => {
 
   return (
     <motion.div
-      className='wrapper'
+      className='wrapper-menu'
       variants={isInView ? menuVariant : ''}
       initial='initial'
       animate='animate'
     >
-      <div className='title'>
-        <div className='title-name'>
+      <div className='title-menu'>
+        <div className='title-name-menu'>
           <h2>Afrizal</h2>
           <h1>Maulana</h1>
         </div>
         <p>Web Developer</p>
       </div>
-      <ol className='menu-list'>
+      <ol className='menu-list-menu'>
         <motion.div>{StyledButtonList(isInView, started, setStarted)}</motion.div>
       </ol>
     </motion.div>
