@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Offside&display=swap');
+
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
@@ -6,19 +9,24 @@
   --color-flavescent: #fff090;
   --color-sun: #f6eb14;
 }
+
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Press Start 2P';
 }
+
 html,
 body {
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
 }
+
 body {
   position: relative;
 }
+
 .App {
   background-color: var(--color-black);
   height: 100vh;
@@ -28,17 +36,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  font-family: 'Press Start 2P';
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 2;
   height: 100vh;
-  text-transform: uppercase;
 }
-
 h1.title {
-  background: -webkit-linear-gradient(var(--color-apple), var(--color-sun));;
+  background: -webkit-linear-gradient(var(--color-apple), var(--color-sun));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 9999;

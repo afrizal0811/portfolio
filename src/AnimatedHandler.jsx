@@ -18,10 +18,11 @@ export const StyledMenu = (menu) => {
     </div>
   )
   const newMenus = (menu) => {
-    let menus = menu
-    menu = { ...menus, props: { isInView: isInView } }
+    const props = menu.props
+    menu = { ...menu, props: { ...props, isInView: isInView } }
     return menu
   }
+
   return (
     <motion.div
       ref={ref}
@@ -38,12 +39,14 @@ export const StyledMenu = (menu) => {
   )
 }
 
-export const StyledButtonList = (isInView, started, setStarted) => {
+export const StyledButtonList = (params) => {
   return (
-    <motion.div animate={started ? 'click' : isInView ? 'unclick' : ''}>
-      {isInView && <StartButton setStarted={setStarted} />}
+    <motion.div
+      animate={params.started ? 'click' : params.isInView ? 'unclick' : ''}
+    >
+      {params.isInView && <StartButton setStarted={params.setStarted} />}
       <motion.div variants={buttonListVariant}>
-        <MenuList />
+        <MenuList pathname={params.pathname} />
       </motion.div>
     </motion.div>
   )

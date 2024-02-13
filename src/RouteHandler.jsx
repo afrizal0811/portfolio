@@ -8,28 +8,28 @@ import Main from './main/Main'
 import Projects from './projects/Projects'
 const RouteHandler = () => {
   const location = useLocation()
-
+  const pathname = location.pathname
   return (
     <AnimatePresence mode='wait'>
       <Routes
         location={location}
-        key={location.pathname}
+        key={pathname}
       >
         <Route
           path='/'
-          element={StyledMenu(<Main />)}
+          element={StyledMenu(<Main pathname={pathname} />)}
         />
         <Route
           path='/about'
-          element={StyledMenu(<About />)}
+          element={StyledMenu(<About pathname={pathname} />)}
         />
         <Route
           path='/projects'
-          element={StyledMenu(<Projects />)}
+          element={StyledMenu(<Projects pathname={pathname} />)}
         />
         <Route
           path='/contact'
-          element={StyledMenu(<Contact />)}
+          element={StyledMenu(<Contact pathname={pathname} />)}
         />
         <Route
           path='*'

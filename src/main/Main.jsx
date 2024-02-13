@@ -4,12 +4,18 @@ import { StyledButtonList } from '../AnimatedHandler'
 import { menuVariant } from '../constants/variants'
 import './style.css'
 const Main = (props) => {
-  const { isInView } = props
+  const { isInView, pathname } = props
   const [started, setStarted] = useState(false)
+  const params = {
+    isInView,
+    pathname,
+    started,
+    setStarted,
+  }
 
   return (
     <motion.div
-      className='wrapper'
+      className='main-wrapper'
       variants={isInView ? menuVariant : ''}
       initial='initial'
       animate='animate'
@@ -22,7 +28,7 @@ const Main = (props) => {
         <p>Web Developer</p>
       </div>
       <ol className='menu-list-menu'>
-        <motion.div>{StyledButtonList(isInView, started, setStarted)}</motion.div>
+        <motion.div>{StyledButtonList(params)}</motion.div>
       </ol>
     </motion.div>
   )

@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import React from 'react'
+import MenuHeader from '../components/menu-header/MenuHeader'
 import { menuVariant } from '../constants/variants'
 import './style.css'
 
 const Contact = (props) => {
-  const { isInView } = props
+  const { isInView, pathname } = props
 
   return (
     <motion.div
@@ -13,7 +14,8 @@ const Contact = (props) => {
       initial='initial'
       animate='animate'
     >
-      <h1 className='title'>Contact</h1>
+      <MenuHeader pathname={pathname} />
+      {/* <h1 className='title'>Contact</h1> */}
     </motion.div>
   )
 }

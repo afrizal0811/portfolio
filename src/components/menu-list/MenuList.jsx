@@ -1,27 +1,16 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { menuList } from '../../constants/lists'
+import { linkComponent } from '../../utilities/linkComponent'
+
 const MenuList = (props) => {
-  const linkComponent = (text) => (
-    <Link
-      to={text === 'home' ? '/' : `/${text}`}
-      className='arrow-menu'
-    >
-      <img
-        height='30px'
-        src='logo-yellow.png'
-        className='sign-menu'
-        alt='cursor'
-      />
-      {text}
-    </Link>
-  )
+  const { pathname } = props
+  const filteredMenu = menuList.filter((data) => data !== 'home')
 
   return (
     <motion.div>
-      {menuList.map((data, index) => (
-        <li key={index}>{linkComponent(data)}</li>
+      {filteredMenu.map((menu, index) => (
+        <li key={index}>{linkComponent(menu, pathname)}</li>
       ))}
     </motion.div>
   )

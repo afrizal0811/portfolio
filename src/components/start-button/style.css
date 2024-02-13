@@ -1,7 +1,6 @@
 .start-button button {
   color: var(--color-raisin);
   cursor: pointer;
-  font-family: 'Press Start 2P';
   border: none;
   text-align: center;
   text-decoration: none;
