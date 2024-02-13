@@ -12,7 +12,7 @@ const About = (props) => {
       initial='initial'
       animate='animate'
     >
-      <h1>About</h1>
+      <h1 className='title'>About</h1>
     </motion.div>
   )
 }

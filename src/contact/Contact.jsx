@@ -13,7 +13,7 @@ const Contact = (props) => {
       initial='initial'
       animate='animate'
     >
-      <h1>Contact</h1>
+      <h1 className='title'>Contact</h1>
     </motion.div>
   )
 }

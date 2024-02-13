@@ -13,7 +13,7 @@ const Projects = (props) => {
       initial='initial'
       animate='animate'
     >
-      <h1>Projects</h1>
+      <h1 className='title'>Projects</h1>
     </motion.div>
   )
 }

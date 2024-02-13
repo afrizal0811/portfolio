@@ -1,5 +1,5 @@
 .start-button button {
-  color: black;
+  color: var(--color-raisin);
   cursor: pointer;
   font-family: 'Press Start 2P';
   border: none;
@@ -14,5 +14,5 @@
 .start-button h1 {
   font-size: 40px;
   font-weight: 700;
-  color: #f6eb14;
+  color: var(--color-sun);
 }

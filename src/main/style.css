@@ -16,7 +16,7 @@ a {
 .arrow-menu {
   position: relative;
   display: block;
-  color: #f6eb14;
+  color: var(--color-sun);
 }
 
 .menu-list-menu,
@@ -36,7 +36,7 @@ a {
 
 .title-menu h1,
 h2 {
-  background: -webkit-linear-gradient(#4faf44, #f6eb14);
+  background: -webkit-linear-gradient(var(--color-apple), var(--color-sun));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: perspective(200px) rotateX(40deg);
@@ -45,7 +45,7 @@ h2 {
 .title-menu p {
   font-size: 15px;
   margin-left: -32px;
-  color: #fff;
+  color: var(--color-white);
   font-family: 'Offside';
 }
 
