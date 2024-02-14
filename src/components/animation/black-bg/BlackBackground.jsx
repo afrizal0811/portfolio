@@ -16,7 +16,8 @@ const BlackBackground = (props) => {
         <img
           className='main-frame'
           src='./images/frame.png'
-          alt='colorbar'
+          alt='frame'
+          draggable='false'
         />
       </div>
     </motion.div>
