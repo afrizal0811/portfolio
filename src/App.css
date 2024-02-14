@@ -38,6 +38,10 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+.content {
+  z-index: 9999;
+}
 /* h1.title {
   background: -webkit-linear-gradient(var(--color-apple), var(--color-sun));
   background-clip: text;
@@ -54,3 +58,19 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+.frame-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-raisin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame-content {
+  height: 96%;
+  width: 97%;
+}
+

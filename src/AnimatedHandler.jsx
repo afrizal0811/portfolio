@@ -1,11 +1,10 @@
 import { motion, useInView } from 'framer-motion'
 import React, { useRef } from 'react'
-import BlackBackground from './components/animation/black-bg/BlackBackground'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
 import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
-import { buttonListVariant, transitionVariant } from './constants/variants'
+import { buttonListVariant, transitionVariant, menuVariant } from './constants/variants'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
@@ -17,6 +16,23 @@ export const StyledMenu = (menu) => {
       <ColorBarEffect />
     </div>
   )
+
+  const frame = (
+    <motion.div
+      className='frame-container'
+      variants={isInView ? menuVariant : ''}
+      initial='initial'
+      animate='animate'
+    >
+      <img
+        className='frame-content'
+        src='./images/frame.png'
+        alt='frame'
+        draggable='false'
+      />
+    </motion.div>
+  )
+
   const newMenus = (menu) => {
     const props = menu.props
     menu = { ...menu, props: { ...props, isInView: isInView } }
@@ -33,7 +49,7 @@ export const StyledMenu = (menu) => {
       exit='exit'
     >
       {isInView && intialTransition}
-      <BlackBackground isInView={isInView} />
+      {frame}
       {newMenus(menu)}
     </motion.div>
   )

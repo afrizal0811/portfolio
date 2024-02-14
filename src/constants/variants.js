@@ -33,12 +33,12 @@ export const fuzzyVariant = {
   exit: { opacity: 0 },
 }
 
-export const blackBackgroundVariant = {
+export const DisapperedFuzzyVariant = {
   initial: {
-    opacity: 0,
+    opacity: 1,
   },
   animate: {
-    opacity: [0, 0.1, 0.5, 0.9, 1],
+    opacity: [1, 0.9, 0.5, 0.1, 0],
     transition: { delay: 1.6, duration: 1 },
   },
 }

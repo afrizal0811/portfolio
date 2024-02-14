@@ -15,6 +15,7 @@ const ColorBarEffect = () => {
         className='colorbar'
         src='./images/color-bar.svg'
         alt='colorbar'
+        draggable='false'
       />
     </motion.div>
   )

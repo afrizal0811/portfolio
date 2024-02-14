@@ -13,7 +13,9 @@ const About = (props) => {
       animate='animate'
     >
       <MenuHeader pathname={pathname} />
-      {/* <h1 className='title'>About</h1> */}
+      <div className='content'>
+        <h1 className='title'>About</h1>
+      </div>
     </motion.div>
   )
 }
