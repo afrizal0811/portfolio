@@ -4,11 +4,18 @@ import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect
 import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
-import { buttonListVariant, transitionVariant, menuVariant } from './constants/variants'
+import {
+  buttonListVariant,
+  menuVariant,
+  transitionVariant,
+} from './constants/variants'
+import MenuHeader from './components/menu-header/MenuHeader'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
   const isInView = useInView(ref)
+  const props = menu.props
+  const isHome = props.pathname === '/'
 
   const intialTransition = (
     <div>
@@ -34,7 +41,6 @@ export const StyledMenu = (menu) => {
   )
 
   const newMenus = (menu) => {
-    const props = menu.props
     menu = { ...menu, props: { ...props, isInView: isInView } }
     return menu
   }
@@ -42,12 +48,14 @@ export const StyledMenu = (menu) => {
   return (
     <motion.div
       ref={ref}
+      className='wrapper'
       variants={transitionVariant}
       initial='intial'
       animate='animate'
       transition='transition'
       exit='exit'
     >
+      {!isHome && <MenuHeader pathname={props.pathname} />}
       {isInView && intialTransition}
       {frame}
       {newMenus(menu)}

@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import MenuHeader from '../components/menu-header/MenuHeader'
 import { menuVariant } from '../constants/variants'
 import './style.css'
-const Projects = (props) => {
-  const { isInView, pathname } = props
 
+const Projects = (props) => {
+  const { isInView } = props
   return (
     <motion.div
       className='wrapper'
@@ -13,7 +12,9 @@ const Projects = (props) => {
       initial='initial'
       animate='animate'
     >
-      <MenuHeader pathname={pathname} />
+      <div className='content'>
+        <h1 className='title'>Projects</h1>
+      </div>
     </motion.div>
   )
 }
