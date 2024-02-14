@@ -1,24 +1,14 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import {
-  DisapperedFuzzyVariant,
-  fuzzyVariant,
-} from '../../../constants/variants'
+import { DisapperedFuzzyProps, fuzzyProps } from '../../../constants/properties'
 import './style.css'
 
 const FuzzyEffect = () => {
   return (
-    <motion.div
-      variants={DisapperedFuzzyVariant}
-      initial='initial'
-      animate='animate'
-    >
+    <motion.div {...DisapperedFuzzyProps}>
       <motion.div
-        className='fuzzy-overlay '
-        variants={fuzzyVariant}
-        initial='initial'
-        animate='animate'
-        exit='exit'
+        className='fuzzy-overlay'
+        {...fuzzyProps}
       />
     </motion.div>
   )

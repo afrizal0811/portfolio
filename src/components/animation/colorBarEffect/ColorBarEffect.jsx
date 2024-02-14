@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { colorBarVariant } from '../../../constants/variants'
+import { colorBarProps } from '../../../constants/properties'
 import './style.css'
 
 const ColorBarEffect = () => {
   return (
     <motion.div
       className='colorbar-container'
-      variants={colorBarVariant}
-      initial='initial'
-      animate='animate'
+      {...colorBarProps}
     >
       <img
         className='colorbar'

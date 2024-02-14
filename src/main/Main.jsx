@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { StyledButtonList } from '../AnimatedHandler'
-import { menuVariant } from '../constants/variants'
+import { menuProps } from '../constants/properties'
 import './style.css'
+
 const Main = (props) => {
   const { isInView, pathname } = props
   const [started, setStarted] = useState(false)
@@ -16,9 +17,7 @@ const Main = (props) => {
   return (
     <motion.div
       className='main-wrapper'
-      variants={isInView ? menuVariant : ''}
-      initial='initial'
-      animate='animate'
+      {...menuProps(isInView)}
     >
       <div className='title-menu'>
         <div className='title-name-menu'>

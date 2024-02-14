@@ -2,20 +2,22 @@ import { motion, useInView } from 'framer-motion'
 import React, { useRef } from 'react'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
 import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
+import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
-import {
-  buttonListVariant,
-  menuVariant,
-  transitionVariant,
-} from './constants/variants'
-import MenuHeader from './components/menu-header/MenuHeader'
+import { menuProps, transitionProps } from './constants/properties'
+import { buttonListVariant } from './constants/variants'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
   const isInView = useInView(ref)
   const props = menu.props
   const isHome = props.pathname === '/'
+
+  const newMenus = (menu) => {
+    menu = { ...menu, props: { ...props, isInView: isInView } }
+    return menu
+  }
 
   const intialTransition = (
     <div>
@@ -27,9 +29,7 @@ export const StyledMenu = (menu) => {
   const frame = (
     <motion.div
       className='frame-container'
-      variants={isInView ? menuVariant : ''}
-      initial='initial'
-      animate='animate'
+      {...menuProps(isInView)}
     >
       <img
         className='frame-content'
@@ -40,22 +40,20 @@ export const StyledMenu = (menu) => {
     </motion.div>
   )
 
-  const newMenus = (menu) => {
-    menu = { ...menu, props: { ...props, isInView: isInView } }
-    return menu
-  }
+  const menus = (
+    <MenuHeader
+      pathname={props.pathname}
+      isInView={isInView}
+    />
+  )
 
   return (
     <motion.div
       ref={ref}
       className='wrapper'
-      variants={transitionVariant}
-      initial='intial'
-      animate='animate'
-      transition='transition'
-      exit='exit'
+      {...transitionProps}
     >
-      {!isHome && <MenuHeader pathname={props.pathname} />}
+      {!isHome && menus}
       {isInView && intialTransition}
       {frame}
       {newMenus(menu)}
@@ -64,13 +62,15 @@ export const StyledMenu = (menu) => {
 }
 
 export const StyledButtonList = (params) => {
+  const { isInView, pathname, started, setStarted } = params
+  const animation = started ? 'click' : isInView ? 'unclick' : ''
+  const startButton = <StartButton setStarted={setStarted} />
+
   return (
-    <motion.div
-      animate={params.started ? 'click' : params.isInView ? 'unclick' : ''}
-    >
-      {params.isInView && <StartButton setStarted={params.setStarted} />}
+    <motion.div animate={animation}>
+      {isInView && startButton}
       <motion.div variants={buttonListVariant}>
-        <MenuList pathname={params.pathname} />
+        <MenuList pathname={pathname} />
       </motion.div>
     </motion.div>
   )

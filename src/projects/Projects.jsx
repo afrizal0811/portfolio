@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { menuVariant } from '../constants/variants'
+import { menuProps } from '../constants/properties'
 import './style.css'
 
 const Projects = (props) => {
@@ -8,9 +8,7 @@ const Projects = (props) => {
   return (
     <motion.div
       className='wrapper'
-      variants={isInView ? menuVariant : ''}
-      initial='initial'
-      animate='animate'
+      {...menuProps(isInView)}
     >
       <div className='content'>
         <h1 className='title'>Projects</h1>

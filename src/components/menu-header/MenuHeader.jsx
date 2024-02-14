@@ -1,13 +1,17 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { menuList } from '../../constants/lists'
+import { menuProps } from '../../constants/properties'
 import { linkComponent } from '../../utilities/linkComponent'
 import './style.css'
 
 const MenuHeader = (props) => {
-  const { pathname } = props
-
+  const { isInView, pathname } = props
   return (
-    <div className='header-wrapper'>
+    <motion.div
+      className='header-wrapper'
+      {...menuProps(isInView)}
+    >
       {menuList.toReversed().map((menu, index) => (
         <div
           className={`header-content ${
@@ -18,7 +22,7 @@ const MenuHeader = (props) => {
           {linkComponent(menu, pathname)}
         </div>
       ))}
-    </div>
+    </motion.div>
   )
 }
 

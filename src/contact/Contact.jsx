@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { menuVariant } from '../constants/variants'
+import { menuProps } from '../constants/properties'
 import './style.css'
 
 const Contact = (props) => {
@@ -9,9 +9,7 @@ const Contact = (props) => {
   return (
     <motion.div
       className='wrapper'
-      variants={isInView ? menuVariant : ''}
-      initial='initial'
-      animate='animate'
+      {...menuProps(isInView)}
     >
       <div className='content'>
         <h1 className='title'>Contact</h1>
