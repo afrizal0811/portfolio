@@ -15,7 +15,7 @@ const MenuHeader = (props) => {
           }`}
           key={index}
         >
-          {linkComponent(menu)}
+          {linkComponent(menu, pathname)}
         </div>
       ))}
     </div>

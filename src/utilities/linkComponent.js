@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 
 export const linkComponent = (text, pathname = '') => {
-  const logo = pathname === '/' && (
+  const isHome = pathname === '/'
+  const isSelectedMenu = pathname === `/${text}`
+
+  const logo = (
     <img
       height='30px'
       src='logo-yellow.png'
@@ -9,14 +12,22 @@ export const linkComponent = (text, pathname = '') => {
       alt='cursor'
     />
   )
+  const unselectedLink = (
+    <span className='arrow-menu disabled-link'>
+      {isHome && logo}
+      {text}
+    </span>
+  )
 
-  return (
+  const selectedLink = (
     <Link
       to={text === 'home' ? '/' : `/${text}`}
       className='arrow-menu'
     >
-      {logo}
+      {isHome && logo}
       {text}
     </Link>
   )
+
+  return isSelectedMenu ? unselectedLink : selectedLink
 }
