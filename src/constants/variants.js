@@ -9,13 +9,13 @@ export const transitionVariant = {
     scaleY: [0, 0.01, 0.01, 0.01, 1],
     scaleX: [0, 0.1, 0.5, 0.9, 1],
     backgroundColor: [colors.white, colors.raisin],
-    transition: { duration: 0.3, ease: 'easeInOut' },
+    transition: { duration: 0.2, ease: 'easeInOut' },
   },
   exit: {
     scaleY: [1, 0.01, 0.01, 0.01, 0],
     scaleX: [1, 0.9, 0.5, 0.1, 0],
     backgroundColor: [colors.raisin, colors.white],
-    transition: { duration: 0.3, ease: 'easeInOut' },
+    transition: { duration: 0.2, ease: 'easeInOut' },
   },
 }
 
