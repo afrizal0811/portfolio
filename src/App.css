@@ -39,15 +39,33 @@ body {
   height: 100vh;
 }
 
-.content {
+.container {
+  position: relative;
   z-index: 9999;
+  height: 100%;
+  margin: 4rem;
+  /* border: solid 2px red; */
+  overflow: hidden;
+  /* overflow: auto; */
+  /* -ms-overflow-style: none;
+  scrollbar-width: none; */
 }
-/* h1.title {
+/* 
+.container::-webkit-scrollbar {
+  display: none;
+} */
+
+/* .content {
+  height: 1000px;
+  overflow: hidden;
+} */
+
+h1.title {
   background: -webkit-linear-gradient(var(--color-apple), var(--color-sun));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 9999;
-} */
+}
 
 .disabled-link {
   pointer-events: none;
@@ -73,4 +91,3 @@ body {
   height: 96%;
   width: 97%;
 }
-

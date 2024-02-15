@@ -1,0 +1,26 @@
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  height: 100%;
+}
+
+.chatbox {
+  height: auto;
+  width: 1200px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.about-content p {
+  position: absolute;
+  bottom: 40px;
+  z-index: 2;
+  text-align: justify;
+  text-justify: inter-word;
+  color: var(--color-apple);
+  width: 1100px;
+  line-height: 1.5;
+}

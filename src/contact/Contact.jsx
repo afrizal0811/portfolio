@@ -12,7 +12,9 @@ const Contact = (props) => {
       {...menuProps(isInView)}
     >
       <div className='content'>
-        <h1 className='title'>Contact</h1>
+        <div className='content'>
+          <h1 className='title'>Contact</h1>
+        </div>
       </div>
     </motion.div>
   )
