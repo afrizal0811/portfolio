@@ -1,0 +1,13 @@
+.options-content {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.options-content button {
+  margin: 0.2rem;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+}

@@ -1,58 +1,21 @@
-import { motion, useAnimation, useInView } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
-import { textBoxVariant } from '../../constants/variants'
+import React, { useEffect, useState } from 'react'
+import { answerTextList } from '../../constants/lists'
+import { useTypingEffect } from '../../utilities/typingEffect'
+
 const TextBox = (props) => {
-  const { isInView } = props
+  const { isInView, option } = props
   const [isSeen, setIsSeen] = useState(false)
-  const text = ['Hi! My name is Afrizal Maulana.']
-  const controls = useAnimation()
-  const ref = useRef(null)
-  const isInViewText = useInView(ref, { amount: 0.5, once: true })
-  const staggerTime = isInView ? (isSeen ? 0.05 : 1.8) : 0.05
+
+  const delayTime = isInView ? (isSeen ? 30 : 2000) : 30
+  const textDisplay = useTypingEffect(answerTextList[option], delayTime)
 
   useEffect(() => {
-    if (isInViewText) {
-      controls.start('visible')
-    }
     setTimeout(() => {
       setIsSeen(true)
     }, 1800)
+  }, [isSeen])
 
-  }, [isInViewText, controls, isSeen])
-
-  return (
-      <motion.p
-        ref={ref}
-        initial='hidden'
-        animate={controls}
-        variants={{
-          visible: {
-            transition: {
-              staggerChildren: staggerTime,
-            },
-          },
-          hidden: {},
-        }}
-      >
-        {text.map((line, lineIndex) => (
-          <span key={`${line}-${lineIndex}`}>
-            {line.split(' ').map((word, wordIndex) => (
-              <span key={`${word}-${wordIndex}`}>
-                {word.split('').map((char, charIndex) => (
-                  <motion.span
-                    key={`${char}-${charIndex}`}
-                    variants={textBoxVariant}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-                <span>&nbsp;</span>
-              </span>
-            ))}
-          </span>
-        ))}
-      </motion.p>
-  )
+  return <p>{textDisplay}</p>
 }
 
 export default TextBox

@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useState } from 'react'
+import TextBox from '../components/text-box/TextBox'
+import TextOptions from '../components/text-options/TextOptions'
 import { menuProps } from '../constants/properties'
 import './style.css'
-import TextBox from '../components/text-box/TextBox'
 
 const About = (props) => {
   const { isInView } = props
+  const [option, setOption] = useState(0)
   return (
     <motion.div
       className='wrapper'
@@ -13,8 +15,16 @@ const About = (props) => {
     >
       <div className='container'>
         <div className='about-content'>
-          {/* <h1 className='title'>About</h1> */}
-          <TextBox isInView={isInView} />
+          <div className='options'>
+            <TextOptions
+              setOption={setOption}
+              className='asu'
+            />
+          </div>
+          <TextBox
+            isInView={isInView}
+            option={option}
+          />
           <img
             className='chatbox'
             src='./images/chatbox.png'
