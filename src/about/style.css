@@ -20,6 +20,12 @@
   top: 70px;
 }
 
+.avatar {
+  transform: translatey(28%);
+  width: auto;
+  height: 1300px;
+}
+
 .about-container {
   position: relative;
   z-index: 9999;

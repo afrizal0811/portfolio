@@ -10,7 +10,7 @@ const About = (props) => {
   const { isInView } = props
   const [option, setOption] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
-
+  const isFirstOption = option === 0
   return (
     <motion.div
       className='wrapper'
@@ -25,6 +25,13 @@ const About = (props) => {
               isFinished={isFinished}
             />
           </div>
+          <img
+            className='avatar'
+            src={isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle}
+            alt='avatar'
+            draggable='false'
+          />
+
           <TextBox
             isInView={isInView}
             option={option}
