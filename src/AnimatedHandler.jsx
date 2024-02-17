@@ -5,6 +5,7 @@ import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
 import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
+import imagePaths from './constants/imagePaths'
 import { menuProps, transitionProps } from './constants/properties'
 import { buttonListVariant } from './constants/variants'
 
@@ -33,7 +34,7 @@ export const StyledMenu = (menu) => {
     >
       <img
         className='frame-content'
-        src='./images/frame.png'
+        src={imagePaths.frame}
         alt='frame'
         draggable='false'
       />

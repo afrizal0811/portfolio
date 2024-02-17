@@ -20,6 +20,14 @@
   top: 70px;
 }
 
+.about-container {
+  position: relative;
+  z-index: 9999;
+  height: 100%;
+  margin: 4rem;
+  overflow: hidden;
+}
+
 .about-content p {
   position: absolute;
   bottom: 35px;

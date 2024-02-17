@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import imagePaths from '../constants/imagePaths'
 
 export const linkComponent = (text, pathname = '') => {
   const isHome = pathname === '/'
@@ -7,7 +8,7 @@ export const linkComponent = (text, pathname = '') => {
   const logo = (
     <img
       height='30px'
-      src='logo-yellow.png'
+      src={imagePaths.logoYellow}
       className='sign-menu'
       alt='cursor'
     />

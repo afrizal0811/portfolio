@@ -10,8 +10,10 @@ const Projects = (props) => {
       className='wrapper'
       {...menuProps(isInView)}
     >
-      <div className='content'>
-        <h1 className='title'>Projects</h1>
+      <div className='container'>
+        <div className='content'>
+          <h1 className='title'>Projects</h1>
+        </div>
       </div>
     </motion.div>
   )

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
+import imagePaths from '../../../constants/imagePaths'
 import { colorBarProps } from '../../../constants/properties'
 import './style.css'
 
@@ -11,7 +12,7 @@ const ColorBarEffect = () => {
     >
       <img
         className='colorbar'
-        src='./images/color-bar.svg'
+        src={imagePaths.colorBar}
         alt='colorbar'
         draggable='false'
       />
