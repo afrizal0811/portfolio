@@ -48,15 +48,17 @@ export const StyledMenu = (menu) => {
   )
 
   return (
-    <motion.div
-      ref={ref}
-      className='wrapper'
-      {...transitionProps}
-    >
-      {!isHome && menus}
-      {isInView && intialTransition}
-      {frame}
-      {newMenus(menu)}
+    <motion.div {...transitionProps}>
+      <motion.div
+        ref={ref}
+        className='wrapper'
+        {...transitionProps}
+      >
+        {!isHome && menus}
+        {isInView && intialTransition}
+        {frame}
+        {newMenus(menu)}
+      </motion.div>
     </motion.div>
   )
 }
