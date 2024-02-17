@@ -3,6 +3,7 @@ import React from 'react'
 import imagePaths from '../../../constants/imagePaths'
 import { colorBarProps } from '../../../constants/properties'
 import './style.css'
+import Image from '../../image/Image'
 
 const ColorBarEffect = () => {
   return (
@@ -10,11 +11,10 @@ const ColorBarEffect = () => {
       className='colorbar-container'
       {...colorBarProps}
     >
-      <img
+      <Image
         className='colorbar'
         src={imagePaths.colorBar}
         alt='colorbar'
-        draggable='false'
       />
     </motion.div>
   )

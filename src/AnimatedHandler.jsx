@@ -8,6 +8,7 @@ import StartButton from './components/start-button/StartButton'
 import imagePaths from './constants/imagePaths'
 import { menuProps, transitionProps } from './constants/properties'
 import { buttonListVariant } from './constants/variants'
+import Image from './components/image/Image'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
@@ -32,11 +33,10 @@ export const StyledMenu = (menu) => {
       className='frame-container'
       {...menuProps(isInView)}
     >
-      <img
+      <Image
         className='frame-content'
         src={imagePaths.frame}
         alt='frame'
-        draggable='false'
       />
     </motion.div>
   )

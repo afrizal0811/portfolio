@@ -5,6 +5,7 @@ import TextOptions from '../components/text-options/TextOptions'
 import imagePaths from '../constants/imagePaths'
 import { menuProps } from '../constants/properties'
 import './style.css'
+import Image from '../components/image/Image'
 
 const About = (props) => {
   const { isInView } = props
@@ -25,11 +26,10 @@ const About = (props) => {
               isFinished={isFinished}
             />
           </div>
-          <img
+          <Image
             className='avatar'
             src={isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle}
             alt='avatar'
-            draggable='false'
           />
 
           <TextBox
@@ -37,11 +37,10 @@ const About = (props) => {
             option={option}
             setIsFinished={setIsFinished}
           />
-          <img
+          <Image
             className='chatbox'
             src={imagePaths.chatBox}
             alt='chatbox'
-            draggable='false'
           />
         </div>
       </div>

@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import imagePaths from '../constants/imagePaths'
+import Image from '../components/image/Image'
 
 export const linkComponent = (text, pathname = '') => {
   const isHome = pathname === '/'
   const isSelectedMenu = pathname === `/${text}`
 
   const logo = (
-    <img
+    <Image
       height='30px'
       src={imagePaths.logoYellow}
       className='sign-menu'
