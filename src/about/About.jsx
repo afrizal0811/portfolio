@@ -8,6 +8,8 @@ import './style.css'
 const About = (props) => {
   const { isInView } = props
   const [option, setOption] = useState(0)
+  const [isFinished, setIsFinished] = useState(false)
+  
   return (
     <motion.div
       className='wrapper'
@@ -17,13 +19,15 @@ const About = (props) => {
         <div className='about-content'>
           <div className='options'>
             <TextOptions
+              option={option}
               setOption={setOption}
-              className='asu'
+              isFinished={isFinished}
             />
           </div>
           <TextBox
             isInView={isInView}
             option={option}
+            setIsFinished={setIsFinished}
           />
           <img
             className='chatbox'

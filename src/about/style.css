@@ -17,7 +17,7 @@
 .options {
   position: absolute;
   right: 0px;
-  top: 30px;
+  top: 70px;
 }
 
 .about-content p {
@@ -27,4 +27,5 @@
   color: var(--color-raisin);
   width: 1100px;
   line-height: 1.5;
+  font-size: 15px;
 }
