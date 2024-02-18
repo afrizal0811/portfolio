@@ -3,15 +3,15 @@ import React from 'react'
 import { DisapperedFuzzyProps, fuzzyProps } from '../../../constants/properties'
 import './style.css'
 
-const FuzzyEffect = () => {
+const InitFuzzyEffect = () => {
   return (
     <motion.div {...DisapperedFuzzyProps}>
       <motion.div
-        className='fuzzy-overlay'
+        className='fuzzy-overlay init-fuzzy'
         {...fuzzyProps}
       />
     </motion.div>
   )
 }
 
-export default FuzzyEffect
+export default InitFuzzyEffect

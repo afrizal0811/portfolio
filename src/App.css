@@ -7,7 +7,6 @@
   --color-alabaster: #f2f0e5;
   --color-iceberg: #68c2d3;
   --color-cyan-azure: #4b80ca;
-  --color-sea-foam: #a2dcc7;
 }
 
 * {
@@ -63,7 +62,6 @@ h1.title {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-alabaster);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,9 +73,21 @@ h1.title {
 }
 
 .vignette {
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.blurry {
+  width: 100%;
+  height: auto;
+  filter: blur(1px);
+}
+
+.asu {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }

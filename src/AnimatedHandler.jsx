@@ -1,7 +1,8 @@
 import { motion, useInView } from 'framer-motion'
 import React, { Fragment, useRef } from 'react'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
-import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
+import BgFuzzyEffect from './components/animation/fuzzyEffect/BgFuzzyEffect'
+import InitFuzzyEffect from './components/animation/fuzzyEffect/InitFuzzyEffect'
 import Image from './components/image/Image'
 import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
@@ -15,15 +16,14 @@ export const StyledMenu = (menu) => {
   const isInView = useInView(ref)
   const props = menu.props
   const isHome = props.pathname === '/'
+  const newMenu = { ...menu, props: { ...props, isInView: isInView } }
 
-  const newMenus = (menu) => {
-    menu = { ...menu, props: { ...props, isInView: isInView } }
-    return menu
-  }
-
-  const effects = (children) => {
+  const transitionEffects = (children) => {
     return (
-      <motion.div {...transitionProps}>
+      <motion.div
+        {...transitionProps}
+        className='blurry'
+      >
         <motion.div
           ref={ref}
           className='wrapper'
@@ -37,25 +37,31 @@ export const StyledMenu = (menu) => {
 
   const intialTransition = (
     <div>
-      <FuzzyEffect />
+      <InitFuzzyEffect />
       <ColorBarEffect />
     </div>
   )
 
-  const frame = (
+  const bgFrame = (
     <motion.div
-      className='frame-container vignette'
+      className='frame-container'
       {...menuProps(isInView)}
     >
+      <BgFuzzyEffect />
       <Image
         className='frame-content'
         src={imagePaths.frame}
         alt='frame'
       />
+      <Image
+        className='vignette'
+        src={imagePaths.vignette}
+        alt='vignette'
+      />
     </motion.div>
   )
 
-  const menus = (
+  const headMenu = (
     <MenuHeader
       pathname={props.pathname}
       isInView={isInView}
@@ -64,14 +70,14 @@ export const StyledMenu = (menu) => {
 
   const renderMenu = (
     <Fragment>
-      {!isHome && menus}
+      {!isHome && headMenu}
       {isInView && intialTransition}
-      {frame}
-      {newMenus(menu)}
+      {bgFrame}
+      {newMenu}
     </Fragment>
   )
 
-  return effects(renderMenu)
+  return transitionEffects(renderMenu)
 }
 
 export const StyledButtonList = (params) => {

@@ -5,7 +5,6 @@ import {
   menuVariant,
   startButtonVariant,
   transitionVariant,
-  wobbleyVariant
 } from './variants'
 
 export const transitionProps = {
@@ -31,15 +30,9 @@ export const colorBarProps = {
   animate: 'animate',
 }
 
-export const wobbleyProps = {
-  variants: wobbleyVariant,
-  initial: 'intial',
-  animate: 'animate',
-}
-
 export const menuProps = (isInView) => {
   return {
-    variants: isInView ? menuVariant : '',
+    variants: isInView && menuVariant,
     initial: 'initial',
     animate: 'animate',
   }

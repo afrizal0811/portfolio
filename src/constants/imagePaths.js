@@ -5,7 +5,8 @@ const imagePaths = {
   colorBar: './images/color-bar.svg',
   frame: './images/frame.png',
   logoBlue: './images/logo-blue.png',
-  noise: './images/noise.jpg',
+  noise: './images/noise.png',
+  vignette: './images/vignette.png',
 }
 
 export default imagePaths
