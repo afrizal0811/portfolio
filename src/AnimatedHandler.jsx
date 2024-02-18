@@ -30,7 +30,7 @@ export const StyledMenu = (menu) => {
 
   const frame = (
     <motion.div
-      className='frame-container'
+      className='frame-container vignette'
       {...menuProps(isInView)}
     >
       <Image
