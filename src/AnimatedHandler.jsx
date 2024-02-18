@@ -7,11 +7,7 @@ import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
 import imagePaths from './constants/imagePaths'
-import {
-  menuProps,
-  transitionProps,
-  wobbleyProps
-} from './constants/properties'
+import { menuProps, transitionProps } from './constants/properties'
 import { buttonListVariant } from './constants/variants'
 
 export const StyledMenu = (menu) => {
@@ -25,18 +21,15 @@ export const StyledMenu = (menu) => {
     return menu
   }
 
-  
   const effects = (children) => {
     return (
-      <motion.div {...wobbleyProps}>
-        <motion.div {...transitionProps}>
-          <motion.div
-            ref={ref}
-            className='wrapper'
-            {...transitionProps}
-          >
-            {children}
-          </motion.div>
+      <motion.div {...transitionProps}>
+        <motion.div
+          ref={ref}
+          className='wrapper'
+          {...transitionProps}
+        >
+          {children}
         </motion.div>
       </motion.div>
     )
@@ -78,9 +71,7 @@ export const StyledMenu = (menu) => {
     </Fragment>
   )
 
-  return (
-    effects(renderMenu)
-  )
+  return effects(renderMenu)
 }
 
 export const StyledButtonList = (params) => {

@@ -4,12 +4,17 @@ const colors = {
 }
 
 export const transitionVariant = {
-  initial: { scaleY: 0, scaleX: 0 },
+  initial: { scaleY: 0, scaleX: 0, translateY: '0px' },
   animate: {
     scaleY: [0, 0.01, 0.01, 0.01, 1],
     scaleX: [0, 0.1, 0.5, 0.9, 1],
     backgroundColor: [colors.white, colors.alabaster],
-    transition: { duration: 0.2, ease: 'easeInOut' },
+    translateY: '0.5px',
+    transition: {
+      duration: 0.2,
+      ease: 'easeInOut',
+      translateY: { duration: 0.4, repeat: Infinity },
+    },
   },
   exit: {
     scaleY: [1, 0.01, 0.01, 0.01, 0],
