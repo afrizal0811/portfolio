@@ -85,9 +85,3 @@ h1.title {
   height: auto;
   filter: blur(1px);
 }
-
-.asu {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}
