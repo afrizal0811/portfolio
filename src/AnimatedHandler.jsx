@@ -3,7 +3,7 @@ import React, { Fragment, useRef } from 'react'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
 import BgFuzzyEffect from './components/animation/fuzzyEffect/BgFuzzyEffect'
 import InitFuzzyEffect from './components/animation/fuzzyEffect/InitFuzzyEffect'
-import Image from './components/image/Image'
+import ImageComp from './components/image-comp/ImageComp'
 import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
@@ -48,12 +48,12 @@ export const StyledMenu = (menu) => {
       {...menuProps(isInView)}
     >
       <BgFuzzyEffect />
-      <Image
+      <ImageComp
         className='frame-content'
         src={imagePaths.frame}
         alt='frame'
       />
-      <Image
+      <ImageComp
         className='vignette'
         src={imagePaths.vignette}
         alt='vignette'

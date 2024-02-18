@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
+import ImageComp from '../components/image-comp/ImageComp'
 import imagePaths from '../constants/imagePaths'
-import Image from '../components/image/Image'
 
 export const linkComponent = (text, pathname = '') => {
   const isHome = pathname === '/'
   const isSelectedMenu = pathname === `/${text}`
 
   const logo = (
-    <Image
+    <ImageComp
       height='30px'
       src={imagePaths.logoBlue}
       className='sign-menu'

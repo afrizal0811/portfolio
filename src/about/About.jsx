@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
+import ImageComp from '../components/image-comp/ImageComp'
 import TextBox from '../components/text-box/TextBox'
 import TextOptions from '../components/text-options/TextOptions'
 import imagePaths from '../constants/imagePaths'
 import { menuProps } from '../constants/properties'
 import './style.css'
-import Image from '../components/image/Image'
 
 const About = (props) => {
   const { isInView } = props
@@ -26,7 +26,7 @@ const About = (props) => {
               isFinished={isFinished}
             />
           </div>
-          <Image
+          <ImageComp
             className='avatar'
             src={isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle}
             alt='avatar'
@@ -37,7 +37,7 @@ const About = (props) => {
             option={option}
             setIsFinished={setIsFinished}
           />
-          <Image
+          <ImageComp
             className='chatbox'
             src={imagePaths.chatBox}
             alt='chatbox'
