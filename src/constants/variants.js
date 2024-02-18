@@ -120,3 +120,13 @@ export const buttonListVariant = {
     opacity: 0,
   },
 }
+
+export const wobbleyVariant = {
+  initial: {
+    translateY: 0,
+  },
+  animate: {
+    translateY: '1px',
+    transition: { duration: 0.1, repeat: Infinity },
+  },
+}

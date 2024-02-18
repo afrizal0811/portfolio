@@ -1,14 +1,18 @@
 import { motion, useInView } from 'framer-motion'
-import React, { useRef } from 'react'
+import React, { Fragment, useRef } from 'react'
 import ColorBarEffect from './components/animation/colorBarEffect/ColorBarEffect'
 import FuzzyEffect from './components/animation/fuzzyEffect/FuzzyEffect'
+import Image from './components/image/Image'
 import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
 import imagePaths from './constants/imagePaths'
-import { menuProps, transitionProps } from './constants/properties'
+import {
+  menuProps,
+  transitionProps,
+  wobbleyProps
+} from './constants/properties'
 import { buttonListVariant } from './constants/variants'
-import Image from './components/image/Image'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
@@ -19,6 +23,23 @@ export const StyledMenu = (menu) => {
   const newMenus = (menu) => {
     menu = { ...menu, props: { ...props, isInView: isInView } }
     return menu
+  }
+
+  
+  const effects = (children) => {
+    return (
+      <motion.div {...wobbleyProps}>
+        <motion.div {...transitionProps}>
+          <motion.div
+            ref={ref}
+            className='wrapper'
+            {...transitionProps}
+          >
+            {children}
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    )
   }
 
   const intialTransition = (
@@ -48,19 +69,17 @@ export const StyledMenu = (menu) => {
     />
   )
 
+  const renderMenu = (
+    <Fragment>
+      {!isHome && menus}
+      {isInView && intialTransition}
+      {frame}
+      {newMenus(menu)}
+    </Fragment>
+  )
+
   return (
-    <motion.div {...transitionProps}>
-      <motion.div
-        ref={ref}
-        className='wrapper'
-        {...transitionProps}
-      >
-        {!isHome && menus}
-        {isInView && intialTransition}
-        {frame}
-        {newMenus(menu)}
-      </motion.div>
-    </motion.div>
+    effects(renderMenu)
   )
 }
 
