@@ -9,7 +9,7 @@ export const linkComponent = (text, pathname = '') => {
   const logo = (
     <Image
       height='30px'
-      src={imagePaths.logoYellow}
+      src={imagePaths.logoBlue}
       className='sign-menu'
       alt='cursor'
     />

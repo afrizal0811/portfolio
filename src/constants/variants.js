@@ -1,6 +1,6 @@
 const colors = {
   white: '#FFFFFF',
-  raisin: '#222221',
+  alabaster: '#f2f0e5',
 }
 
 export const transitionVariant = {
@@ -8,13 +8,13 @@ export const transitionVariant = {
   animate: {
     scaleY: [0, 0.01, 0.01, 0.01, 1],
     scaleX: [0, 0.1, 0.5, 0.9, 1],
-    backgroundColor: [colors.white, colors.raisin],
+    backgroundColor: [colors.white, colors.alabaster],
     transition: { duration: 0.2, ease: 'easeInOut' },
   },
   exit: {
     scaleY: [1, 0.01, 0.01, 0.01, 0],
     scaleX: [1, 0.9, 0.5, 0.1, 0],
-    backgroundColor: [colors.raisin, colors.white],
+    backgroundColor: [colors.alabaster, colors.white],
     transition: { duration: 0.2, ease: 'easeInOut' },
   },
 }

@@ -4,7 +4,7 @@ const imagePaths = {
   chatBox: './images/chatbox.png',
   colorBar: './images/color-bar.svg',
   frame: './images/frame.png',
-  logoYellow: './images/logo-yellow.png',
+  logoBlue: './images/logo-blue.png',
   noise: './images/noise.jpg',
 }
 

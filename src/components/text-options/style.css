@@ -10,4 +10,5 @@
   cursor: pointer;
   font-size: 12px;
   text-align: left;
+  border: solid 3px black;
 }
