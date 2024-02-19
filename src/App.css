@@ -77,6 +77,9 @@ h1.title {
   width: 100vw;
   height: 100vh;
   background-size: 100% 100%;
+  pointer-events: none;
+  background: none !important;
+  z-index: 100000;
 }
 
 .blurry {

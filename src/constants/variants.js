@@ -10,7 +10,7 @@ export const transitionVariant = {
     scaleX: [0, 0.1, 0.5, 0.9, 1],
     backgroundColor: [colors.white, colors.alabaster],
     transition: {
-      duration: 0.2,
+      duration: 0.15,
       ease: 'easeInOut',
     },
   },
@@ -18,7 +18,7 @@ export const transitionVariant = {
     scaleY: [1, 0.01, 0.01, 0.01, 0],
     scaleX: [1, 0.9, 0.5, 0.1, 0],
     backgroundColor: [colors.alabaster, colors.white],
-    transition: { duration: 0.2, ease: 'easeInOut' },
+    transition: { duration: 0.15, ease: 'easeInOut' },
   },
 }
 
@@ -52,7 +52,7 @@ export const colorBarVariant = {
   },
   animate: {
     opacity: [0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
-    transition: { delay: 1.15, duration: 1.5 },
+    transition: { delay: 1.15, duration: 1 },
   },
 }
 
@@ -127,7 +127,7 @@ export const buttonListVariant = {
 export const wobbleyVariant = {
   initial: { translateY: 0 },
   animate: {
-    translateY: ['-0.7px', '0.7px'],
-    transition: { duration: 0.4, repeat: Infinity },
+    translateY: ['-0.5px', '0.5px'],
+    transition: { duration: 0.2, repeat: Infinity },
   },
 }

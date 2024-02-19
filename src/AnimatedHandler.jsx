@@ -57,11 +57,6 @@ export const StyledMenu = (menu) => {
         src={imagePaths.frame}
         alt='frame'
       />
-      <ImageComp
-        className='vignette'
-        src={imagePaths.vignette}
-        alt='vignette'
-      />
     </motion.div>
   )
 
@@ -69,6 +64,14 @@ export const StyledMenu = (menu) => {
     <MenuHeader
       pathname={props.pathname}
       isInView={isInView}
+    />
+  )
+  
+  const vignette = (
+    <ImageComp
+      className='vignette'
+      src={imagePaths.vignette}
+      alt='vignette'
     />
   )
 
@@ -80,11 +83,15 @@ export const StyledMenu = (menu) => {
         {frame}
         {newMenu}
       </motion.div>
-
     </Fragment>
   )
 
-  return transitionEffects(renderMenu)
+  return (
+    <Fragment>
+      {vignette}
+      {transitionEffects(renderMenu)}
+    </Fragment>
+  )
 }
 
 export const StyledButtonList = (params) => {
