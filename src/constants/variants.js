@@ -4,16 +4,14 @@ const colors = {
 }
 
 export const transitionVariant = {
-  initial: { scaleY: 0, scaleX: 0, translateY: 0 },
+  initial: { scaleY: 0, scaleX: 0 },
   animate: {
     scaleY: [0, 0.01, 0.01, 0.01, 1],
     scaleX: [0, 0.1, 0.5, 0.9, 1],
     backgroundColor: [colors.white, colors.alabaster],
-    translateY: ['-0.3px','0.3px'],
     transition: {
       duration: 0.2,
       ease: 'easeInOut',
-      translateY: { duration: 0.4, repeat: Infinity },
     },
   },
   exit: {
@@ -123,5 +121,13 @@ export const buttonListVariant = {
     y: 100,
     scale: 0,
     opacity: 0,
+  },
+}
+
+export const wobbleyVariant = {
+  initial: { translateY: 0 },
+  animate: {
+    translateY: ['-0.7px', '0.7px'],
+    transition: { duration: 0.4, repeat: Infinity },
   },
 }

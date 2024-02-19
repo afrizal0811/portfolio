@@ -76,12 +76,11 @@ h1.title {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
 .blurry {
   width: 100%;
   height: auto;
-  filter: blur(1px);
+  filter: blur(1.2px);
 }

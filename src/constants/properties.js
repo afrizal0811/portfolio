@@ -5,6 +5,7 @@ import {
   menuVariant,
   startButtonVariant,
   transitionVariant,
+  wobbleyVariant,
 } from './variants'
 
 export const transitionProps = {
@@ -13,19 +14,28 @@ export const transitionProps = {
   animate: 'animate',
   exit: 'exit',
 }
+
 export const fuzzyProps = {
   variants: fuzzyVariant,
   initial: 'intial',
   animate: 'animate',
   exit: 'exit',
 }
+
 export const DisapperedFuzzyProps = {
   variants: DisapperedFuzzyVariant,
   initial: 'intial',
   animate: 'animate',
 }
+
 export const colorBarProps = {
   variants: colorBarVariant,
+  initial: 'intial',
+  animate: 'animate',
+}
+
+export const wobbleyProps = {
+  variants: wobbleyVariant,
   initial: 'intial',
   animate: 'animate',
 }

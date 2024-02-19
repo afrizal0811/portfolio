@@ -8,7 +8,11 @@ import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
 import imagePaths from './constants/imagePaths'
-import { menuProps, transitionProps } from './constants/properties'
+import {
+  menuProps,
+  transitionProps,
+  wobbleyProps,
+} from './constants/properties'
 import { buttonListVariant } from './constants/variants'
 
 export const StyledMenu = (menu) => {
@@ -36,13 +40,13 @@ export const StyledMenu = (menu) => {
   }
 
   const intialTransition = (
-    <div>
+    <Fragment>
       <InitFuzzyEffect />
       <ColorBarEffect />
-    </div>
+    </Fragment>
   )
 
-  const bgFrame = (
+  const frame = (
     <motion.div
       className='frame-container'
       {...menuProps(isInView)}
@@ -72,8 +76,11 @@ export const StyledMenu = (menu) => {
     <Fragment>
       {!isHome && headMenu}
       {isInView && intialTransition}
-      {bgFrame}
-      {newMenu}
+      <motion.div {...wobbleyProps}>
+        {frame}
+        {newMenu}
+      </motion.div>
+
     </Fragment>
   )
 
