@@ -36,6 +36,9 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
 }
 
 h1.title {
