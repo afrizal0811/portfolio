@@ -7,13 +7,6 @@
   height: 100%;
 }
 
-.chatbox {
-  height: 110px;
-  width: 1200px;
-  position: absolute;
-  bottom: 0px;
-}
-
 .options {
   position: absolute;
   right: 0px;

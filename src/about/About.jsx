@@ -32,16 +32,10 @@ const About = (props) => {
             alt='avatar'
             height={isFirstOption ? '1200px' : '1300px'}
           />
-
           <TextBox
             isInView={isInView}
             option={option}
             setIsFinished={setIsFinished}
-          />
-          <ImageComp
-            className='chatbox'
-            src={imagePaths.chatBox}
-            alt='chatbox'
           />
         </div>
       </div>
