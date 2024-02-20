@@ -7,6 +7,7 @@ const imagePaths = {
   logoBlue: './images/logo-blue.png',
   noise: './images/noise.png',
   vignette: './images/vignette.png',
+  webMoneypool: './images/moneypool.png',
 }
 
 export default imagePaths

@@ -1,6 +1,8 @@
+import 'react-jigsaw-puzzle/lib/jigsaw-puzzle.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
 import RouteHandler from './RouteHandler'
+
 function App() {
   return (
     <div className='App'>

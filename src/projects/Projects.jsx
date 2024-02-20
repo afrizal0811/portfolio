@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
+import Jigsaw from '../components/jigsaw/Jigsaw'
 import { menuProps } from '../constants/properties'
 import './style.css'
 
@@ -12,7 +13,7 @@ const Projects = (props) => {
     >
       <div className='container'>
         <div className='content'>
-          <h1 className='title'>Projects</h1>
+          <Jigsaw />
         </div>
       </div>
     </motion.div>
