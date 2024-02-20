@@ -30,6 +30,7 @@ const About = (props) => {
             className='avatar'
             src={isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle}
             alt='avatar'
+            height={isFirstOption ? '1200px' : '1300px'}
           />
 
           <TextBox
