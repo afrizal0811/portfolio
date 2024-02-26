@@ -8,7 +8,9 @@ const Projects = (props) => {
   const { isInView } = props
   const [solvedJigsaw, setSolvedJigsaw] = useState(0)
   const [totalJigsaw, setTotalJigsaw] = useState(0)
+  const isLocalhost = window.location.hostname === 'localhost'
   const fixedNumber = solvedJigsaw === 0 ? 0 : solvedJigsaw / 2
+  const currentSolved = isLocalhost ? fixedNumber : solvedJigsaw
 
   return (
     <motion.div
@@ -18,7 +20,7 @@ const Projects = (props) => {
       <div className='container'>
         <div className='content'>
           <p>
-            Solved ({fixedNumber}/{totalJigsaw})
+            Solved ({currentSolved}/{totalJigsaw})
           </p>
           <Jigsaw
             setSolvedJigsaw={setSolvedJigsaw}
