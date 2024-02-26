@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { JigsawPuzzle } from 'react-jigsaw-puzzle/lib'
+import { jigsawVariant } from '../../constants/variants'
 import { JigsawData } from './help'
 import './style.css'
 
@@ -25,20 +27,26 @@ const Jigsaw = (props) => {
       : {}
 
   return (
-    <div className='jigsaw-content '>
+    <div className='jigsaw-container'>
       {JigsawData.map((data) => (
-        <a
-          {...linkProps(data)}
-          key={data.id}
+        <motion.div
+          className='jigsaw-content'
+          variants={jigsawVariant}
+          whileHover={isSolved && solvedId.includes(data.id) && 'hover'}
         >
-          <JigsawPuzzle
-            imageSrc={data.image}
-            rows={2}
-            columns={2}
-            onSolved={() => handleSolve(data)}
-            className='jigsaw-puzzle'
-          />
-        </a>
+          <a
+            {...linkProps(data)}
+            key={data.id}
+          >
+            <JigsawPuzzle
+              imageSrc={data.image}
+              rows={2}
+              columns={2}
+              onSolved={() => handleSolve(data)}
+              className='jigsaw-puzzle'
+            />
+          </a>
+        </motion.div>
       ))}
     </div>
   )
