@@ -3,17 +3,25 @@
   z-index: 9999;
   height: 100%;
   margin: 4rem;
-  border: solid 2px red;
   overflow: auto;
-  /* -ms-overflow-style: none;
-  scrollbar-width: none; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* .container::-webkit-scrollbar {
+.container::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .content {
-  height: 1000px;
+  height: auto;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content p {
+  font-size: 20px;
+  padding: 1rem;
+  position: sticky;
 }

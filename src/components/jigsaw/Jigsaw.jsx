@@ -2,14 +2,21 @@ import React, { useState } from 'react'
 import { JigsawPuzzle } from 'react-jigsaw-puzzle/lib'
 import { JigsawData } from './help'
 import './style.css'
-const Jigsaw = () => {
+
+const Jigsaw = (props) => {
+  const { setSolvedJigsaw, setTotalJigsaw } = props
   const [isSolved, setIsSolved] = useState(false)
-  const handleSolve = () => {
+  const [solvedId, setSolvedId] = useState([])
+  setTotalJigsaw(JigsawData.length)
+
+  const handleSolve = (data) => {
     setIsSolved(true)
+    setSolvedId((prev) => [...prev, data.id])
+    setSolvedJigsaw((prevState) => prevState + 1)
   }
 
   const linkProps = (data) =>
-    isSolved
+    isSolved && solvedId.includes(data.id)
       ? {
           href: data.href,
           target: '_blank',
@@ -18,15 +25,17 @@ const Jigsaw = () => {
       : {}
 
   return (
-    <div>
+    <div className='jigsaw-content '>
       {JigsawData.map((data) => (
-        <a {...linkProps(data)}>
+        <a
+          {...linkProps(data)}
+          key={data.id}
+        >
           <JigsawPuzzle
-            key={data.id}
             imageSrc={data.image}
             rows={2}
             columns={2}
-            onSolved={() => handleSolve()}
+            onSolved={() => handleSolve(data)}
             className='jigsaw-puzzle'
           />
         </a>

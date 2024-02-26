@@ -1,8 +1,11 @@
+.jigsaw-content {
+  width: 80%;
+  height: auto;
+}
+
 .jigsaw-puzzle {
-  width: 50%;
-  height: 50%;
   border: 2px solid black;
   margin-right: auto;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem;
   box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
 }
