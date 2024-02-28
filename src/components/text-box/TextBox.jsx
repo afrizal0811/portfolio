@@ -6,9 +6,11 @@ import ImageComp from '../image-comp/ImageComp'
 import './style.css'
 
 const TextBox = (props) => {
-  const { isInView, option, setIsFinished } = props
+  const { isInView, option, setIsFinished, isLastOption } = props
   const [isSeen, setIsSeen] = useState(false)
   const delayTime = isInView ? (isSeen ? 30 : 2000) : 30
+  const newClassText = !isLastOption && 'not-third-text'
+  const newClassChat = !isLastOption && 'not-third-chatbox'
   const textDisplay = useTypingEffect(
     answerTextList[option],
     delayTime,
@@ -22,10 +24,10 @@ const TextBox = (props) => {
   }, [isSeen])
 
   return (
-    <div className='text-box'>
+    <div className={`${newClassText} text-box`}>
       <p>{textDisplay}</p>
       <ImageComp
-        className='chatbox'
+        className={`${newClassChat} chatbox`}
         src={imagePaths.chatBox}
         alt='chatbox'
       />

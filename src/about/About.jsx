@@ -12,6 +12,10 @@ const About = (props) => {
   const [option, setOption] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const isFirstOption = option === 0
+  const isLastOption = option === 2
+  const imageSrc = isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle
+  const newClassOption = !isLastOption && 'not-third-options'
+
   return (
     <motion.div
       className='wrapper'
@@ -19,7 +23,7 @@ const About = (props) => {
     >
       <div className='about-container'>
         <div className='about-content'>
-          <div className='options'>
+          <div className={`${newClassOption} options`}>
             <TextOptions
               option={option}
               setOption={setOption}
@@ -28,14 +32,14 @@ const About = (props) => {
           </div>
           <ImageComp
             className='avatar'
-            src={isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle}
+            src={imageSrc}
             alt='avatar'
-            height={isFirstOption ? '1200px' : '1300px'}
           />
           <TextBox
             isInView={isInView}
             option={option}
             setIsFinished={setIsFinished}
+            isLastOption={isLastOption}
           />
         </div>
       </div>

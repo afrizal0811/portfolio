@@ -1,7 +1,6 @@
 .options-content {
   display: flex;
   flex-direction: column;
-
 }
 
 .options-content button {
@@ -11,4 +10,11 @@
   font-size: 12px;
   text-align: left;
   border: solid 3px black;
+}
+
+@media screen and (max-width: 767px) {
+  .options-content button {
+    padding: 0.8rem;
+    font-size: 8px;
+  }
 }

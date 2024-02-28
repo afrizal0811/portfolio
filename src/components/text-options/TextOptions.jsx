@@ -22,7 +22,7 @@ const TextOptions = (props) => {
     </div>
   )
 
-  return <div className='wrapper'>{isFinished && renderOptions}</div>
+  return <div>{isFinished && renderOptions}</div>
 }
 
 export default TextOptions
