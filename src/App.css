@@ -28,7 +28,8 @@ body {
 
 .App {
   background-color: var(--color-black);
-  height: 100vh;
+  height: 100dvh;
+  
 }
 
 .wrapper {
