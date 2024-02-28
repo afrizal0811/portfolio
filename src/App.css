@@ -28,8 +28,10 @@ body {
 
 .App {
   background-color: var(--color-black);
-  height: 100dvh;
-  
+  min-height: 100vh; /* fall-back */
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: fill-available;
 }
 
 .wrapper {
@@ -37,9 +39,9 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  -webkit-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none; 
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 h1.title {
