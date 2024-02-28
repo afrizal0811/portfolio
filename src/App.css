@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Offside&display=swap');
 
 :root {
+  --app-height: 100%;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-alabaster: #f2f0e5;
@@ -20,6 +21,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  
 }
 
 body {
@@ -28,8 +30,7 @@ body {
 
 .App {
   background-color: var(--color-black);
-  height: 100vh;
-  height: 100svh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .wrapper {
