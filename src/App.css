@@ -26,19 +26,10 @@ body {
   position: relative;
 }
 
-body {
-    min-height: 100vh;
-    min-height: fill-available;
-    min-height: -webkit-fill-available;
-}
-html {
-    height: fill-available;
-    height: -webkit-fill-available;
-}
-
 .App {
   background-color: var(--color-black);
   height: 100vh;
+  height: 100svh;
 }
 
 .wrapper {
