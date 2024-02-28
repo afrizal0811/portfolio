@@ -88,5 +88,5 @@ h1.title {
 .blurry {
   width: 100%;
   height: auto;
-  filter: blur(1.2px);
+  filter: blur(1px);
 }

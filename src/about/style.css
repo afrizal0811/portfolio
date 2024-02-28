@@ -29,25 +29,25 @@
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .options {
-    margin-top: 12rem;
+    margin-top: 27rem;
   }
   .not-third-options {
-    top: 190px;
+    margin-top: 36rem;
   }
 }
 
 @media screen and (max-width: 767px) {
   .avatar {
-    height: 600px;
+    height: 700px;
     width: auto;
     transform: translatey(20%);
   }
 
   .options {
-    margin-top: 12rem;
+    margin-top: 2rem;
   }
 
   .not-third-options {
-    top: 90px;
+    margin-top: 7rem;
   }
 }
