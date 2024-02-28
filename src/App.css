@@ -18,9 +18,9 @@
 
 html,
 body {
-  overflow-x: hidden;
+  /* overflow-x: hidden;
   overflow-y: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; */
   height: calc(var(--vh, 1vh) * 100);
 }
 
