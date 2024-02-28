@@ -26,12 +26,19 @@ body {
   position: relative;
 }
 
+body {
+    min-height: 100vh;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
+}
+html {
+    height: fill-available;
+    height: -webkit-fill-available;
+}
+
 .App {
   background-color: var(--color-black);
-  min-height: 100vh; /* fall-back */
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: fill-available;
+  height: 100vh;
 }
 
 .wrapper {
@@ -39,9 +46,9 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
 }
 
 h1.title {
