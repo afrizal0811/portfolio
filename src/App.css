@@ -21,7 +21,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 body {
@@ -30,7 +30,6 @@ body {
 
 .App {
   background-color: var(--color-black);
-  height: calc(var(--vh, 1vh) * 100);
 }
 
 .wrapper {
@@ -38,9 +37,9 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  -webkit-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none; 
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 h1.title {
