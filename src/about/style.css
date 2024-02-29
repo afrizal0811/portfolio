@@ -38,16 +38,16 @@
 
 @media screen and (max-width: 767px) {
   .avatar {
-    height: 700px;
+    height: 650px;
     width: auto;
-    transform: translatey(0%);
+    transform: translatey(10%);
   }
 
   .options {
-    margin-top: -10rem;
+    margin-top: -2rem;
   }
 
   .not-third-options {
-    margin-top: -7rem;
+    margin-top: 2rem;
   }
 }
