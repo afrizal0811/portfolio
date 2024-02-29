@@ -26,7 +26,7 @@ const Main = (props) => {
         </div>
         <p>Web Developer</p>
       </div>
-      <ol className='menu-list-menu'>
+      <ol className='menu-list'>
         <motion.div>{StyledButtonList(params)}</motion.div>
       </ol>
     </motion.div>

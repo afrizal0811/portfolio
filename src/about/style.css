@@ -9,7 +9,7 @@
 .options {
   position: absolute;
   right: 0px;
-  margin-top: 12rem;
+  margin-top: 10rem;
   z-index: 2;
 }
 
@@ -28,11 +28,11 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .options {
-    margin-top: 27rem;
+  .avatar {
+    transform: translatey(15%);
   }
-  .not-third-options {
-    margin-top: 36rem;
+  .options {
+    margin-top: 2rem;
   }
 }
 
@@ -40,14 +40,14 @@
   .avatar {
     height: 700px;
     width: auto;
-    transform: translatey(20%);
+    transform: translatey(0%);
   }
 
   .options {
-    margin-top: 2rem;
+    margin-top: -10rem;
   }
 
   .not-third-options {
-    margin-top: 7rem;
+    margin-top: -7rem;
   }
 }
