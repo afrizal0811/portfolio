@@ -1,7 +1,15 @@
+.about-container {
+  position: relative;
+  z-index: 9999;
+  height: 100%;
+  margin: 4rem;
+  overflow: hidden;
+}
+
 .about-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
 }
@@ -9,7 +17,7 @@
 .options {
   position: absolute;
   right: 0px;
-  margin-top: 10rem;
+  margin-top: 8rem;
   z-index: 2;
 }
 
@@ -19,20 +27,12 @@
   width: auto;
 }
 
-.about-container {
-  position: relative;
-  z-index: 9999;
-  height: 100%;
-  margin: 4rem;
-  overflow: hidden;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .avatar {
     transform: translatey(15%);
   }
   .options {
-    margin-top: 1rem;
+    margin-top: -1rem;
   }
 }
 
@@ -48,6 +48,6 @@
   }
 
   .not-third-options {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
