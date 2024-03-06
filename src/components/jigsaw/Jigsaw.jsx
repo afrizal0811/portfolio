@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { JigsawPuzzle } from 'react-jigsaw-puzzle/lib'
 import { jigsawVariant } from '../../constants/variants'
+import IsMobile from '../../utilities/isMobile'
 import { JigsawData } from './help'
 import './style.css'
 
@@ -17,10 +18,10 @@ const Jigsaw = (props) => {
     setSolvedJigsaw((prevState) => prevState + 1)
   }
 
-  const linkProps = (data) =>
-    isSolved && solvedId.includes(data.id)
+  const linkProps = (href, isJigsawSolved) =>
+    isJigsawSolved
       ? {
-          href: data.href,
+          href: href,
           target: '_blank',
           rel: 'noreferrer',
         }
@@ -28,26 +29,39 @@ const Jigsaw = (props) => {
 
   return (
     <div className='jigsaw-container'>
-      {JigsawData.map((data) => (
-        <motion.div
-          className='jigsaw-content'
-          variants={jigsawVariant}
-          whileHover={isSolved && solvedId.includes(data.id) && 'hover'}
-        >
-          <a
-            {...linkProps(data)}
-            key={data.id}
-          >
-            <JigsawPuzzle
-              imageSrc={data.image}
-              rows={2}
-              columns={2}
-              onSolved={() => handleSolve(data)}
-              className='jigsaw-puzzle'
-            />
-          </a>
-        </motion.div>
-      ))}
+      {JigsawData.map((data) => {
+        const isJigsawSolved = isSolved && solvedId.includes(data.id)
+        const animateJigsaw = isJigsawSolved && 'solve'
+        const dimmer = (
+          <div class={`${IsMobile() && 'dimmer-mobile'} dimmer-container`}>
+            <div class='dimmer-content'>click for more info</div>
+          </div>
+        )
+        return (
+          <div>
+            <motion.div
+              className='jigsaw-content'
+              variants={jigsawVariant}
+              animate={IsMobile() && animateJigsaw}
+              whileHover={animateJigsaw}
+            >
+              {isJigsawSolved && dimmer}
+              <a
+                {...linkProps(data.href, isJigsawSolved)}
+                key={data.id}
+              >
+                <JigsawPuzzle
+                  imageSrc={data.image}
+                  rows={2}
+                  columns={2}
+                  onSolved={() => handleSolve(data)}
+                  className='jigsaw-puzzle'
+                />
+              </a>
+            </motion.div>
+          </div>
+        )
+      })}
     </div>
   )
 }

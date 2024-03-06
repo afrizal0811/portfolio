@@ -133,9 +133,10 @@ export const wobbleyVariant = {
 }
 
 export const jigsawVariant = {
-  hover: {
+  solve: {
     scale: 1.02,
     boxShadow: '0px 0px 40px rgba(255,215,0,1)',
     transition: { type: 'spring', stiffness: 400, damping: 20 },
+    filter: 'brightness(50%)'
   },
 }

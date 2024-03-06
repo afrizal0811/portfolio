@@ -13,6 +13,7 @@
 }
 
 .content {
+  width: 100%;
   height: auto;
   overflow: hidden;
   display: flex;
@@ -24,4 +25,26 @@
   font-size: 20px;
   padding: 1rem 0 1.5rem;
   position: sticky;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 85%;
+  }
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+  }
+  .content {
+    width: 100%;
+  }
 }
