@@ -5,8 +5,6 @@
   z-index: 9999;
   text-transform: capitalize;
   transform: rotate(270deg);
-  pointer-events: none;
-  background: none !important;
 }
 
 .header-content {
@@ -21,12 +19,12 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .header-wrapper {
-    top: 5%;
+    height: 0px;
+    top: -90%;
     left: 0;
     bottom: 0;
     right: 0;
     margin: auto;
-    position: fixed;
     display: flex;
     justify-content: center;
     transform: rotate(0deg);
@@ -36,12 +34,12 @@
 
 @media screen and (max-width: 767px) {
   .header-wrapper {
-    top: 5%;
+    height: 0px;
+    top: -90%;
     left: 0;
     bottom: 0;
     right: 0;
     margin: auto;
-    position: fixed;
     display: flex;
     justify-content: center;
     transform: rotate(0deg);
