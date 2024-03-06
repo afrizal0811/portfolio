@@ -18,8 +18,8 @@ const Projects = (props) => {
       className='wrapper'
       {...menuProps(isInView)}
     >
-      <div className='container'>
-        <div className='content'>
+      <div className='project-container'>
+        <div className='project-content'>
           <p>
             Solved ({currentSolved}/{totalJigsaw})
           </p>

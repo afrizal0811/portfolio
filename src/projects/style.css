@@ -1,4 +1,4 @@
-.container {
+.project-container {
   position: relative;
   z-index: 9999;
   height: 100%;
@@ -8,43 +8,42 @@
   scrollbar-width: none;
 }
 
-.container::-webkit-scrollbar {
+.project-container::-webkit-scrollbar {
   display: none;
 }
 
-.content {
+.project-content {
   width: 100%;
   height: auto;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.content p {
+.project-content p {
   font-size: 20px;
   padding: 1.5rem 0 1.5rem;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .container {
+  .project-container {
     display: flex;
     justify-content: center;
     width: 85%;
   }
-  .content {
+  .project-content {
     width: 100%;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .container {
-    margin: 4rem 0rem;
+  .project-container {
+    margin: 4rem 0.5rem;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 95%;
   }
-  .content {
+  .project-content {
     width: 100%;
   }
 }
