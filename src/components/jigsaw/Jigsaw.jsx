@@ -27,13 +27,24 @@ const Jigsaw = (props) => {
         }
       : {}
 
+  const jigsaw = (data) => (
+    <JigsawPuzzle
+      imageSrc={data.image}
+      rows={2}
+      columns={2}
+      onSolved={() => handleSolve(data)}
+      className='jigsaw-puzzle'
+    />
+  )
+
   return (
     <div className='jigsaw-container'>
       {JigsawData.map((data) => {
         const isJigsawSolved = isSolved && solvedId.includes(data.id)
         const animateJigsaw = isJigsawSolved && 'solve'
+        const dimmerMobile = IsMobile() && 'dimmer-mobile'
         const dimmer = (
-          <div class={`${IsMobile() && 'dimmer-mobile'} dimmer-container`}>
+          <div class={`${dimmerMobile} dimmer-container`}>
             <div class='dimmer-content'>click for more info</div>
           </div>
         )
@@ -50,13 +61,7 @@ const Jigsaw = (props) => {
                 {...linkProps(data.href, isJigsawSolved)}
                 key={data.id}
               >
-                <JigsawPuzzle
-                  imageSrc={data.image}
-                  rows={2}
-                  columns={2}
-                  onSolved={() => handleSolve(data)}
-                  className='jigsaw-puzzle'
-                />
+                {jigsaw(data)}
               </a>
             </motion.div>
           </div>

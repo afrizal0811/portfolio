@@ -50,10 +50,10 @@
   .jigsaw-container {
     width: 100%;
   }
-  .middle {
+  .dimmer-container {
     width: 60%;
   }
-  .text {
+  .dimmer-content {
     padding: 5px 5px;
     font-size: 7px;
   }
