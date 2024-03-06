@@ -3,16 +3,19 @@ import React from 'react'
 import { menuList } from '../../constants/lists'
 import { menuProps } from '../../constants/properties'
 import { linkComponent } from '../../utilities/linkComponent'
+import IsMobile from '../../utilities/isMobile'
 import './style.css'
 
 const MenuHeader = (props) => {
   const { isInView, pathname } = props
+  const list = IsMobile() ? menuList : menuList.toReversed()
+
   return (
     <motion.div
       className='header-wrapper'
       {...menuProps(isInView)}
     >
-      {menuList.toReversed().map((menu, index) => (
+      {list.map((menu, index) => (
         <div
           className={`header-content ${
             `/${menu}` === pathname ? 'selected' : ''
