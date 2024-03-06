@@ -11,4 +11,29 @@ export const JigsawData = [
     href: 'https://www.google.com/',
     image: imagePaths.webGoogle,
   },
+  {
+    id: 2,
+    href: 'https://www.google.com/',
+    image: imagePaths.webGoogle,
+  },
+  {
+    id: 2,
+    href: 'https://www.google.com/',
+    image: imagePaths.webGoogle,
+  },
+  {
+    id: 2,
+    href: 'https://www.google.com/',
+    image: imagePaths.webGoogle,
+  },
+  {
+    id: 2,
+    href: 'https://www.google.com/',
+    image: imagePaths.webGoogle,
+  },
+  {
+    id: 2,
+    href: 'https://www.google.com/',
+    image: imagePaths.webGoogle,
+  },
 ]
