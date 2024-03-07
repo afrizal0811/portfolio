@@ -1,6 +1,7 @@
 const colors = {
   white: '#FFFFFF',
   alabaster: '#f2f0e5',
+  azure: '#4b80ca',
 }
 
 export const transitionVariant = {
@@ -138,5 +139,14 @@ export const jigsawVariant = {
     boxShadow: '0px 0px 40px rgba(255,215,0,1)',
     transition: { type: 'spring', stiffness: 400, damping: 20 },
     filter: 'brightness(50%)'
+  },
+}
+
+export const contactVariant = {
+  hover: {
+    scale: 1.1,
+    originX: 0,
+    color: colors.azure,
+    transition: { type: 'spring', stiffness: 400 },
   },
 }

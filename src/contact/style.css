@@ -1,0 +1,22 @@
+.contact-container {
+  z-index: 999999;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-data {
+  line-height: 1.2;
+}
+.contact-content h1 {
+  margin-bottom: 2rem;
+}
+.contact-content a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.contact-content p {
+  margin: 0.5rem 0;
+}
