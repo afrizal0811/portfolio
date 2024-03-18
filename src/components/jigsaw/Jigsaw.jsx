@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { JigsawPuzzle } from 'react-jigsaw-puzzle/lib'
 import { jigsawVariant } from '../../constants/variants'
+import { JigsawData } from '../../projects/help'
 import IsMobile from '../../utilities/isMobile'
-import { JigsawData } from './help'
 import './style.css'
 
 const Jigsaw = (props) => {
@@ -27,7 +27,7 @@ const Jigsaw = (props) => {
         }
       : {}
 
-  const jigsaw = (data) => (
+  const renderPuzzle = (data) => (
     <JigsawPuzzle
       imageSrc={data.image}
       rows={2}
@@ -37,38 +37,42 @@ const Jigsaw = (props) => {
     />
   )
 
-  return (
-    <div className='jigsaw-container'>
-      {JigsawData.map((data) => {
-        const isJigsawSolved = isSolved && solvedId.includes(data.id)
-        const animateJigsaw = isJigsawSolved && 'solve'
-        const dimmerMobile = IsMobile() && 'dimmer-mobile'
-        const dimmer = (
-          <div class={`${dimmerMobile} dimmer-container`}>
-            <div class='dimmer-content'>click for more info</div>
-          </div>
-        )
-        return (
-          <div>
-            <motion.div
-              className='jigsaw-content'
-              variants={jigsawVariant}
-              animate={IsMobile() && animateJigsaw}
-              whileHover={animateJigsaw}
-            >
-              {isJigsawSolved && dimmer}
-              <a
-                {...linkProps(data.href, isJigsawSolved)}
-                key={data.id}
-              >
-                {jigsaw(data)}
-              </a>
-            </motion.div>
-          </div>
-        )
-      })}
-    </div>
-  )
+  const renderMappedJigsaw = JigsawData.map((data) => {
+    const isJigsawSolved = isSolved && solvedId.includes(data.id)
+    const animateJigsaw = isJigsawSolved && 'hover'
+    const dimmerMobile = IsMobile() && 'dimmer-mobile'
+    const buttonMore = (
+      <div className={`${dimmerMobile} dimmer-container`}>
+        <a
+          {...linkProps(data.href, isJigsawSolved)}
+          className='dimmer-content'
+          key={data.id}
+        >
+          click for more info
+        </a>
+      </div>
+    )
+    return (
+      <div>
+        <motion.div
+          className='jigsaw-content'
+          variants={jigsawVariant}
+          animate={IsMobile() && animateJigsaw}
+          whileHover={animateJigsaw}
+        >
+          {isJigsawSolved && buttonMore}
+          <a
+            {...linkProps(data.href, isJigsawSolved)}
+            key={data.id}
+          >
+            {renderPuzzle(data)}
+          </a>
+        </motion.div>
+      </div>
+    )
+  })
+
+  return <div className='jigsaw-container'>{renderMappedJigsaw}</div>
 }
 
 export default Jigsaw
