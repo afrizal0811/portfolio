@@ -9,30 +9,47 @@
 .about-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-.options {
-  position: absolute;
-  right: 0px;
-  margin-top: 8rem;
-  z-index: 2;
+.about-content div {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  place-self: center;
 }
 
 .avatar {
   height: 1200px;
-  transform: translatey(28%);
   width: auto;
 }
 
+.options {
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 35rem;
+  z-index: 2;
+}
+
+.box {
+  width: 100%;
+  margin-bottom: 15rem;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .avatar {
-    transform: translatey(15%);
+  .about-container {
+    margin-top: 8rem;
   }
+
   .options {
-    margin-top: -1rem;
+    margin-top: 10rem;
+  }
+
+  .box {
+    width: 100%;
+    margin-bottom: 0;
   }
 }
 
@@ -40,14 +57,17 @@
   .avatar {
     height: 650px;
     width: auto;
-    transform: translatey(10%);
   }
 
   .options {
-    margin-top: -4rem;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 1rem;
   }
 
-  .not-third-options {
-    margin-top: 1rem;
+  .box {
+    width: 100%;
+    margin-bottom: -18rem;
   }
 }

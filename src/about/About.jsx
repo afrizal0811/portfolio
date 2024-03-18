@@ -12,9 +12,7 @@ const About = (props) => {
   const [option, setOption] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const isFirstOption = option === 0
-  const isLastOption = option === 2
   const imageSrc = isFirstOption ? imagePaths.avatarWave : imagePaths.avatarIdle
-  const newClassOption = !isLastOption && 'not-third-options'
 
   return (
     <motion.div
@@ -23,24 +21,27 @@ const About = (props) => {
     >
       <div className='about-container'>
         <div className='about-content'>
-          <div className={`${newClassOption} options`}>
+          <div>
+            <ImageComp
+              className='avatar'
+              src={imageSrc}
+              alt='avatar'
+            />
+          </div>
+          <div className='options'>
             <TextOptions
               option={option}
               setOption={setOption}
               isFinished={isFinished}
             />
           </div>
-          <ImageComp
-            className='avatar'
-            src={imageSrc}
-            alt='avatar'
-          />
-          <TextBox
-            isInView={isInView}
-            option={option}
-            setIsFinished={setIsFinished}
-            isLastOption={isLastOption}
-          />
+          <div className='box'>
+            <TextBox
+              isInView={isInView}
+              option={option}
+              setIsFinished={setIsFinished}
+            />
+          </div>
         </div>
       </div>
     </motion.div>

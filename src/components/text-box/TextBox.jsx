@@ -4,10 +4,9 @@ import { useTypingEffect } from '../../utilities/typingEffect'
 import './style.css'
 
 const TextBox = (props) => {
-  const { isInView, option, setIsFinished, isLastOption } = props
+  const { isInView, option, setIsFinished } = props
   const [isSeen, setIsSeen] = useState(false)
   const delayTime = isInView ? (isSeen ? 30 : 2000) : 30
-  const newClassText = !isLastOption && 'not-third-text'
   const textDisplay = useTypingEffect(
     answerTextList[option],
     delayTime,
@@ -21,7 +20,7 @@ const TextBox = (props) => {
   }, [isSeen])
 
   return (
-    <div className={`${newClassText} text-box`}>
+    <div className='text-box'>
       <p>{textDisplay}</p>
     </div>
   )
