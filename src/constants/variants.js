@@ -142,10 +142,14 @@ export const jigsawVariant = {
 }
 
 export const contactVariant = {
+  animate: {
+    textDecoration: 'underline',
+  },
   hover: {
-    scale: 1.1,
+    scale: 1.05,
     originX: 0,
     color: colors.azure,
     transition: { type: 'spring', stiffness: 400 },
+    textDecoration: 'none'
   },
 }

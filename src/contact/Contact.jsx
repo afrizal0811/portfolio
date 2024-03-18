@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { menuProps } from '../constants/properties'
+import { contactVariant } from '../constants/variants'
 import { useTypingEffect } from '../utilities/typingEffect'
 import { contactData } from './help'
 import './style.css'
-import { contactVariant } from '../constants/variants'
 
 const Contact = (props) => {
   const { isInView } = props
@@ -18,6 +18,22 @@ const Contact = (props) => {
     }, 1900)
   }, [isSeen])
 
+  const renderLink = (type, link) => (
+    <a
+      href={link}
+      target='_blank'
+      rel='noreferrer'
+    >
+      <motion.p
+        variants={contactVariant}
+        animate='animate'
+        whileHover='hover'
+      >
+        {type}
+      </motion.p>
+    </a>
+  )
+
   return (
     <motion.div
       className='wrapper'
@@ -27,24 +43,23 @@ const Contact = (props) => {
         <div className='contact-content'>
           <h1 className='title'>{typingText}</h1>
           <div className='contact-data'>
-            {contactData.map((data, index) => {
-              const { type, link } = data
-              return (
-                <a
-                  key={index}
-                  href={`${type === 'Email' ? 'mailto:' : ''}${link}`}
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <motion.p
-                    variants={contactVariant}
-                    whileHover='hover'
-                  >
-                    {type}
-                  </motion.p>
-                </a>
-              )
-            })}
+            <div>
+              <div>Email:</div>
+              <div>
+                {renderLink(
+                  contactData[0].link,
+                  `mailto:${contactData[0].link}`
+                )}
+              </div>
+            </div>
+            <div>
+              <div>On the Internet:</div>
+              <div id='internet'>
+                {renderLink(contactData[1].type, contactData[1].link)}
+                <span className='line'>&#47;</span>
+                {renderLink(contactData[2].type, contactData[2].link)}
+              </div>
+            </div>
           </div>
         </div>
       </div>
