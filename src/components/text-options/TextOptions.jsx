@@ -1,24 +1,46 @@
-import React from 'react'
-import { questionTextList } from '../../constants/lists'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 
 const TextOptions = (props) => {
-  const { option, setOption, isFinished } = props
-  const selectedQuestion = questionTextList.find(({ id }) => id === option)
-  const filteredQuestion = questionTextList.filter(
-    (data) => data !== selectedQuestion
-  )
+  const { option, setOption, isFinished, choice, pathname, setIsAvatarShow } =
+    props
+  const [dimmerOption, setDimmerOption] = useState([])
+  const filteredSelectedOptions = [...new Set(dimmerOption)]
+  const selectedQuestion = choice.find(({ id }) => id === option)
+  const filteredQuestion = choice.filter((data) => data !== selectedQuestion)
+  const isProjectPage = pathname === '/projects'
+  const mappedOptions = isProjectPage ? choice : filteredQuestion
+
+  useEffect(() => {
+    setDimmerOption((prev) => [...prev, option])
+  }, [option, setDimmerOption])
+  
+  const checkSelected = (arr, val) => {
+    return arr.some(function (arrVal) {
+      return val === arrVal
+    })
+  }
+
+  const handleOnClick = (id) => {
+    isProjectPage ? setIsAvatarShow(false) : setOption(id)
+  }
 
   const renderOptions = (
     <div className='options-content'>
-      {filteredQuestion.map(({ id, question }) => (
-        <button
-          onClick={() => setOption(id)}
-          key={id}
-        >
-          {question}
-        </button>
-      ))}
+      {mappedOptions.map(({ id, question }) => {
+        const isAlreadySelected = checkSelected(filteredSelectedOptions, id)
+        const buttonClassName =
+          isAlreadySelected && !isProjectPage ? 'dimmer-option' : ''
+        return (
+          <button
+            onClick={() => handleOnClick(id)}
+            key={id}
+            className={buttonClassName}
+          >
+            {question}
+          </button>
+        )
+      })}
     </div>
   )
 

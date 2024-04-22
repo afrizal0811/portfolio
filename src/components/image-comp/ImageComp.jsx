@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ImageComp = (props) => {
-  const { className, src, alt, height } = props
+  const { className, src, alt, height, width } = props
 
   return (
     <img
@@ -9,6 +9,7 @@ const ImageComp = (props) => {
       className={className}
       src={src}
       height={height}
+      width={width}
       draggable='false'
       loading='lazy'
     />

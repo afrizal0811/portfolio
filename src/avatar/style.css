@@ -1,4 +1,4 @@
-/* .about-container {
+.avatar-container {
   position: relative;
   z-index: 9999;
   height: 100%;
@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.about-content {
+.avatar-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,7 @@
   grid-template-columns: 1fr;
 }
 
-.about-content div {
+.avatar-content div {
   grid-row-start: 1;
   grid-column-start: 1;
   place-self: center;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .about-container {
+  .avatar-container {
     margin-top: 8rem;
   }
 
@@ -70,4 +70,4 @@
     width: 100%;
     margin-bottom: -18rem;
   }
-} */
+}

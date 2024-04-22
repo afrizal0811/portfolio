@@ -1,17 +1,13 @@
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
-import Jigsaw from '../components/jigsaw/Jigsaw'
+import React from 'react'
+import Avatar from '../avatar/Avatar'
+import { projectChoicesList } from '../constants/lists'
 import { menuProps } from '../constants/properties'
+import ProjectImages from './ProjectImages'
 import './style.css'
 
 const Projects = (props) => {
   const { isInView } = props
-  const [solvedJigsaw, setSolvedJigsaw] = useState(0)
-  const [totalJigsaw, setTotalJigsaw] = useState(0)
-
-  const isLocalhost = window.location.hostname === 'localhost'
-  const localNumber = solvedJigsaw === 0 ? 0 : solvedJigsaw / 2
-  const currentSolved = isLocalhost ? localNumber : solvedJigsaw
 
   return (
     <motion.div
@@ -20,15 +16,13 @@ const Projects = (props) => {
     >
       <div className='project-container'>
         <div className='project-content'>
-          <p>
-            Solved ({currentSolved}/{totalJigsaw})
-          </p>
-          <Jigsaw
-            setSolvedJigsaw={setSolvedJigsaw}
-            setTotalJigsaw={setTotalJigsaw}
-          />
+          <ProjectImages />
         </div>
       </div>
+      <Avatar
+        {...props}
+        choice={projectChoicesList}
+      />
     </motion.div>
   )
 }
