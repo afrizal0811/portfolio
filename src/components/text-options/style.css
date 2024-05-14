@@ -9,11 +9,13 @@
   cursor: pointer;
   font-size: 12px;
   text-align: left;
-  border: solid 3px black;
+  color: var(--color-black);
+  border: solid 3px var(--color-black);
+  background-color: var(--color-white);
 }
 
 .dimmer-option {
-  background-color: rgba(0, 0, 0, 0.3);
+  filter: brightness(50%);
 }
 
 @media screen and (max-width: 767px) {
