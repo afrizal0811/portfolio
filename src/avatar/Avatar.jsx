@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ImageComp from '../components/image-comp/ImageComp'
 import TextBox from '../components/text-box/TextBox'
 import TextOptions from '../components/text-options/TextOptions'
@@ -6,14 +6,19 @@ import imagePaths from '../constants/imagePaths'
 import './style.css'
 
 const Avatar = (props) => {
-  const { isInView, choice, pathname } = props
+  const { isInView, choice, pathname, setIsOptionSelected } = props
   const [option, setOption] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [isAvatarShow, setIsAvatarShow] = useState(true)
   const isFirstOption = option === 0
   const isAboutPage = pathname === '/about'
+  const isProjectsPage = pathname === '/projects'
   const imageSrc =
     isFirstOption && isAboutPage ? imagePaths.avatarWave : imagePaths.avatarIdle
+
+  useEffect(() => {
+    if (isProjectsPage) setIsOptionSelected(isAvatarShow)
+  }, [setIsOptionSelected, isAvatarShow, isProjectsPage])
 
   const renderAvatar = (
     <div className='avatar-content'>

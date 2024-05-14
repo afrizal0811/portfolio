@@ -133,11 +133,11 @@ export const wobbleyVariant = {
   },
 }
 
-export const jigsawVariant = {
+export const projectVariant = {
   hover: {
     scale: 1.02,
-    transition: { type: 'spring', stiffness: 400, damping: 20 },
-    filter: 'brightness(50%)',
+    transition: { type: 'spring', stiffness: 400},
+    filter: 'brightness(60%)',
   },
 }
 
@@ -150,6 +150,6 @@ export const contactVariant = {
     originX: 0,
     color: colors.azure,
     transition: { type: 'spring', stiffness: 400 },
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
 }
