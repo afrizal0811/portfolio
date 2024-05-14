@@ -1,21 +1,29 @@
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatar from '../avatar/Avatar'
 import { projectChoicesList } from '../constants/lists'
 import { menuProps } from '../constants/properties'
+import { getCookies, setCookies } from '../utilities/handleCookies'
 import ProjectImages from './ProjectImages'
 import './style.css'
 
 const Projects = (props) => {
   const { isInView } = props
   const [isOptionSelected, setIsOptionSelected] = useState(true)
+  const everSelected = getCookies()
+
+  useEffect(() => {
+    if (!isOptionSelected) setCookies(true)
+  }, [isOptionSelected])
+
   const renderProjectImage = (
     <div className='project-container'>
       <div className='project-content'>
-        <ProjectImages/>
+        <ProjectImages />
       </div>
     </div>
   )
+
   const renderAvatar = (
     <Avatar
       {...props}
@@ -23,7 +31,9 @@ const Projects = (props) => {
       setIsOptionSelected={setIsOptionSelected}
     />
   )
-  const renderProject = isOptionSelected ? renderAvatar : renderProjectImage
+
+  const renderProject =
+    !everSelected && isOptionSelected ? renderAvatar : renderProjectImage
 
   return (
     <motion.div
