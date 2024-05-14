@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import Avatar from '../avatar/Avatar'
+import Avatar from '../components/avatar/Avatar'
 import { projectChoicesList } from '../constants/lists'
 import { menuProps } from '../constants/properties'
 import { getCookies, setCookies } from '../utilities/handleCookies'

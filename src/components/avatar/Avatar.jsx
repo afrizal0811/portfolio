@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import ImageComp from '../components/image-comp/ImageComp'
-import TextBox from '../components/text-box/TextBox'
-import TextOptions from '../components/text-options/TextOptions'
-import imagePaths from '../constants/imagePaths'
+import ImageComp from '../image-comp/ImageComp'
+import TextBox from '../text-box/TextBox'
+import TextOptions from '../text-options/TextOptions'
+import imagePaths from '../../constants/imagePaths'
 import './style.css'
 
 const Avatar = (props) => {

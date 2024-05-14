@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import Avatar from '../avatar/Avatar'
+import Avatar from '../components/avatar/Avatar'
 import { aboutChoicesList } from '../constants/lists'
 import { menuProps } from '../constants/properties'
 import './style.css'
