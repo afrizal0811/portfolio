@@ -16,13 +16,19 @@ const TextOptions = (props) => {
 
   const [dimmerOption, setDimmerOption] = useState([])
   const filteredSelectedOptions = [...new Set(dimmerOption)]
+  
+  //single option
   const selectedResponse = choice.find(({ id }) => id === option)
   const filteredResponse = choice.filter((data) => data !== selectedResponse)
   const isProjectPage = pathname === '/projects'
   const mappedOptions = isProjectPage ? choice : filteredResponse
+  
+  //multi option
   const number = linkId ? linkId : 0
   const responses = mappedOptions[number].response
   const isResponseArray = Array.isArray(responses)
+  const filteredMap = mappedOptions.filter(({ id }) => id === linkId)
+  const newOptions = isResponseArray ? filteredMap : mappedOptions
 
   useEffect(() => {
     setDimmerOption((prev) => [...prev, option])
@@ -69,7 +75,7 @@ const TextOptions = (props) => {
 
   const renderOptions = (
     <div className='options-content'>
-      {mappedOptions.map(({ id, response }) => {
+      {newOptions.map(({ id, response }) => {
         const isAlreadySelected = checkSelected(filteredSelectedOptions, id)
         const buttonClassName =
           isAlreadySelected && !isProjectPage ? 'dimmer-option' : ''
