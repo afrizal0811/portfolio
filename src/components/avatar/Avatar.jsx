@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import imagePaths from '../../constants/imagePaths'
 import ImageComp from '../image-comp/ImageComp'
 import TextBox from '../text-box/TextBox'
 import TextOptions from '../text-options/TextOptions'
-import imagePaths from '../../constants/imagePaths'
 import './style.css'
+import { getCookies } from '../../utilities/handleCookies'
 
 const Avatar = (props) => {
-  const { isInView, choice, pathname, setIsOptionSelected } = props
+  const {
+    choice,
+    linkId,
+    isInView,
+    pathname,
+    setIsInitialOptionSelected,
+    setIsLinkClicked,
+    setSelectedMultiOption,
+  } = props
+
   const [option, setOption] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [isAvatarShow, setIsAvatarShow] = useState(true)
@@ -17,31 +27,38 @@ const Avatar = (props) => {
     isFirstOption && isAboutPage ? imagePaths.avatarWave : imagePaths.avatarIdle
 
   useEffect(() => {
-    if (isProjectsPage) setIsOptionSelected(isAvatarShow)
-  }, [setIsOptionSelected, isAvatarShow, isProjectsPage])
+    const cookies = getCookies()
+    if (isProjectsPage && !cookies) {
+      setIsInitialOptionSelected(isAvatarShow)
+    }
+  }, [isAvatarShow, isProjectsPage, setIsInitialOptionSelected])
 
   const renderAvatar = (
     <div className='avatar-content'>
       <div>
         <ImageComp
+          alt='avatar'
           className='avatar'
           src={imageSrc}
-          alt='avatar'
         />
       </div>
       <div className='options'>
         <TextOptions
           choice={choice}
-          option={option}
-          setOption={setOption}
+          linkId={linkId}
           isFinished={isFinished}
+          option={option}
           pathname={pathname}
           setIsAvatarShow={setIsAvatarShow}
+          setIsLinkClicked={setIsLinkClicked}
+          setOption={setOption}
+          setSelectedMultiOption={setSelectedMultiOption}
         />
       </div>
       <div className='box'>
         <TextBox
           choice={choice}
+          linkId={linkId}
           isInView={isInView}
           option={option}
           setIsFinished={setIsFinished}

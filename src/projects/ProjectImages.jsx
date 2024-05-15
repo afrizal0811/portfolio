@@ -3,39 +3,41 @@ import React from 'react'
 import ImageComp from '../components/image-comp/ImageComp'
 import { projectVariant } from '../constants/variants'
 import IsMobile from '../utilities/isMobile'
-import { projectData } from './help'
-const ProjectImages = () => {
+
+const ProjectImages = (props) => {
+  const { projectData, setIsLinkClicked, setLinkId } = props
   const dimmerMobile = IsMobile() && 'dimmer-mobile'
+
+  const handleOnClick = (id) => {
+    setIsLinkClicked(true)
+    setLinkId(id)
+  }
 
   return (
     <div className='project-img-container'>
       {projectData.map((data) => (
-        <motion.a
+        <motion.div
           animate={IsMobile() && 'hover'}
           className='project-img-content'
-          href={data.href}
           key={data.id}
-          rel='noreferrer'
-          target='_blank'
           variants={projectVariant}
           whileHover='hover'
+          onClick={() => handleOnClick(data.id)}
         >
           <div className={`${dimmerMobile} dimmer-container`}>
-            <a
-              href={data.href}
-              target='_blank'
-              rel='noreferrer'
+            <div
               className='dimmer-content'
+              onClick={() => handleOnClick(data.id)}
             >
               click for more info
-            </a>
+            </div>
           </div>
           <ImageComp
             key={data.id}
             src={data.image}
             width='100%'
           />
-        </motion.a>
+        </motion.div>
       ))}
     </div>
   )
