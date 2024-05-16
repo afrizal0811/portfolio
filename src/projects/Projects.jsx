@@ -8,7 +8,7 @@ import {
 import { menuProps } from '../constants/properties'
 import { getCookies, setCookies } from '../utilities/handleCookies'
 import ProjectImages from './ProjectImages'
-import { projectData, randomNumber } from './help'
+import { projectData } from './help'
 import './style.css'
 
 const Projects = (props) => {
@@ -21,7 +21,8 @@ const Projects = (props) => {
   const everSelected = getCookies()
   const isInitialProject = !everSelected && isInitalOptionSelected
   const isProjectSelected = !isInitialProject && isLinkClicked
-
+  const randomNumber = Math.floor(Math.random() * 10)
+  
   useEffect(() => {
     const handleOpenLink = () => {
       const selectedProject = projectData.find(({ id }) => id === linkId)
