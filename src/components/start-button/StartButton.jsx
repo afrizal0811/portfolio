@@ -14,12 +14,8 @@ const StartButton = (props) => {
   }
 
   const handleKeyDown = (e) => {
-    const spaceCode = e.keyCode === 32
-    const enterCode = e.keyCode === 13
-    
-    if (spaceCode || enterCode) {
-      setIsClicked(true)
-      setStarted(true)
+    if (e) {
+      handleOnClick()
     }
   }
 
