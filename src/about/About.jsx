@@ -3,7 +3,6 @@ import React from 'react'
 import Avatar from '../components/avatar/Avatar'
 import { aboutChoicesList } from '../constants/lists'
 import { menuProps } from '../constants/properties'
-import './style.css'
 
 const About = (props) => {
   const { isInView } = props
@@ -15,6 +14,7 @@ const About = (props) => {
       <Avatar
         {...props}
         choice={aboutChoicesList}
+        isAvatarWave={true}
       />
     </motion.div>
   )

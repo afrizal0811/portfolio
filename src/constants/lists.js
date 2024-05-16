@@ -54,18 +54,41 @@ const refuseResponses = [
 export const projectSelectedChoicesList = (random) => {
   const acceptNum = Math.floor(Math.random() * random)
   const refuseNum = Math.floor(Math.random() * random)
-
+  const responses = [acceptResponses[acceptNum], refuseResponses[refuseNum]]
+  
   return [
     {
-      response: [acceptResponses[acceptNum], refuseResponses[refuseNum]],
+      response: responses,
       id: 0,
       explain:
         'This is crowdfunding application. Build with React.Js and Express.Js. Check this out!',
     },
     {
       id: 1,
-      response: [acceptResponses[acceptNum], refuseResponses[refuseNum]],
+      response: responses,
       explain: 'This is Google.',
     },
   ]
 }
+
+export const contactChoicesList = [
+  {
+    id: 0,
+    response: [
+      {
+        type: 'E-mail',
+        link: 'afrizalmaulanamuh@gmail.com',
+      },
+      {
+        type: 'LinkedIn',
+        link: 'https://www.linkedin.com/in/afrizalmaulanamuh/',
+      },
+      {
+        type: 'Github',
+        link: 'https://github.com/afrizal0811',
+      },
+    ],
+    explain:
+      'Thank you so much for visiting! You can contact me through these links.',
+  },
+]

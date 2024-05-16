@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import imagePaths from '../../constants/imagePaths'
+import { getCookies } from '../../utilities/handleCookies'
 import ImageComp from '../image-comp/ImageComp'
 import TextBox from '../text-box/TextBox'
 import TextOptions from '../text-options/TextOptions'
 import './style.css'
-import { getCookies } from '../../utilities/handleCookies'
 
 const Avatar = (props) => {
-  const {
-    choice,
-    linkId,
-    isInView,
-    pathname,
-    setIsInitialOptionSelected,
-    setIsLinkClicked,
-    setSelectedMultiOption,
-  } = props
+  const { isAvatarWave, pathname, setIsInitialOptionSelected } = props || null
 
   const [option, setOption] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [isAvatarShow, setIsAvatarShow] = useState(true)
   const isFirstOption = option === 0
-  const isAboutPage = pathname === '/about'
   const isProjectsPage = pathname === '/projects'
   const imageSrc =
-    isFirstOption && isAboutPage ? imagePaths.avatarWave : imagePaths.avatarIdle
+    isFirstOption && isAvatarWave
+      ? imagePaths.avatarWave
+      : imagePaths.avatarIdle
 
   useEffect(() => {
     const cookies = getCookies()
@@ -44,22 +37,16 @@ const Avatar = (props) => {
       </div>
       <div className='options'>
         <TextOptions
-          choice={choice}
-          linkId={linkId}
+          {...props}
           isFinished={isFinished}
           option={option}
-          pathname={pathname}
           setIsAvatarShow={setIsAvatarShow}
-          setIsLinkClicked={setIsLinkClicked}
           setOption={setOption}
-          setSelectedMultiOption={setSelectedMultiOption}
         />
       </div>
       <div className='box'>
         <TextBox
-          choice={choice}
-          linkId={linkId}
-          isInView={isInView}
+          {...props}
           option={option}
           setIsFinished={setIsFinished}
         />

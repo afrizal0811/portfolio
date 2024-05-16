@@ -3,9 +3,10 @@ import './style.css'
 
 const TextOptions = (props) => {
   const {
+    alert,
     choice,
-    linkId,
     isFinished,
+    linkId,
     option,
     pathname,
     setIsAvatarShow,
@@ -16,19 +17,24 @@ const TextOptions = (props) => {
 
   const [dimmerOption, setDimmerOption] = useState([])
   const filteredSelectedOptions = [...new Set(dimmerOption)]
-  
+
   //single option
   const selectedResponse = choice.find(({ id }) => id === option)
   const filteredResponse = choice.filter((data) => data !== selectedResponse)
   const isProjectPage = pathname === '/projects'
-  const mappedOptions = isProjectPage ? choice : filteredResponse
-  
+  const isAboutPage = pathname === '/about'
+  const isContactPage = pathname === '/contact'
+  const mappedOptions = isAboutPage ? filteredResponse : choice
+
   //multi option
   const number = linkId ? linkId : 0
   const responses = mappedOptions[number].response
   const isResponseArray = Array.isArray(responses)
-  const filteredMap = mappedOptions.filter(({ id }) => id === linkId)
-  const newOptions = isResponseArray ? filteredMap : mappedOptions
+  const filteredMap = isProjectPage
+    ? mappedOptions.filter(({ id }) => id === linkId)
+    : null
+  const newOptions =
+    isResponseArray && filteredMap ? filteredMap : mappedOptions
 
   useEffect(() => {
     setDimmerOption((prev) => [...prev, option])
@@ -40,8 +46,15 @@ const TextOptions = (props) => {
     })
   }
 
-  const handleOnClick = (id) => {
-    if (isProjectPage) {
+  const handleOnClick = (id, response) => {
+    if (isContactPage) {
+      if (response.type === 'E-mail') {
+        alert()
+        navigator.clipboard.writeText(response.link)
+      } else {
+        window.open(response.link)
+      }
+    } else if (isProjectPage) {
       setIsAvatarShow(false)
       if (isResponseArray) {
         setSelectedMultiOption(id)
@@ -53,15 +66,23 @@ const TextOptions = (props) => {
   }
 
   const renderMultiResponse = (buttonClassName) =>
-    responses.map((response, index) => (
-      <button
-        onClick={() => handleOnClick(index)}
-        key={index}
-        className={buttonClassName}
-      >
-        {response}
-      </button>
-    ))
+    responses.map((response, index) => {
+      const isObject =
+        typeof response === 'object' &&
+        !Array.isArray(response) &&
+        response !== null
+      const text = isObject ? response.type : response
+
+      return (
+        <button
+          onClick={() => handleOnClick(index, response)}
+          key={index}
+          className={buttonClassName}
+        >
+          {text}
+        </button>
+      )
+    })
 
   const renderSingleResponse = (buttonClassName, id, response) => (
     <button
@@ -78,7 +99,9 @@ const TextOptions = (props) => {
       {newOptions.map(({ id, response }) => {
         const isAlreadySelected = checkSelected(filteredSelectedOptions, id)
         const buttonClassName =
-          isAlreadySelected && !isProjectPage ? 'dimmer-option' : ''
+          isAlreadySelected && !isProjectPage && isAboutPage
+            ? 'dimmer-option'
+            : ''
         const renderButton = isResponseArray
           ? renderMultiResponse(buttonClassName)
           : renderSingleResponse(buttonClassName, id, response)

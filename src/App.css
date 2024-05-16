@@ -90,3 +90,12 @@ h1.title {
   height: auto;
   filter: blur(1px);
 }
+
+#--react--toast-container {
+  width: 50% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: blur(1px);
+}
