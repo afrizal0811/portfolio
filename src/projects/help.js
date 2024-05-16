@@ -6,9 +6,9 @@ export const projectData = [
     href: 'https://moneypool.co.id/',
     image: imagePaths.webMoneypool,
   },
-  {
-    id: 1,
-    href: 'https://www.google.com/',
-    image: imagePaths.webGoogle,
-  },
+  // {
+  //   id: 1,
+  //   href: 'https://www.google.com/',
+  //   image: imagePaths.webGoogle,
+  // },
 ]
