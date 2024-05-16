@@ -8,7 +8,7 @@ import {
 import { menuProps } from '../constants/properties'
 import { getCookies, setCookies } from '../utilities/handleCookies'
 import ProjectImages from './ProjectImages'
-import { projectData } from './help'
+import { projectData, randomNumber } from './help'
 import './style.css'
 
 const Projects = (props) => {
@@ -58,7 +58,7 @@ const Projects = (props) => {
   const renderProjectAvatar = (
     <Avatar
       {...props}
-      choice={projectSelectedChoicesList}
+      choice={projectSelectedChoicesList(randomNumber)}
       linkId={linkId}
       setIsLinkClicked={setIsLinkClicked}
       setSelectedMultiOption={setSelectedMultiOption}

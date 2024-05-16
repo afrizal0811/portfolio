@@ -25,17 +25,47 @@ export const initialProjectChoicesList = [
   },
 ]
 
-export const projectSelectedChoicesList = [
-  {
-    id: 0,
-    response: [`Of course!`, `Not today, thanks!`],
-    explain:
-      'This is crowdfunding application. Build with React.Js and Express.Js. Check this out!',
-  },
-  {
-    id: 1,
-    response: [`Ok!`, `Maybe next time!`],
-    explain:
-      'This is Google.',
-  },
+const acceptResponses = [
+  `Of course!`,
+  `Absolutely!`,
+  `Sure,  thank you!`,
+  `That would be nice!`,
+  `Yes, I'd love to! `,
+  `Yes, please!`,
+  `That's a good idea!`,
+  `Sounds great!`,
+  `Let's go for it!`,
+  `That would be great!`,
 ]
+
+const refuseResponses = [
+  `Not today.`,
+  `Thanks, but I'm good.`,
+  `Maybe next time.`,
+  `I'm sorry, but I can't.`,
+  `No, thanks.`,
+  `That's alright.`,
+  `Not for me, thanks.`,
+  `I'll pass.`,
+  `I'll have to skip it.`,
+  `Nah, I'm alright.`,
+]
+
+export const projectSelectedChoicesList = (random) => {
+  const acceptNum = Math.floor(Math.random() * random)
+  const refuseNum = Math.floor(Math.random() * random)
+
+  return [
+    {
+      response: [acceptResponses[acceptNum], refuseResponses[refuseNum]],
+      id: 0,
+      explain:
+        'This is crowdfunding application. Build with React.Js and Express.Js. Check this out!',
+    },
+    {
+      id: 1,
+      response: [acceptResponses[acceptNum], refuseResponses[refuseNum]],
+      explain: 'This is Google.',
+    },
+  ]
+}

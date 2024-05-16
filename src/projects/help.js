@@ -1,5 +1,6 @@
 import imagePaths from '../constants/imagePaths'
 
+export const randomNumber = Math.floor(Math.random() * 10)
 export const projectData = [
   {
     id: 0,
@@ -10,5 +11,5 @@ export const projectData = [
     id: 1,
     href: 'https://www.google.com/',
     image: imagePaths.webGoogle,
-  }
+  },
 ]
