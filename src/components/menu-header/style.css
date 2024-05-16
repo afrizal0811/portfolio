@@ -5,11 +5,8 @@
   z-index: 9999;
   text-transform: capitalize;
   transform: rotate(270deg);
-}
-
-.header-content {
-  font-size: 12px;
-  margin-right: 2rem;
+  gap: 2rem;
+  font-size: 14px;
 }
 
 .selected {
@@ -29,6 +26,8 @@
     justify-content: center;
     transform: rotate(0deg);
     margin-left: 2rem;
+    gap: 4rem;
+    font-size: 16px;
   }
 }
 
@@ -43,7 +42,8 @@
     display: flex;
     justify-content: center;
     transform: rotate(0deg);
-    margin-left: 2rem;
+    gap: 1rem;
+    font-size: 12px;
   }
   .header-content {
     font-size: 10px;

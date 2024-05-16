@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { menuList } from '../../constants/lists'
 import { menuProps } from '../../constants/properties'
-import { linkComponent } from '../../utilities/linkComponent'
 import IsMobile from '../../utilities/isMobile'
+import { linkComponent } from '../../utilities/linkComponent'
 import './style.css'
 
 const MenuHeader = (props) => {
@@ -17,9 +17,7 @@ const MenuHeader = (props) => {
     >
       {list.map((menu, index) => (
         <div
-          className={`header-content ${
-            `/${menu}` === pathname ? 'selected' : ''
-          }`}
+          className={`/${menu}` === pathname ? 'selected' : ''}
           key={index}
         >
           {linkComponent(menu, pathname)}
