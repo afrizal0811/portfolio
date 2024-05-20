@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { linkComponent } from '../../utilities/linkComponent'
+import LinkComponent from '../link-component/LinkComponent'
 
 const MenuList = (props) => {
   const { pathname } = props
@@ -10,7 +10,12 @@ const MenuList = (props) => {
   return (
     <motion.div>
       {filteredMenu.map((menu, index) => (
-        <li key={index}>{linkComponent(menu, pathname)}</li>
+        <li key={index}>
+          <LinkComponent
+            menu={menu}
+            pathname={pathname}
+          />
+        </li>
       ))}
     </motion.div>
   )

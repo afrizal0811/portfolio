@@ -1,10 +1,13 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
-import ImageComp from '../components/image-comp/ImageComp'
-import imagePaths from '../constants/imagePaths'
+import imagePaths from '../../constants/imagePaths'
+import ImageComp from '../image-comp/ImageComp'
+import './styles.css'
 
-export const linkComponent = (text, pathname = '') => {
+const LinkComponent = (props) => {
+  const { menu, pathname } = props
   const isHome = pathname === '/'
-  const isSelectedMenu = pathname === `/${text}`
+  const isSelectedMenu = pathname === `/${menu}`
 
   const logo = (
     <ImageComp
@@ -14,22 +17,25 @@ export const linkComponent = (text, pathname = '') => {
       alt='cursor'
     />
   )
+
   const unselectedLink = (
     <span className='arrow-menu disabled-link'>
       {isHome && logo}
-      {text}
+      {menu}
     </span>
   )
 
   const selectedLink = (
     <Link
-      to={text === 'home' ? '/' : `/${text}`}
+      to={menu === 'home' ? '/' : `/${menu}`}
       className='arrow-menu'
     >
       {isHome && logo}
-      {text}
+      {menu}
     </Link>
   )
 
-  return isSelectedMenu ? unselectedLink : selectedLink
+  return <div>{isSelectedMenu ? unselectedLink : selectedLink}</div>
 }
+
+export default LinkComponent

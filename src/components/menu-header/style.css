@@ -10,10 +10,11 @@
 }
 
 .selected {
-  text-decoration-thickness: 2px !important;
+  text-decoration-thickness: 4px !important;
   text-decoration: line-through;
   text-decoration-color: var(--color-alabaster) !important;
 }
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .header-wrapper {
     height: 0px;
