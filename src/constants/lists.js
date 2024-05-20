@@ -66,7 +66,8 @@ export const projectSelectedChoicesList = (random) => {
     {
       id: 1,
       response: responses,
-      explain: 'This is Google.',
+      explain:
+        'This is web customer for car rental and created for final exam in Binar Academy Bootcamp. Build with React.Js. Check this out!',
     },
   ]
 }
