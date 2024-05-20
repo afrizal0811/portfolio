@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { toast } from 'react-custom-alert'
-import Avatar from '../components/avatar/Avatar'
+import Avatar from '../../components/avatar/Avatar'
+import { menuProps } from '../../constants/properties'
 import { choicesList } from './help'
-import { menuProps } from '../constants/properties'
 
-const Contact = (props) => {
+const About = (props) => {
   const { isInView } = props
-  const alertSuccess = () => toast.success('E-mail copied!')
-
   return (
     <motion.div
       className='wrapper'
@@ -18,10 +15,9 @@ const Contact = (props) => {
         {...props}
         choice={choicesList}
         isAvatarWave={true}
-        alert={alertSuccess}
       />
     </motion.div>
   )
 }
 
-export default Contact
+export default About

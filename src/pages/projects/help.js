@@ -1,4 +1,4 @@
-import imagePaths from '../constants/imagePaths'
+import imagePaths from '../../constants/imagePaths'
 
 const acceptResponses = [
   `Of course!`,
@@ -46,7 +46,6 @@ export const initialChoicesList = [
     explain: 'These are some of my projects. Take a look!',
   },
 ]
-
 
 export const choicesList = (random) => {
   const acceptNum = Math.floor(Math.random() * random)

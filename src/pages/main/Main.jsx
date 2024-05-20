@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { StyledButtonList } from '../AnimatedHandler'
-import { menuProps } from '../constants/properties'
+import { StyledButtonList } from '../../AnimatedHandler'
+import { menuProps } from '../../constants/properties'
 import './style.css'
 
 const Main = (props) => {

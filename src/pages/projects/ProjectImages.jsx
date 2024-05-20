@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import ImageComp from '../components/image-comp/ImageComp'
-import { projectVariant } from '../constants/variants'
-import IsMobile from '../utilities/isMobile'
+import ImageComp from '../../components/image-comp/ImageComp'
+import { projectVariant } from '../../constants/variants'
+import IsMobile from '../../utilities/isMobile'
 
 const ProjectImages = (props) => {
   const { projectData, setIsLinkClicked, setLinkId } = props
