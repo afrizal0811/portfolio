@@ -3,11 +3,12 @@
 
 :root {
   --app-height: 100%;
-  --color-black: #000000;
-  --color-white: #ffffff;
   --color-alabaster: #f2f0e5;
-  --color-iceberg: #68c2d3;
+  --color-banana-yellow: #ffdb3b;
+  --color-black: #000000;
   --color-cyan-azure: #4b80ca;
+  --color-iceberg: #68c2d3;
+  --color-white: #ffffff;
 }
 
 * {
