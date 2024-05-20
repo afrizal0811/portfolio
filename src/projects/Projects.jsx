@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import Avatar from '../components/avatar/Avatar'
-import {
-  initialProjectChoicesList,
-  projectSelectedChoicesList,
-} from '../constants/lists'
 import { menuProps } from '../constants/properties'
 import { getCookies, setCookies } from '../utilities/handleCookies'
 import ProjectImages from './ProjectImages'
-import { projectData } from './help'
+import { choicesList, initialChoicesList, projectData } from './help'
 import './style.css'
 
 const Projects = (props) => {
@@ -22,7 +18,7 @@ const Projects = (props) => {
   const isInitialProject = !everSelected && isInitalOptionSelected
   const isProjectSelected = !isInitialProject && isLinkClicked
   const randomNumber = Math.floor(Math.random() * 10)
-  
+
   useEffect(() => {
     const handleOpenLink = () => {
       const selectedProject = projectData.find(({ id }) => id === linkId)
@@ -51,7 +47,7 @@ const Projects = (props) => {
   const renderInitialAvatar = (
     <Avatar
       {...props}
-      choice={initialProjectChoicesList}
+      choice={initialChoicesList}
       setIsInitialOptionSelected={setIsInitialOptionSelected}
     />
   )
@@ -59,7 +55,7 @@ const Projects = (props) => {
   const renderProjectAvatar = (
     <Avatar
       {...props}
-      choice={projectSelectedChoicesList(randomNumber)}
+      choice={choicesList(randomNumber)}
       linkId={linkId}
       setIsLinkClicked={setIsLinkClicked}
       setSelectedMultiOption={setSelectedMultiOption}

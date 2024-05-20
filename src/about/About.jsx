@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import Avatar from '../components/avatar/Avatar'
-import { aboutChoicesList } from '../constants/lists'
 import { menuProps } from '../constants/properties'
+import { choicesList } from './help'
 
 const About = (props) => {
   const { isInView } = props
@@ -13,7 +13,7 @@ const About = (props) => {
     >
       <Avatar
         {...props}
-        choice={aboutChoicesList}
+        choice={choicesList}
         isAvatarWave={true}
       />
     </motion.div>
