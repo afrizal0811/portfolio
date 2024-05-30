@@ -1,4 +1,30 @@
-import imagePaths from '../../constants/imagePaths'
+import { publicImagePaths } from '../../constants/imagePaths'
+
+export const projectData = [
+  {
+    href: 'https://car-rental-afrizal.vercel.app/',
+    id: 0,
+    image: publicImagePaths.webCarRental,
+  },
+  {
+    href: 'https://moneypool.co.id/',
+    id: 1,
+    image: publicImagePaths.webMoneypool,
+  },
+  {
+    href: '/private-project/bank-artatama',
+    id: 2,
+    image: publicImagePaths.webBank,
+  },
+]
+
+export const initialChoicesList = [
+  {
+    id: 0,
+    response: `Sure!`,
+    explain: 'These are some of my projects. Take a look!',
+  },
+]
 
 const acceptResponses = [
   `Of course!`,
@@ -24,38 +50,6 @@ const refuseResponses = [
   `I'll pass.`,
   `I'll have to skip it.`,
   `Nah, I'm alright.`,
-]
-
-export const projectData = [
-  {
-    href: 'https://car-rental-afrizal.vercel.app/',
-    id: 0,
-    image: imagePaths.webCarRental,
-    isPrivate: false,
-    name: 'Car Rental',
-  },
-  {
-    href: 'https://moneypool.co.id/',
-    id: 1,
-    image: imagePaths.webMoneypool,
-    isPrivate: false,
-    name: 'Moneypool',
-  },
-  {
-    href: '/private-project',
-    id: 2,
-    image: imagePaths.webBank.adminLogin,
-    isPrivate: true,
-    name: 'Bank Artatama',
-  },
-]
-
-export const initialChoicesList = [
-  {
-    id: 0,
-    response: `Sure!`,
-    explain: 'These are some of my projects. Take a look!',
-  },
 ]
 
 export const choicesList = (random) => {

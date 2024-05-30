@@ -1,16 +1,18 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StyledMenu } from './AnimatedHandler'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import Main from './pages/main/Main'
-import PrivateProject from './pages/projects/PrivateProject'
+import PrivateProject from './pages/projects/private_project/PrivateProject'
 import Projects from './pages/projects/Projects'
 
 const RouteHandler = () => {
   const location = useLocation()
   const pathname = location.pathname
+  const navigates = useNavigate()
+  
   return (
     <AnimatePresence mode='wait'>
       <Routes
@@ -30,8 +32,13 @@ const RouteHandler = () => {
           element={StyledMenu(<Projects pathname={pathname} />)}
         />
         <Route
-          path='/private-project'
-          element={StyledMenu(<PrivateProject pathname={pathname} />)}
+          path='/private-project/:name'
+          element={StyledMenu(
+            <PrivateProject
+              pathname={pathname}
+              navigate={navigates}
+            />
+          )}
         />
         <Route
           path='/contact'

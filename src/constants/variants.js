@@ -140,16 +140,17 @@ export const projectVariant = {
     filter: 'brightness(60%)',
   },
 }
-
-// export const contactVariant = {
-//   animate: {
-//     textDecoration: 'underline',
-//   },
-//   hover: {
-//     scale: 1.05,
-//     originX: 0,
-//     color: colors.azure,
-//     transition: { type: 'spring', stiffness: 400 },
-//     textDecoration: 'none',
-//   },
-// }
+export const privateVariant = {
+  initial: {
+    scale: 0,
+  },
+  animate: {
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+    viewport: {
+      once: true
+    }
+  },
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import imagePaths from '../../constants/imagePaths'
+import { publicImagePaths } from '../../constants/imagePaths'
 import ImageComp from '../image-comp/ImageComp'
 import './styles.css'
 
@@ -11,10 +11,10 @@ const LinkComponent = (props) => {
 
   const logo = (
     <ImageComp
-      height='30px'
-      src={imagePaths.logoBlue}
-      className='sign-menu'
       alt='cursor'
+      className='sign-menu'
+      height='30px'
+      src={publicImagePaths.logoBlue}
     />
   )
 

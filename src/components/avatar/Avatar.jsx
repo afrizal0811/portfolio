@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import imagePaths from '../../constants/imagePaths'
+import { publicImagePaths } from '../../constants/imagePaths'
 import { getCookies } from '../../utilities/handleCookies'
 import ImageComp from '../image-comp/ImageComp'
 import TextBox from '../text-box/TextBox'
@@ -16,8 +16,8 @@ const Avatar = (props) => {
   const isProjectsPage = pathname === '/projects'
   const imageSrc =
     isFirstOption && isAvatarWave
-      ? imagePaths.avatarWave
-      : imagePaths.avatarIdle
+      ? publicImagePaths.avatarWave
+      : publicImagePaths.avatarIdle
 
   useEffect(() => {
     const cookies = getCookies()

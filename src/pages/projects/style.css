@@ -18,11 +18,7 @@
   flex-direction: column;
   height: auto;
   width: 100%;
-}
-
-.project-content p {
-  font-size: 20px;
-  padding: 1.5rem 0 1.5rem;
+  gap: 2rem;
 }
 
 .project-img-container {
@@ -84,6 +80,10 @@
     width: 84%;
   }
 
+  .project-content {
+    gap: 0;
+  }
+
   .project-img-container {
     margin-top: 2rem;
   }
@@ -99,6 +99,10 @@
     justify-content: center;
     margin: 4rem 0.5rem;
     width: 95%;
+  }
+
+  .project-content {
+    gap: 0.5rem;
   }
 
   .project-img-container {
