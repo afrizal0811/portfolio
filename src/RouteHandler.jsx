@@ -5,6 +5,7 @@ import { StyledMenu } from './AnimatedHandler'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import Main from './pages/main/Main'
+import PrivateProject from './pages/projects/PrivateProject'
 import Projects from './pages/projects/Projects'
 
 const RouteHandler = () => {
@@ -27,6 +28,10 @@ const RouteHandler = () => {
         <Route
           path='/projects'
           element={StyledMenu(<Projects pathname={pathname} />)}
+        />
+        <Route
+          path='/private-project'
+          element={StyledMenu(<PrivateProject pathname={pathname} />)}
         />
         <Route
           path='/contact'

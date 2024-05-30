@@ -8,6 +8,14 @@ const imagePaths = {
   vignette: './images/vignette.png',
   webCarRental: './images/car-rental.png',
   webMoneypool: './images/moneypool.png',
+  webBank: {
+    adminAdd: './images/private/bank_admin_add.png',
+    adminLogin: './images/private/bank_admin_login.png',
+    userAdd: './images/private/bank_user_add.png',
+    userCredit: './images/private/bank_user_credit.png',
+    userDashboard: './images/private/bank_user_dashboard.png',
+    userLogin: './images/private/bank_user_login.png',
+  },
 }
 
 export default imagePaths

@@ -22,28 +22,12 @@ export const StyledMenu = (menu) => {
   const isHome = props.pathname === '/'
   const newMenu = { ...menu, props: { ...props, isInView: isInView } }
 
-  const transitionEffects = (children) => {
-    return (
-      <motion.div
-        {...transitionProps}
-        className='blurry'
-      >
-        <motion.div
-          ref={ref}
-          className='wrapper'
-          {...transitionProps}
-        >
-          {children}
-        </motion.div>
-      </motion.div>
-    )
-  }
-
-  const intialTransition = (
-    <Fragment>
-      <InitFuzzyEffect />
-      <ColorBarEffect />
-    </Fragment>
+  const vignette = (
+    <ImageComp
+      className='vignette'
+      src={imagePaths.vignette}
+      alt='vignette'
+    />
   )
 
   const frame = (
@@ -60,20 +44,36 @@ export const StyledMenu = (menu) => {
     </motion.div>
   )
 
+  const intialTransition = (
+    <Fragment>
+      <InitFuzzyEffect />
+      <ColorBarEffect />
+    </Fragment>
+  )
+
   const headMenu = (
     <MenuHeader
       pathname={props.pathname}
       isInView={isInView}
     />
   )
-  
-  const vignette = (
-    <ImageComp
-      className='vignette'
-      src={imagePaths.vignette}
-      alt='vignette'
-    />
-  )
+
+  const transitionEffects = (children) => {
+    return (
+      <motion.div
+        {...transitionProps}
+        className='blurry'
+      >
+        <motion.div
+          ref={ref}
+          className='wrapper'
+          {...transitionProps}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    )
+  }
 
   const renderMenu = (
     <Fragment>

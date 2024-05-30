@@ -28,14 +28,25 @@ const refuseResponses = [
 
 export const projectData = [
   {
+    href: 'https://car-rental-afrizal.vercel.app/',
     id: 0,
-    href: 'https://moneypool.co.id/',
-    image: imagePaths.webMoneypool,
+    image: imagePaths.webCarRental,
+    isPrivate: false,
+    name: 'Car Rental',
   },
   {
+    href: 'https://moneypool.co.id/',
     id: 1,
-    href: 'https://car-rental-afrizal.vercel.app/',
-    image: imagePaths.webCarRental,
+    image: imagePaths.webMoneypool,
+    isPrivate: false,
+    name: 'Moneypool',
+  },
+  {
+    href: '/private-project',
+    id: 2,
+    image: imagePaths.webBank.adminLogin,
+    isPrivate: true,
+    name: 'Bank Artatama',
   },
 ]
 
@@ -54,16 +65,22 @@ export const choicesList = (random) => {
 
   return [
     {
-      response: responses,
       id: 0,
+      response: responses,
+      explain:
+        'This is web customer for car rental and created for final exam in Binar Academy Bootcamp. Build with React.Js and Bootstrap. Check this out!',
+    },
+    {
+      response: responses,
+      id: 1,
       explain:
         'This is crowdfunding application. Build with React.Js and Express.Js. Check this out!',
     },
     {
-      id: 1,
+      id: 2,
       response: responses,
       explain:
-        'This is web customer for car rental and created for final exam in Binar Academy Bootcamp. Build with React.Js. Check this out!',
+        'This is credit application. Build with React Typescript and Express.Js. This application is a private website, but I will show you some screenshots. Check this out!',
     },
   ]
 }
