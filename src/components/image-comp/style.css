@@ -1,0 +1,28 @@
+.zoom-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 80%;
+}
+
+.btn-zoom-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px 0 8px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 30px;
+  gap: 5px;
+}
+
+.btn-zoom-container button {
+  border: solid 1.5px var(--color-cyan-azure);
+  color: var(--color-black);
+  background-color: var(--color-banana-yellow);
+  padding: 0.5rem;
+  cursor: pointer;
+}
