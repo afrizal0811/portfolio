@@ -15,13 +15,14 @@ const PrivateProject = (props) => {
   const images = filteredImages(name)
   const imageName = camelize(name)
   const isMobile = IsMobile()
-
-  if (isEmpty(images)) {
+  const selectedImage = images[`${imageName}`]
+  
+  if (isEmpty(selectedImage) || isEmpty(images)) {
     navigate('/', { replace: true })
     return null
   }
 
-  const mappedImages = images[`${imageName}`].map((data, key) => {
+  const mappedImages = selectedImage.map((data, key) => {
     const renderImageZoom = (
       <ImageZoom
         alt={data}
