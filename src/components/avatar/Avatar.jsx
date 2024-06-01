@@ -35,21 +35,23 @@ const Avatar = (props) => {
           src={imageSrc}
         />
       </div>
-      <div className='options'>
-        <TextOptions
-          {...props}
-          isFinished={isFinished}
-          option={option}
-          setIsAvatarShow={setIsAvatarShow}
-          setOption={setOption}
-        />
-      </div>
-      <div className='box'>
-        <TextBox
-          {...props}
-          option={option}
-          setIsFinished={setIsFinished}
-        />
+      <div className='text-container'>
+        <div className='options'>
+          <TextOptions
+            {...props}
+            isFinished={isFinished}
+            option={option}
+            setIsAvatarShow={setIsAvatarShow}
+            setOption={setOption}
+          />
+        </div>
+        <div className='box'>
+          <TextBox
+            {...props}
+            option={option}
+            setIsFinished={setIsFinished}
+          />
+        </div>
       </div>
     </div>
   )
