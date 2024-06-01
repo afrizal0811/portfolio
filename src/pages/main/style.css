@@ -66,6 +66,10 @@ h2 {
 }
 
 @media screen and (max-width: 767px) {
+  .main-wrapper {
+    height: 100dvh;
+  }
+  
   .title-menu h1 {
     font-size: 42px;
   }
@@ -81,11 +85,6 @@ h2 {
   .menu-list {
     font-size: 25px;
     margin-top: -10rem;
+    height: 100dvh;
   }
 }
-/* .title-bg {
-  background-color: black;
-  position: absolute;
-  top: 12.5%;
-  transform: perspective(200px) rotateX(40deg);
-} */

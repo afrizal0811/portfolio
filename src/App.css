@@ -90,3 +90,9 @@ h1.title {
   align-items: center;
   filter: blur(1px);
 }
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    height: 100dvh;
+  }
+}

@@ -74,7 +74,7 @@ export const choicesList = (random) => {
       id: 2,
       response: responses,
       explain:
-        'This is credit application. Build with React Typescript and Express.Js. This is a private website, but I will show you some screenshot the application. Check this out!',
+        'This is credit application. Build with React Typescript and Express.Js. This is a private website, but I will show you some screenshot from the application. Check this out!',
     },
   ]
 }
