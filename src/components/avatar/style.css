@@ -29,7 +29,7 @@
 .text-container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -38,28 +38,17 @@
 .options {
   margin-left: auto;
   margin-right: 0;
-  /* margin-bottom: 35rem; */
   z-index: 2;
 }
 
 .box {
   width: 100%;
-  /* margin-bottom: 15rem; */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .avatar-container {
     margin-top: 8rem;
   }
-
-  /* .options {
-    margin-top: 10rem;
-  }
-
-  .box {
-    width: 100%;
-    margin-bottom: 0;
-  } */
 }
 
 @media screen and (max-width: 767px) {
@@ -68,15 +57,7 @@
     width: auto;
   }
 
-  /* .options {
-    margin-left: auto;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-top: 1rem;
+  .text-container {
+    bottom: auto;
   }
-
-  .box {
-    width: 100%;
-    margin-bottom: -18rem;
-  } */
 }
