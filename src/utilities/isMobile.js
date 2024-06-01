@@ -12,8 +12,8 @@ function IsMobile() {
       window.removeEventListener('resize', handleWindowSizeChange)
     }
   }, [])
-  
-  return width <= 768
+
+  return width <= 1023
 }
 
 export default IsMobile

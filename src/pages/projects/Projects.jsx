@@ -27,9 +27,9 @@ const Projects = (props) => {
 
     if (!isInitalOptionSelected) setCookies(true)
     if (selectedMultiOption === 0) {
-      setSelectedMultiOption(null)
       handleOpenLink()
     }
+    setSelectedMultiOption(null)
   }, [isInitalOptionSelected, selectedMultiOption, linkId])
 
   const renderProjectImage = (
