@@ -7,7 +7,7 @@ const TextBox = (props) => {
   const [isSeen, setIsSeen] = useState(false)
 
   const isLinkIdNull = typeof linkId === 'number'
-  const delayTime = isInView ? (isLinkIdNull || isSeen ? 30 : 2100) : 30
+  const delayTime = isInView ? (isLinkIdNull || isSeen ? 20 : 2100) : 20
   const number = linkId ? linkId : option
   const textDisplay = useTypingEffect(
     choice[number].explain,
