@@ -5,16 +5,19 @@ export const projectData = [
     href: 'https://car-rental-afrizal.vercel.app/',
     id: 0,
     image: publicImagePaths.webCarRental,
+    isPublic: true,
   },
   {
     href: 'https://moneypool.co.id/',
     id: 1,
     image: publicImagePaths.webMoneypool,
+    isPublic: true,
   },
   {
     href: '/private-project/bank-artatama',
     id: 2,
     image: publicImagePaths.webBank,
+    isPublic: false,
   },
 ]
 

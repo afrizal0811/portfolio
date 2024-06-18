@@ -8,7 +8,7 @@ import { choicesList, initialChoicesList, projectData } from './help'
 import './style.css'
 
 const Projects = (props) => {
-  const { isInView } = props
+  const { isInView, navigate } = props
   const [isInitalOptionSelected, setIsInitialOptionSelected] = useState(true)
   const [selectedMultiOption, setSelectedMultiOption] = useState(null)
   const [isLinkClicked, setIsLinkClicked] = useState(false) //buat klik gambar
@@ -22,7 +22,13 @@ const Projects = (props) => {
   useEffect(() => {
     const handleOpenLink = () => {
       const selectedProject = projectData.find(({ id }) => id === linkId)
-      window.open(selectedProject.href)
+      const isPublic = selectedProject.isPublic
+      const link = selectedProject.href
+      if (isPublic) {
+        window.open(link)
+      } else {
+        navigate(link)
+      }
     }
 
     if (!isInitalOptionSelected) setCookies(true)
@@ -30,7 +36,7 @@ const Projects = (props) => {
       handleOpenLink()
     }
     setSelectedMultiOption(null)
-  }, [isInitalOptionSelected, selectedMultiOption, linkId])
+  }, [isInitalOptionSelected, selectedMultiOption, linkId, navigate])
 
   const renderProjectImage = (
     <div className='project-container'>
