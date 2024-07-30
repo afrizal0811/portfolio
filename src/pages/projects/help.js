@@ -25,7 +25,7 @@ export const initialChoicesList = [
   {
     id: 0,
     response: `Sure!`,
-    explain: 'These are some of my projects. Take a look!',
+    explain: 'These are some of my projects. You can click on one of the pictures to see more information. Take a look!', 
   },
 ]
 
