@@ -128,7 +128,8 @@ export const buttonListVariant = {
 export const wobbleyVariant = {
   initial: { translateY: 0 },
   animate: {
-    translateY: ['-0.5px', '0.5px'],
+    translateX: ['-0.4px', '0.2px'],
+    translateY: ['-0.9px', '0.7px'],
     transition: { duration: 0.2, repeat: Infinity },
   },
 }
