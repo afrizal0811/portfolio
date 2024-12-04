@@ -7,7 +7,7 @@ import RouteHandler from './RouteHandler'
 function App() {
   return (
     <div className='App'>
-      <ToastContainer floatingTime={1000} />
+      <ToastContainer floatingTime={500} />
       <Router>
         <RouteHandler />
       </Router>
