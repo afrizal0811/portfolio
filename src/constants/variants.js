@@ -27,7 +27,7 @@ export const fuzzyVariant = {
   initial: {
     translateX: 0,
     translateY: 0,
-    opacity: '80%',
+    opacity: 0.8,
   },
   animate: {
     translateX: ['10%', '-10%'],
@@ -129,7 +129,7 @@ export const wobbleyVariant = {
   initial: { translateY: 0 },
   animate: {
     translateX: ['-0.4px', '0.2px'],
-    translateY: ['-0.9px', '0.7px'],
+    translateY: ['-0.5px', '0.7px'],
     transition: { duration: 0.2, repeat: Infinity },
   },
 }
@@ -137,7 +137,7 @@ export const wobbleyVariant = {
 export const projectVariant = {
   hover: {
     scale: 1.02,
-    transition: { type: 'spring', stiffness: 400},
+    transition: { type: 'spring', stiffness: 400 },
     filter: 'brightness(60%)',
   },
 }
@@ -151,7 +151,7 @@ export const privateVariant = {
       duration: 0.5,
     },
     viewport: {
-      once: true
-    }
+      once: true,
+    },
   },
 }
