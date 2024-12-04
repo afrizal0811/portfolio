@@ -10,7 +10,7 @@
 }
 
 .selected {
-  text-decoration-thickness: 4px !important;
+  text-decoration-thickness: 3px !important;
   text-decoration: line-through;
   text-decoration-color: var(--color-alabaster) !important;
 }
