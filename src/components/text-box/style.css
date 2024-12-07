@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  box-shadow: 8px 8px;
+  margin-bottom: 0.5rem;
 }
 
 .text-box p {
@@ -12,7 +14,7 @@
   line-height: 1.5;
   font-size: 15px;
   color: var(--color-black);
-  border: solid 5px var(--color-black);
+  border: solid 6px var(--color-black);
   background-color: var(--color-white);
 }
 
