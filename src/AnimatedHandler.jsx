@@ -7,7 +7,7 @@ import ImageComp from './components/image-comp/ImageComp'
 import MenuHeader from './components/menu-header/MenuHeader'
 import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
-import { privateImagePaths, publicImagePaths } from './constants/imagePaths'
+import { publicImagePaths } from './constants/imagePaths'
 import {
   menuProps,
   transitionProps,
@@ -21,18 +21,12 @@ export const StyledMenu = (menu) => {
   const props = menu.props
   const isHome = props.pathname === '/'
   const newMenu = { ...menu, props: { ...props, isInView: isInView } }
-  const pathname = newMenu.props.pathname
-  const isPrivateProject = pathname.includes('/private-project')
 
   const vignette = (
     <ImageComp
       alt='vignette'
       className='vignette'
-      src={
-        isPrivateProject
-          ? privateImagePaths.vignette
-          : publicImagePaths.vignette
-      }
+      src={publicImagePaths.vignette}
     />
   )
 
@@ -45,9 +39,7 @@ export const StyledMenu = (menu) => {
       <ImageComp
         alt='frame'
         className='frame-content'
-        src={
-          isPrivateProject ? privateImagePaths.frame : publicImagePaths.frame
-        }
+        src={publicImagePaths.frame}
       />
     </motion.div>
   )
@@ -55,7 +47,7 @@ export const StyledMenu = (menu) => {
   const intialTransition = (
     <Fragment>
       <InitFuzzyEffect />
-      <ColorBarEffect isPrivateProject={isPrivateProject} />
+      <ColorBarEffect />
     </Fragment>
   )
 
