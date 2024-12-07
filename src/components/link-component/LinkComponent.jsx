@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { publicImagePaths } from '../../constants/imagePaths'
+import IsMobile from '../../utilities/isMobile'
 import ImageComp from '../image-comp/ImageComp'
 import './styles.css'
-
 const LinkComponent = (props) => {
   const { menu, pathname } = props
   const isHome = pathname === '/'
@@ -13,7 +13,7 @@ const LinkComponent = (props) => {
     <ImageComp
       alt='cursor'
       className='sign-menu'
-      height='30px'
+      height={IsMobile() ? '40px' : '60px'}
       src={publicImagePaths.logoBlue}
     />
   )

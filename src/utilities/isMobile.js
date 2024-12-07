@@ -13,7 +13,7 @@ function IsMobile() {
     }
   }, [])
 
-  return width <= 1023
+  return width <= 768
 }
 
 export default IsMobile
