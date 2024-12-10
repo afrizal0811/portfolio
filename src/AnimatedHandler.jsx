@@ -22,14 +22,6 @@ export const StyledMenu = (menu) => {
   const isHome = props.pathname === '/'
   const newMenu = { ...menu, props: { ...props, isInView: isInView } }
 
-  const vignette = (
-    <ImageComp
-      alt='vignette'
-      className='vignette'
-      src={publicImagePaths.vignette}
-    />
-  )
-
   const frame = (
     <motion.div
       className='frame-container'
@@ -88,8 +80,12 @@ export const StyledMenu = (menu) => {
 
   return (
     <Fragment>
-      {vignette}
-      {transitionEffects(renderMenu)}
+      <ImageComp
+        alt='vignette'
+        className='vignette'
+        src={publicImagePaths.vignette}
+      />
+      <div>{transitionEffects(renderMenu)}</div>
     </Fragment>
   )
 }
