@@ -6,7 +6,7 @@ import './style.css'
 const BgFuzzyEffect = () => {
   return (
     <motion.div
-      className='fuzzy-overlay bg-fuzzy'
+      className='fuzzy-overlay bg-fuzzy '
       {...fuzzyProps}
     />
   )

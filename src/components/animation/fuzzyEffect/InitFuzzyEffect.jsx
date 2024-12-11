@@ -7,7 +7,7 @@ const InitFuzzyEffect = () => {
   return (
     <motion.div {...DisapperedFuzzyProps}>
       <motion.div
-        className='fuzzy-overlay init-fuzzy'
+        className='fuzzy-overlay'
         {...fuzzyProps}
       />
     </motion.div>

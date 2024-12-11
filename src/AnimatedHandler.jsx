@@ -71,7 +71,7 @@ export const StyledMenu = (menu) => {
     <Fragment>
       {!isHome && headMenu}
       {isInView && intialTransition}
-      <motion.div {...wobbleyProps}>
+      <motion.div {...wobbleyProps} className='content-menu'>
         {frame}
         {newMenu}
       </motion.div>
