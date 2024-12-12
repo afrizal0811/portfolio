@@ -21,10 +21,13 @@
   inset: -200%;
   pointer-events: none;
   z-index: 110;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(255, 255, 255, 0) 50%
-  );
-  background-size: 100% 10px; /* Tebal garis scanlines */
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(23, 23, 23, 0.75) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.2) 33.33%,
+      rgba(0, 255, 0, 0.2) 33.33%,
+      rgba(0, 0, 255, 0.2) 33.33%
+    );
+  background-size: 100% 5px, 60px 100%;
   opacity: 0.5;
 }
