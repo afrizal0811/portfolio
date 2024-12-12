@@ -2,7 +2,7 @@
   height: 100%;
   margin: 4rem;
   position: relative;
-  z-index: 9999;
+  z-index: 100;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;

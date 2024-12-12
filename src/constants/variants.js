@@ -47,6 +47,20 @@ export const DisapperedFuzzyVariant = {
   },
 }
 
+export const scanlinesVariant = {
+  initial: {
+    translateX: 0,
+    translateY: 0,
+    opacity: 0.8,
+  },
+  animate: {
+    translateX: ['5%', '-5%'],
+    translateY: ['5%', '-5%'],
+    transition: { duration: 0.1, repeat: Infinity },
+  },
+  exit: { opacity: 0 },
+}
+
 export const colorBarVariant = {
   initial: {
     opacity: 0,

@@ -3,6 +3,7 @@ import {
   DisapperedFuzzyVariant,
   fuzzyVariant,
   menuVariant,
+  scanlinesVariant,
   startButtonVariant,
   transitionVariant,
   wobbleyVariant,
@@ -26,6 +27,13 @@ export const DisapperedFuzzyProps = {
   variants: DisapperedFuzzyVariant,
   initial: 'intial',
   animate: 'animate',
+}
+
+export const scanlinesProps = {
+  variants: scanlinesVariant,
+  initial: 'intial',
+  animate: 'animate',
+  exit: 'exit',
 }
 
 export const colorBarProps = {
