@@ -1,11 +1,12 @@
+import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { publicImagePaths } from '../../constants/imagePaths'
+import { glitchProps } from '../../constants/properties'
 import { getCookies } from '../../utilities/handleCookies'
 import ImageComp from '../image-comp/ImageComp'
 import TextBox from '../text-box/TextBox'
 import TextOptions from '../text-options/TextOptions'
 import './style.css'
-
 const Avatar = (props) => {
   const { isAvatarWave, pathname, setIsInitialOptionSelected } = props || null
 
@@ -28,13 +29,13 @@ const Avatar = (props) => {
 
   const renderAvatar = (
     <div className='avatar-content'>
-      <div>
+      <motion.div {...glitchProps('image')}>
         <ImageComp
           alt='avatar'
           className='avatar'
           src={imageSrc}
         />
-      </div>
+      </motion.div>
       <div className='text-container'>
         <div className='options'>
           <TextOptions
@@ -45,13 +46,16 @@ const Avatar = (props) => {
             setOption={setOption}
           />
         </div>
-        <div className='box'>
+        <motion.div
+          {...glitchProps('text')}
+          className='box'
+        >
           <TextBox
             {...props}
             option={option}
             setIsFinished={setIsFinished}
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   )

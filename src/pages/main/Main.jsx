@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { StyledButtonList } from '../../AnimatedHandler'
-import { menuProps } from '../../constants/properties'
+import { glitchProps, menuProps } from '../../constants/properties'
 import './style.css'
 
 const Main = (props) => {
@@ -19,13 +19,16 @@ const Main = (props) => {
       className='main-wrapper'
       {...menuProps(isInView)}
     >
-      <div className='title-menu'>
+      <motion.div
+        {...glitchProps('title')}
+        className='title-menu'
+      >
         <div className='title-name-menu'>
           <h2>Afrizal</h2>
           <h1>Maulana</h1>
         </div>
         <p>Web Developer</p>
-      </div>
+      </motion.div>
       <ol className='menu-list'>
         <motion.div>{StyledButtonList(params)}</motion.div>
       </ol>

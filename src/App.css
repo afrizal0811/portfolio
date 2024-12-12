@@ -81,7 +81,7 @@ h1.title {
   filter: blur(1.4px);
 }
 
-.content-menu{
+.content-menu {
   z-index: 5;
   position: relative;
 }

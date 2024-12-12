@@ -30,7 +30,7 @@ const StartButton = (props) => {
     return function cleanup() {
       document.removeEventListener('keydown', handleKeyDown)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClicked])
 
   return (
@@ -38,13 +38,13 @@ const StartButton = (props) => {
       className='start-button'
       {...startButtonProps(isClicked)}
     >
-      <button
+      <motion.button
         type='button'
         onClick={handleOnClick}
         onKeyDown={(e) => handleKeyDown(e)}
       >
         <h1 ref={myContainer}>Press Start</h1>
-      </button>
+      </motion.button>
     </motion.div>
   )
 }

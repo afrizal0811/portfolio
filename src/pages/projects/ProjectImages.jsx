@@ -3,7 +3,7 @@ import React from 'react'
 import ImageComp from '../../components/image-comp/ImageComp'
 import { projectVariant } from '../../constants/variants'
 import IsMobile from '../../utilities/isMobile'
-
+import { glitchProps } from '../../constants/properties'
 const ProjectImages = (props) => {
   const { projectData, setIsLinkClicked, setLinkId } = props
   const projectImageClass = IsMobile() ? 'project-img-content-bottom' : ''
@@ -33,11 +33,13 @@ const ProjectImages = (props) => {
                 click for more info
               </div>
             </div>
-            <ImageComp
-              key={data.id}
-              src={data.image}
-              width='100%'
-            />
+            <motion.div {...glitchProps('image')}>
+              <ImageComp
+                key={data.id}
+                src={data.image}
+                width='100%'
+              />
+            </motion.div>
           </motion.div>
         )
       })}

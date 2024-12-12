@@ -139,6 +139,37 @@ export const buttonListVariant = {
   },
 }
 
+export const glitchTextVariant = {
+  initial: { opacity: 1, skewX: 0, scaleY: 1 },
+  animate: {
+    opacity: [1, 0.8, 0.8, 1],
+    skewX: [0, 89, -50, 0],
+    scaleY: [1, 1.2, 1.2, 1],
+    transition: {
+      duration: 5, // Durasi animasi (5 detik)
+      ease: 'easeInOut', // Pola easing
+      repeat: Infinity, // Mengulangi animasi tanpa batas
+      delay: 2, // Penundaan sebelum animasi dimulai (2000ms)
+      times: [0.4, 0.41, 0.42, 0.43], // Posisi waktu untuk setiap frame
+    },
+  },
+}
+export const glitchImageVariant = {
+  initial: { opacity: 1, skewX: 0, scaleY: 1 },
+  animate: {
+    opacity: [1, 0.8, 0.8, 1],
+    skewX: [0, 10, -20, 0],
+    scaleY: [1, 0.9, 1.1, 1],
+    transition: {
+      duration: 5, // Durasi animasi (5 detik)
+      ease: 'easeInOut', // Pola easing
+      repeat: Infinity, // Mengulangi animasi tanpa batas
+      delay: 2, // Penundaan sebelum animasi dimulai (2000ms)
+      times: [0.42, 0.43, 0.44, 0.45], // Posisi waktu untuk setiap frame
+    },
+  },
+}
+
 export const wobbleyVariant = {
   initial: { translateY: 0 },
   animate: {
@@ -155,6 +186,7 @@ export const projectVariant = {
     filter: 'brightness(60%)',
   },
 }
+
 export const privateVariant = {
   initial: {
     scale: 0,

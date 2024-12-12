@@ -2,6 +2,8 @@ import {
   colorBarVariant,
   DisapperedFuzzyVariant,
   fuzzyVariant,
+  glitchTextVariant,
+  glitchImageVariant,
   menuVariant,
   scanlinesVariant,
   startButtonVariant,
@@ -40,6 +42,14 @@ export const colorBarProps = {
   variants: colorBarVariant,
   initial: 'intial',
   animate: 'animate',
+}
+
+export const glitchProps = (type) => {
+  return {
+    variants: type === 'text' ? glitchTextVariant : glitchImageVariant,
+    initial: 'intial',
+    animate: 'animate',
+  }
 }
 
 export const wobbleyProps = {
