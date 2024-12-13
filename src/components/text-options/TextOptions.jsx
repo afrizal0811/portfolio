@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+import { glitchProps } from '../../constants/properties'
 import './style.css'
 
 const TextOptions = (props) => {
@@ -111,7 +113,11 @@ const TextOptions = (props) => {
     </div>
   )
 
-  return <div>{isFinished && renderOptions}</div>
+  return (
+    <motion.div {...glitchProps('text')}>
+      {isFinished && renderOptions}
+    </motion.div>
+  )
 }
 
 export default TextOptions

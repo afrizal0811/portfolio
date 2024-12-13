@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { menuProps } from '../../constants/properties'
+import { glitchProps, menuProps } from '../../constants/properties'
 import IsMobile from '../../utilities/isMobile'
 import LinkComponent from '../link-component/LinkComponent'
 import './style.css'
@@ -16,7 +16,8 @@ const MenuHeader = (props) => {
       {...menuProps(isInView)}
     >
       {list.map((menu, index) => (
-        <div
+        <motion.div
+          {...glitchProps('text')}
           className={`/${menu}` === pathname ? 'selected' : ''}
           key={index}
         >
@@ -24,7 +25,7 @@ const MenuHeader = (props) => {
             menu={menu}
             pathname={pathname}
           />
-        </div>
+        </motion.div>
       ))}
     </motion.div>
   )

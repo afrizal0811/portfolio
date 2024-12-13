@@ -9,6 +9,7 @@ import MenuList from './components/menu-list/MenuList'
 import StartButton from './components/start-button/StartButton'
 import { publicImagePaths } from './constants/imagePaths'
 import {
+  glitchProps,
   menuProps,
   transitionProps,
   wobbleyProps,
@@ -23,16 +24,18 @@ export const StyledMenu = (menu) => {
   const newMenu = { ...menu, props: { ...props, isInView: isInView } }
 
   const frame = (
-    <motion.div
-      className='frame-container'
-      {...menuProps(isInView)}
-    >
+    <motion.div {...menuProps(isInView)}>
       <BgFuzzyEffect />
-      <ImageComp
-        alt='frame'
-        className='frame-content'
-        src={publicImagePaths.frame}
-      />
+      <motion.div
+        {...glitchProps('image')}
+        className='frame-container'
+      >
+        <ImageComp
+          alt='frame'
+          className='frame-content'
+          src={publicImagePaths.frame}
+        />
+      </motion.div>
     </motion.div>
   )
 
