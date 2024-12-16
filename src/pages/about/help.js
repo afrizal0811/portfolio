@@ -28,7 +28,7 @@ export const choicesList = [
   },
   {
     id: 5,
-    response: 'How do you approach learning new technologies?',
+    response: 'How do you learn tech?',
     explain:
       'I focus on hands-on practice, building projects, and participating in online communities to stay updated and get feedback from other developers. Additionally, I apply what I learn in my work at Pangan Lestari to improve processes and systems.',
   },

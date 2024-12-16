@@ -1,6 +1,7 @@
 .options-content {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .options-content button {
@@ -23,6 +24,27 @@
 
 .dimmer-option {
   filter: brightness(50%);
+}
+
+.page-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 24px;
+  margin-top: 7px;
+}
+
+.page-btn {
+  font-size: 24px;
+  color: var(--color-black);
+  border: solid 3px var(--color-black);
+  background-color: var(--color-white);
+  padding: 3px;
+}
+
+.page-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 767px) {

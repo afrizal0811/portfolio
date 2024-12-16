@@ -14,6 +14,7 @@ const About = (props) => {
       <Avatar
         {...props}
         choice={choicesList}
+        totalChoice={choicesList.length}
         isAvatarWave={true}
       />
     </motion.div>

@@ -7,6 +7,7 @@ const TextOptions = (props) => {
   const {
     alert,
     choice,
+    totalChoice,
     isFinished,
     linkId,
     option,
@@ -18,7 +19,25 @@ const TextOptions = (props) => {
   } = props
 
   const [dimmerOption, setDimmerOption] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
   const filteredSelectedOptions = [...new Set(dimmerOption)]
+  const itemsPerPage = 3
+  const totalPages = totalChoice ? Math.ceil(totalChoice / itemsPerPage) : 1
+
+  const getPaginatedData = (data, page, itemsPerPage) => {
+    const startIndex = (page - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    return data.slice(startIndex, endIndex)
+  }
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) =>
+      prevPage < totalPages ? prevPage + 1 : prevPage
+    )
+  }
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage))
+  }
 
   //single option
   const selectedResponse = choice.find(({ id }) => id === option)
@@ -27,16 +46,21 @@ const TextOptions = (props) => {
   const isAboutPage = pathname === '/about'
   const isContactPage = pathname === '/contact'
   const mappedOptions = isAboutPage ? filteredResponse : choice
+  const paginatedData = getPaginatedData(
+    mappedOptions,
+    currentPage,
+    itemsPerPage
+  )
 
   //multi option
   const number = linkId ? linkId : 0
-  const responses = mappedOptions[number].response
+  const responses = paginatedData[number].response
   const isResponseArray = Array.isArray(responses)
   const filteredMap = isProjectPage
-    ? mappedOptions.filter(({ id }) => id === linkId)
+    ? paginatedData.filter(({ id }) => id === linkId)
     : null
   const newOptions =
-    isResponseArray && filteredMap ? filteredMap : mappedOptions
+    isResponseArray && filteredMap ? filteredMap : paginatedData
 
   useEffect(() => {
     setDimmerOption((prev) => [...prev, option])
@@ -113,9 +137,28 @@ const TextOptions = (props) => {
     </div>
   )
 
+  const renderPageButton = (
+    <div className='page-btn-container'>
+      <button
+        className='page-btn'
+        disabled={currentPage === 1}
+        onClick={handlePrevPage}
+      >
+        &lt;
+      </button>
+      <button
+        className='page-btn'
+        disabled={currentPage === totalPages}
+        onClick={handleNextPage}
+      >
+        &gt;
+      </button>
+    </div>
+  )
   return (
     <motion.div {...glitchProps('text')}>
       {isFinished && renderOptions}
+      {totalChoice && isFinished && renderPageButton}
     </motion.div>
   )
 }
