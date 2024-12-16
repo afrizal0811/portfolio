@@ -158,7 +158,7 @@ export const glitchImageVariant = {
   initial: { opacity: 1, skewX: 0, scaleY: 1 },
   animate: {
     opacity: [1, 0.8, 0.8, 1],
-    skewX: [0, 10, -20, 0],
+    skewX: [0, 90, -10, 0],
     scaleY: [1, 0.9, 1.1, 1],
     transition: {
       duration: 5, // Durasi animasi (5 detik)

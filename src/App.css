@@ -78,11 +78,11 @@ h1.title {
 .blurry {
   width: 100%;
   height: auto;
-  filter: blur(1.4px);
+  filter: blur(1.5px);
 }
 
-.content-menu {
-  z-index: 5;
+.menu-content {
+  z-index: 1;
   position: relative;
 }
 

@@ -1,11 +1,12 @@
 .colorbar-container {
-    position: relative;
+  position: relative;
 }
 
 .colorbar {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
 }
 @media screen and (max-width: 767px) {
   .colorbar {
