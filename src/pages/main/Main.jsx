@@ -35,10 +35,4 @@ const Main = (props) => {
     </motion.div>
   )
 }
-/* <motion.div
-        className='title-bg'
-        initial={{ opacity: 0, height: 0, width: 0 }}
-        animate={{ opacity: '20%', height: '170px', width: '490px' }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      /> */
 export default Main

@@ -50,6 +50,10 @@
 @media screen and (max-width: 767px) {
   .options-content button {
     padding: 0.8rem;
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .page-btn {
+    font-size: 16px;
   }
 }
