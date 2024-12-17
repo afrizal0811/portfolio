@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { glitchProps } from '../../constants/properties'
+import IsMobile from '../../utilities/isMobile'
 import './style.css'
-
 const TextOptions = (props) => {
   const {
     alert,
@@ -18,11 +18,17 @@ const TextOptions = (props) => {
     setSelectedMultiOption,
   } = props
 
+  const isMobile = IsMobile()
   const [dimmerOption, setDimmerOption] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(isMobile ? 1 : 3)
+
   const filteredSelectedOptions = [...new Set(dimmerOption)]
-  const itemsPerPage = 3
-  const totalPages = totalChoice ? Math.ceil(totalChoice / itemsPerPage) : 1
+  const totalPages = totalChoice
+    ? isMobile
+      ? totalChoice - 1
+      : Math.ceil(totalChoice / itemsPerPage)
+    : 1
 
   const getPaginatedData = (data, page, itemsPerPage) => {
     const startIndex = (page - 1) * itemsPerPage
@@ -65,6 +71,11 @@ const TextOptions = (props) => {
   useEffect(() => {
     setDimmerOption((prev) => [...prev, option])
   }, [option, setDimmerOption])
+
+  useEffect(() => {
+    setItemsPerPage(isMobile ? 1 : 3)
+    setCurrentPage(1)
+  }, [isMobile])
 
   const checkSelected = (arr, val) => {
     return arr.some(function (arrVal) {
