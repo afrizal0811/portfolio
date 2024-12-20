@@ -18,7 +18,7 @@ const TextOptions = (props) => {
     setSelectedMultiOption,
   } = props
 
-  const isMobile = IsMobile()
+  const isMobile = IsMobile(768)
   const [dimmerOption, setDimmerOption] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(isMobile ? 1 : 3)

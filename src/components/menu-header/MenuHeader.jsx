@@ -8,7 +8,7 @@ import './style.css'
 const MenuHeader = (props) => {
   const { isInView, pathname } = props
   const menuList = ['home', 'about', 'projects', 'contact']
-  const list = IsMobile() ? menuList : menuList.toReversed()
+  const list = IsMobile(1024) ? menuList : menuList.toReversed()
 
   return (
     <motion.div

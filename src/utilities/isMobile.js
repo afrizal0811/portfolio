@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function IsMobile() {
+function IsMobile(maxWidth) {
   const [width, setWidth] = useState(window.innerWidth)
 
   function handleWindowSizeChange() {
@@ -13,7 +13,7 @@ function IsMobile() {
     }
   }, [])
 
-  return width <= 768
+  return width <= maxWidth
 }
 
 export default IsMobile

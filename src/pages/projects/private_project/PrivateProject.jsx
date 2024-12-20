@@ -14,7 +14,7 @@ const PrivateProject = (props) => {
   const { name } = useParams()
   const images = filteredImages(name)
   const imageName = camelize(name)
-  const isMobile = IsMobile()
+  const isMobile = IsMobile(768)
   const selectedImage = images[`${imageName}`]
   
   if (isEmpty(selectedImage) || isEmpty(images)) {

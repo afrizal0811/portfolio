@@ -13,7 +13,7 @@ const LinkComponent = (props) => {
     <ImageComp
       alt='cursor'
       className='sign-menu'
-      height={IsMobile() ? '40px' : '60px'}
+      height={IsMobile(768) ? '40px' : '60px'}
       src={publicImagePaths.logoBlue}
     />
   )

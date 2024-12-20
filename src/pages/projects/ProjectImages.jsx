@@ -6,8 +6,8 @@ import IsMobile from '../../utilities/isMobile'
 import { glitchProps } from '../../constants/properties'
 const ProjectImages = (props) => {
   const { projectData, setIsLinkClicked, setLinkId } = props
-  const projectImageClass = IsMobile() ? 'project-img-content-bottom' : ''
-  const buttonMoreClass = IsMobile() ? 'dimmer-container-bottom' : ''
+  const projectImageClass = IsMobile(768) ? 'project-img-content-bottom' : ''
+  const buttonMoreClass = IsMobile(768) ? 'dimmer-container-bottom' : ''
   
   const handleOnClick = (id) => {
     setIsLinkClicked(true)
