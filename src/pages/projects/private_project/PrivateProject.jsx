@@ -3,7 +3,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import ImageComp from '../../../components/image-comp/ImageComp'
 import ImageZoom from '../../../components/image-comp/ImageZoom'
-import { menuProps } from '../../../constants/properties'
+import { glitchProps, menuProps } from '../../../constants/properties'
 import { privateVariant } from '../../../constants/variants'
 import IsMobile from '../../../utilities/isMobile'
 import './../style.css'
@@ -59,7 +59,12 @@ const PrivateProject = (props) => {
       {...menuProps(isInView)}
     >
       <div className='project-container'>
-        <div className='project-content'>{mappedImages}</div>
+        <motion.div
+          className='project-content'
+          {...glitchProps('image')}
+        >
+          {mappedImages}
+        </motion.div>
       </div>
     </motion.div>
   )
