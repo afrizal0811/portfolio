@@ -8,10 +8,10 @@ export const projectData = [
     isPublic: true,
   },
   {
-    href: 'https://moneypool.co.id/',
+    href: '/private-project/moneypool',
     id: 1,
     image: publicImagePaths.webMoneypool,
-    isPublic: true,
+    isPublic: false,
   },
   {
     href: '/private-project/bank-artatama',
@@ -25,7 +25,8 @@ export const initialChoicesList = [
   {
     id: 0,
     response: `Sure!`,
-    explain: 'These are some of my projects. You can click on one of the pictures to see more information. Take a look!', 
+    explain:
+      'These are some of my projects. You can click on one of the pictures to see more information. Take a look!',
   },
 ]
 
@@ -70,14 +71,12 @@ export const choicesList = (random) => {
     {
       response: responses,
       id: 1,
-      explain:
-        'This is crowdfunding application. Build with React.js, Express.js, Styled Components, and Ant Design. Check this out!',
+      explain: `This is crowdfunding application. Build with React.js, Express.js, Styled Components, and Ant Design. Their website was accessible before, but now it isn't. I'll show you some screenshots from the application. Check this out!`,
     },
     {
       id: 2,
       response: responses,
-      explain:
-        'This is credit application. Build with React Typescript, Express.js, Styled Components, and Ant Design. This is a private website, but I will show you some screenshot from the application. Check this out!',
+      explain: `This is credit application. Build with React Typescript, Express.js, Styled Components, and Ant Design. This is a private website, I'll show you some screenshots from the application. Check this out!`,
     },
   ]
 }

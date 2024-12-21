@@ -12,12 +12,12 @@ import { camelize, filteredImages, isEmpty } from './help'
 const PrivateProject = (props) => {
   const { navigate, isInView } = props
   const { name } = useParams()
-  const images = filteredImages(name)
-  const imageName = camelize(name)
+  const imagesList = filteredImages(name)
+  const camelizedName = camelize(name)
   const isMobile = IsMobile(768)
-  const selectedImage = images[`${imageName}`]
+  const selectedImage = imagesList[`${camelizedName}`]
   
-  if (isEmpty(selectedImage) || isEmpty(images)) {
+  if (isEmpty(selectedImage) || isEmpty(imagesList)) {
     navigate('/', { replace: true })
     return null
   }
