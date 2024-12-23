@@ -5,8 +5,6 @@ import BgFuzzyEffect from './components/animation/fuzzyEffect/BgFuzzyEffect'
 import InitFuzzyEffect from './components/animation/fuzzyEffect/InitFuzzyEffect'
 import ImageComp from './components/image-comp/ImageComp'
 import MenuHeader from './components/menu-header/MenuHeader'
-import MenuList from './components/menu-list/MenuList'
-import StartButton from './components/start-button/StartButton'
 import { publicImagePaths } from './constants/imagePaths'
 import {
   glitchProps,
@@ -14,7 +12,6 @@ import {
   transitionProps,
   wobbleyProps,
 } from './constants/properties'
-import { buttonListVariant } from './constants/variants'
 
 export const StyledMenu = (menu) => {
   const ref = useRef(null)
@@ -93,20 +90,5 @@ export const StyledMenu = (menu) => {
       />
       <div>{transitionEffects(renderMenu)}</div>
     </Fragment>
-  )
-}
-
-export const StyledButtonList = (params) => {
-  const { isInView, pathname, started, setStarted } = params
-  const animation = started ? 'click' : isInView ? 'unclick' : ''
-  const startButton = <StartButton setStarted={setStarted} />
-
-  return (
-    <motion.div animate={animation}>
-      {isInView && startButton}
-      <motion.div variants={buttonListVariant}>
-        <MenuList pathname={pathname} />
-      </motion.div>
-    </motion.div>
   )
 }

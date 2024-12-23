@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import { StyledButtonList } from '../../AnimatedHandler'
+import MenuList from '../../components/menu-list/MenuList'
+import StartButton from '../../components/start-button/StartButton'
 import { glitchProps, menuProps } from '../../constants/properties'
+import { buttonListVariant } from '../../constants/variants'
 import useTypingEffect from '../../utilities/typeEffect'
 import './style.css'
 
@@ -16,14 +18,22 @@ const Main = (props) => {
     }, 2000)
   }, [isSeen])
 
-  const params = {
-    isInView,
-    pathname,
-    started,
-    setStarted,
-  }
   const delayTime = isInView ? (isSeen ? 30 : 2100) : 0
   const textDisplay = useTypingEffect('Web Developer & Other Things', delayTime)
+
+  const renderButtonList = () => {
+    const animation = started ? 'click' : isInView ? 'unclick' : ''
+    const startButton = <StartButton setStarted={setStarted} />
+
+    return (
+      <motion.div animate={animation}>
+        {isInView && startButton}
+        <motion.div variants={buttonListVariant}>
+          <MenuList pathname={pathname} />
+        </motion.div>
+      </motion.div>
+    )
+  }
 
   return (
     <motion.div
@@ -41,7 +51,7 @@ const Main = (props) => {
         <p>{textDisplay}</p>
       </motion.div>
       <ol className='menu-list'>
-        <motion.div>{StyledButtonList(params)}</motion.div>
+        <motion.div>{renderButtonList()}</motion.div>
       </ol>
     </motion.div>
   )
