@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useTypingEffect(
+const useTypingEffect = (
   textToType,
   interKeyStrokeDurationInMs,
   setIsFinished
-) {
-  const catchFinish = typeof setIsFinished !== "undefined" ? true : false
+) => {
+  const catchFinish = typeof setIsFinished !== 'undefined' ? true : false
   const [currentPosition, setCurrentPosition] = useState(0)
   const currentPositionRef = useRef(0)
   useEffect(() => {
@@ -27,3 +27,5 @@ export function useTypingEffect(
 
   return textToType.substring(0, currentPosition)
 }
+
+export default useTypingEffect

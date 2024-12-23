@@ -1,18 +1,29 @@
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyledButtonList } from '../../AnimatedHandler'
 import { glitchProps, menuProps } from '../../constants/properties'
+import useTypingEffect from '../../utilities/typeEffect'
 import './style.css'
 
 const Main = (props) => {
   const { isInView, pathname } = props
   const [started, setStarted] = useState(false)
+  const [isSeen, setIsSeen] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSeen(true)
+    }, 2000)
+  }, [isSeen])
+
   const params = {
     isInView,
     pathname,
     started,
     setStarted,
   }
+  const delayTime = isInView ? (isSeen ? 30 : 2100) : 0
+  const textDisplay = useTypingEffect('Web Developer & Other Things', delayTime)
 
   return (
     <motion.div
@@ -27,7 +38,7 @@ const Main = (props) => {
           <h2>Afrizal</h2>
           <h1>Maulana</h1>
         </div>
-        <p>Web Developer</p>
+        <p>{textDisplay}</p>
       </motion.div>
       <ol className='menu-list'>
         <motion.div>{StyledButtonList(params)}</motion.div>

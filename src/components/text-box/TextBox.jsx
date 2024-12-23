@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useTypingEffect } from './help'
+import useTypingEffect from '../../utilities/typeEffect'
 import './style.css'
 
 const TextBox = (props) => {
