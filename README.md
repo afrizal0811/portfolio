@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Afrizal's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This is my personal portfolio website showcasing my career journey, skills, and completed projects. Built using modern technologies, the website provides an interactive and responsive experience for visitors.
 
-In the project directory, you can run:
+## About Me
 
-### `npm start`
+I'm Afrizal Maulana Muhammad, a web developer specializing in front-end development. I have experience building web applications using React.js, Ant Design, Material-UI, and other modern technologies. I'm passionate about improving my skills and delivering innovative digital solutions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="public/images/github/github-1.png" alt="Homepage Screenshot" width="600"></td>
+      <td><img src="public/images/github/github-2.png" alt="Homepage Screenshot" width="600"></td>
+    </tr>
+    <tr>
+      <td><img src="public/images/github/github-3.png" alt="Homepage Screenshot" width="600"></td>
+      <td><img src="public/images/github/github-4.png" alt="Homepage Screenshot" width="600"></td>
+    </tr>
+  </table>
+</div>
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check out the live version of my portfolio : [Afrizal Maulana](https://afrizal.vercel.app/)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **About Me**: A brief overview of my background, vision, and work experience.
+- **Projects**: A showcase of various projects I've worked on, with descriptions and technologies used.
+- **Contact**: Easy-to-use contact form and additional ways to reach me.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Frontend**: React.js
+- **Additional Tools**: GitHub for version control, Vercel for hosting
