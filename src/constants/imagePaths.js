@@ -19,10 +19,9 @@ export const privateImagePaths = {
     '/../images/private/bankArtatama/bank_user_credit.png',
   ],
   moneypool: [
-    '/../images/private/bankArtatama/bank_user_login.png',
-    '/../images/private/bankArtatama/bank_user_register.png',
-    '/../images/private/bankArtatama/bank_user_dashboard.png',
-    '/../images/private/bankArtatama/bank_user_add.png',
-    '/../images/private/bankArtatama/bank_user_credit.png',
+    '/../images/private/moneypool/moneypool_dashboard.png',
+    '/../images/private/moneypool/moneypool_about.png',
+    '/../images/private/moneypool/moneypool_login.png',
+    '/../images/private/moneypool/moneypool_product.png',
   ],
 }
