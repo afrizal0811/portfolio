@@ -40,6 +40,11 @@
   border: solid 3px var(--color-black);
   background-color: var(--color-white);
   padding: 3px;
+  cursor: pointer;
+}
+
+.blue-border-btn:hover {
+  border: solid 3px var(--color-iceberg);
 }
 
 .page-btn:disabled {

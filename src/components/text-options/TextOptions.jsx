@@ -29,6 +29,8 @@ const TextOptions = (props) => {
       ? totalChoice - 1
       : Math.ceil(totalChoice / itemsPerPage)
     : 1
+  const isFirstPageButton = currentPage === 1
+  const isLastPageButton = currentPage === totalPages
 
   const getPaginatedData = (data, page, itemsPerPage) => {
     const startIndex = (page - 1) * itemsPerPage
@@ -151,15 +153,15 @@ const TextOptions = (props) => {
   const renderPageButton = (
     <div className='page-btn-container'>
       <button
-        className='page-btn'
-        disabled={currentPage === 1}
+        className={'page-btn ' + (!isFirstPageButton ? 'blue-border-btn' : '')}
+        disabled={isFirstPageButton}
         onClick={handlePrevPage}
       >
         &lt;
       </button>
       <button
-        className='page-btn'
-        disabled={currentPage === totalPages}
+        className={'page-btn ' + (!isLastPageButton ? 'blue-border-btn' : '')}
+        disabled={isLastPageButton}
         onClick={handleNextPage}
       >
         &gt;
