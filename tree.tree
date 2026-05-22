@@ -1,0 +1,64 @@
+├── AnimatedHandler.jsx
+├── App.css
+├── App.js
+├── components
+│   ├── animation
+│   │   ├── colorBarEffect
+│   │   │   ├── ColorBarEffect.jsx
+│   │   │   └── style.css
+│   │   └── fuzzyEffect
+│   │       ├── BgFuzzyEffect.jsx
+│   │       ├── InitFuzzyEffect.jsx
+│   │       └── style.css
+│   ├── avatar
+│   │   ├── Avatar.jsx
+│   │   └── style.css
+│   ├── image-comp
+│   │   ├── ImageComp.jsx
+│   │   ├── ImageZoom.jsx
+│   │   └── style.css
+│   ├── link-component
+│   │   ├── LinkComponent.jsx
+│   │   └── styles.css
+│   ├── menu-header
+│   │   ├── MenuHeader.jsx
+│   │   └── style.css
+│   ├── menu-list
+│   │   └── MenuList.jsx
+│   ├── start-button
+│   │   ├── StartButton.jsx
+│   │   └── style.css
+│   ├── text-box
+│   │   ├── style.css
+│   │   └── TextBox.jsx
+│   └── text-options
+│       ├── style.css
+│       └── TextOptions.jsx
+├── constants
+│   ├── imagePaths.js
+│   ├── properties.js
+│   └── variants.js
+├── index.js
+├── pages
+│   ├── about
+│   │   ├── About.jsx
+│   │   └── help.js
+│   ├── contact
+│   │   ├── Contact.jsx
+│   │   └── help.js
+│   ├── main
+│   │   ├── Main.jsx
+│   │   └── style.css
+│   └── projects
+│       ├── help.js
+│       ├── private_project
+│       │   ├── help.js
+│       │   └── PrivateProject.jsx
+│       ├── ProjectImages.jsx
+│       ├── Projects.jsx
+│       └── style.css
+├── RouteHandler.jsx
+└── utilities
+    ├── handleCookies.js
+    ├── isMobile.js
+    └── typeEffect.js
