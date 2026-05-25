@@ -2,7 +2,7 @@ const colors = {
   white: '#FFFFFF',
   alabaster: '#f2f0e5',
   azure: '#4b80ca',
-}
+};
 
 export const transitionVariant = {
   initial: { scaleY: 0, scaleX: 0 },
@@ -21,7 +21,7 @@ export const transitionVariant = {
     backgroundColor: [colors.alabaster, colors.white],
     transition: { duration: 0.15, ease: 'easeInOut' },
   },
-}
+};
 
 export const fuzzyVariant = {
   initial: {
@@ -35,9 +35,10 @@ export const fuzzyVariant = {
     transition: { duration: 0.02, repeat: Infinity },
   },
   exit: { opacity: 0 },
-}
+};
 
-export const DisapperedFuzzyVariant = {
+// Sebelumnya: DisapperedFuzzyVariant (typo ganda: Disappered)
+export const disappearedFuzzyVariant = {
   initial: {
     opacity: 1,
   },
@@ -45,7 +46,7 @@ export const DisapperedFuzzyVariant = {
     opacity: [1, 0.9, 0.5, 0.1, 0],
     transition: { delay: 1.6, duration: 1 },
   },
-}
+};
 
 export const scanlinesVariant = {
   initial: {
@@ -59,7 +60,7 @@ export const scanlinesVariant = {
     transition: { duration: 0.1, repeat: Infinity },
   },
   exit: { opacity: 0 },
-}
+};
 
 export const colorBarVariant = {
   initial: {
@@ -69,7 +70,7 @@ export const colorBarVariant = {
     opacity: [0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
     transition: { delay: 1.15, duration: 1 },
   },
-}
+};
 
 export const menuVariant = {
   initial: {
@@ -79,7 +80,7 @@ export const menuVariant = {
     opacity: [0, 0, 0.5, 1, 1, 1, 1, 1],
     transition: { delay: 1.7, duration: 1 },
   },
-}
+};
 
 export const startButtonVariant = {
   initial: {
@@ -104,7 +105,7 @@ export const startButtonVariant = {
       },
     },
   },
-}
+};
 
 export const buttonListVariant = {
   click: {
@@ -113,22 +114,10 @@ export const buttonListVariant = {
     y: 0,
     opacity: [0, 0.2, 0, 0.6, 0, 1],
     transition: {
-      scale: {
-        duration: 0.1,
-      },
-      x: {
-        ease: 'easeInOut',
-        duration: 0.5,
-      },
-      y: {
-        ease: 'easeInOut',
-        duration: 0.5,
-      },
-      opacity: {
-        ease: 'easeInOut',
-        duration: 0.5,
-        delay: 0.7,
-      },
+      scale: { duration: 0.1 },
+      x: { ease: 'easeInOut', duration: 0.5 },
+      y: { ease: 'easeInOut', duration: 0.5 },
+      opacity: { ease: 'easeInOut', duration: 0.5, delay: 0.7 },
     },
   },
   unclick: {
@@ -137,7 +126,7 @@ export const buttonListVariant = {
     scale: 0,
     opacity: 0,
   },
-}
+};
 
 export const glitchTextVariant = {
   initial: { opacity: 1, skewX: 0, scaleY: 1 },
@@ -146,14 +135,15 @@ export const glitchTextVariant = {
     skewX: [0, 89, -50, 0],
     scaleY: [1, 1.2, 1.2, 1],
     transition: {
-      duration: 5, // Durasi animasi (5 detik)
-      ease: 'easeInOut', // Pola easing
-      repeat: Infinity, // Mengulangi animasi tanpa batas
-      delay: 2, // Penundaan sebelum animasi dimulai (2000ms)
-      times: [0.4, 0.41, 0.42, 0.43], // Posisi waktu untuk setiap frame
+      duration: 5,
+      ease: 'easeInOut',
+      repeat: Infinity,
+      delay: 2,
+      times: [0.4, 0.41, 0.42, 0.43],
     },
   },
-}
+};
+
 export const glitchImageVariant = {
   initial: { opacity: 1, skewX: 0, scaleY: 1 },
   animate: {
@@ -161,14 +151,14 @@ export const glitchImageVariant = {
     skewX: [0, 90, -10, 0],
     scaleY: [1, 0.9, 1.1, 1],
     transition: {
-      duration: 5, // Durasi animasi (5 detik)
-      ease: 'easeInOut', // Pola easing
-      repeat: Infinity, // Mengulangi animasi tanpa batas
-      delay: 2, // Penundaan sebelum animasi dimulai (2000ms)
-      times: [0.42, 0.43, 0.44, 0.45], // Posisi waktu untuk setiap frame
+      duration: 5,
+      ease: 'easeInOut',
+      repeat: Infinity,
+      delay: 2,
+      times: [0.42, 0.43, 0.44, 0.45],
     },
   },
-}
+};
 
 export const wobbleyVariant = {
   initial: { translateY: 0 },
@@ -177,7 +167,7 @@ export const wobbleyVariant = {
     translateY: ['-0.5px', '0.7px'],
     transition: { duration: 0.2, repeat: Infinity },
   },
-}
+};
 
 export const projectVariant = {
   hover: {
@@ -185,7 +175,7 @@ export const projectVariant = {
     transition: { type: 'spring', stiffness: 400 },
     filter: 'brightness(60%)',
   },
-}
+};
 
 export const privateVariant = {
   initial: {
@@ -193,11 +183,7 @@ export const privateVariant = {
   },
   animate: {
     scale: 1,
-    transition: {
-      duration: 0.5,
-    },
-    viewport: {
-      once: true,
-    },
+    transition: { duration: 0.5 },
+    viewport: { once: true },
   },
-}
+};

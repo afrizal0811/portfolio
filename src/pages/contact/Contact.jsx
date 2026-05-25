@@ -1,27 +1,29 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import { toast } from 'react-custom-alert'
-import Avatar from '../../components/avatar/Avatar'
-import { menuProps } from '../../constants/properties'
-import { choicesList } from './help'
+import { motion, useInView } from 'framer-motion';
+import React, { useRef } from 'react';
+import { toast } from 'react-custom-alert';
+import Avatar from '../../components/avatar/Avatar';
+import { menuProps } from '../../constants/properties';
+import { choicesList } from './contactData';
 
-const Contact = (props) => {
-  const { isInView } = props
-  const alertSuccess = () => toast.success('E-mail copied!')
+const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const handleEmailCopied = () => toast.success('E-mail copied!');
 
   return (
     <motion.div
-      className='wrapper'
+      ref={ref}
+      className="wrapper"
       {...menuProps(isInView)}
     >
       <Avatar
-        {...props}
+        isInView={isInView}
         choice={choicesList}
         isAvatarWave={true}
-        alert={alertSuccess}
+        alert={handleEmailCopied}
       />
     </motion.div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

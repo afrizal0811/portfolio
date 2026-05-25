@@ -1,52 +1,55 @@
-import { motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
-import { startButtonProps } from '../../constants/properties'
-import './style.css'
+import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { startButtonProps } from '../../constants/properties';
+import './style.css';
 
-const StartButton = (props) => {
-  const { setStarted } = props
-  const [isClicked, setIsClicked] = useState(false)
-  const myContainer = useRef(null)
+const TRIGGER_KEYS = ['Enter', ' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
-  const handleOnClick = () => {
-    setIsClicked(true)
-    setStarted(true)
-  }
+const StartButton = ({ setStarted }) => {
+  const [isClicked, setIsClicked] = useState(false);
+  const labelRef = useRef(null);
 
-  const handleKeyDown = (e) => {
-    if (e) {
-      handleOnClick()
-    }
-  }
+  const handleStart = () => {
+    setIsClicked(true);
+    setStarted(true);
+  };
 
   useEffect(() => {
-    setTimeout(() => {
-      if (isClicked) myContainer.current.innerText = ''
-    }, 500)
+    /**
+     * Sebelumnya `if (e)` selalu true — semua keydown (Tab, Shift, F5, dll)
+     * men-trigger start. Sekarang hanya key yang relevan yang diterima.
+     */
+    const handleKeyDown = (e) => {
+      if (TRIGGER_KEYS.includes(e.key)) handleStart();
+    };
 
-    document.addEventListener('keydown', handleKeyDown)
+    const timer = isClicked
+      ? setTimeout(() => {
+          if (labelRef.current) labelRef.current.innerText = '';
+        }, 500)
+      : null;
 
-    // Don't forget to clean up
-    return function cleanup() {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isClicked])
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      if (timer) clearTimeout(timer);
+    };
+    // eslint-disable-next-line
+  }, [isClicked]);
 
   return (
     <motion.div
-      className='start-button'
+      className="start-button"
       {...startButtonProps(isClicked)}
     >
       <motion.button
-        type='button'
-        onClick={handleOnClick}
-        onKeyDown={(e) => handleKeyDown(e)}
+        type="button"
+        onClick={handleStart}
       >
-        <h1 ref={myContainer}>Press Start</h1>
+        <h1 ref={labelRef}>Press Start</h1>
       </motion.button>
     </motion.div>
-  )
-}
+  );
+};
 
-export default StartButton
+export default StartButton;

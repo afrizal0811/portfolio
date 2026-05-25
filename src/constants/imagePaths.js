@@ -8,20 +8,20 @@ export const publicImagePaths = {
   webCarRental: '/images/car-rental.png',
   webMoneypool: '/images/moneypool.png',
   webBank: '/images/private/bankArtatama/bank_user_login.png',
-}
+};
 
 export const privateImagePaths = {
   bankArtatama: [
-    '/../images/private/bankArtatama/bank_user_login.png',
-    '/../images/private/bankArtatama/bank_user_register.png',
-    '/../images/private/bankArtatama/bank_user_dashboard.png',
-    '/../images/private/bankArtatama/bank_user_add.png',
-    '/../images/private/bankArtatama/bank_user_credit.png',
+    '/images/private/bankArtatama/bank_user_login.png',
+    '/images/private/bankArtatama/bank_user_register.png',
+    '/images/private/bankArtatama/bank_user_dashboard.png',
+    '/images/private/bankArtatama/bank_user_add.png',
+    '/images/private/bankArtatama/bank_user_credit.png',
   ],
   moneypool: [
-    '/../images/private/moneypool/moneypool_dashboard.png',
-    '/../images/private/moneypool/moneypool_about.png',
-    '/../images/private/moneypool/moneypool_login.png',
-    '/../images/private/moneypool/moneypool_product.png',
+    '/images/private/moneypool/moneypool_dashboard.png',
+    '/images/private/moneypool/moneypool_about.png',
+    '/images/private/moneypool/moneypool_login.png',
+    '/images/private/moneypool/moneypool_product.png',
   ],
-}
+};

@@ -1,3 +1,4 @@
+
 export const choicesList = [
   {
     id: 0,
@@ -15,7 +16,6 @@ export const choicesList = [
         link: 'https://github.com/afrizal0811',
       },
     ],
-    explain:
-      'Thank you so much for visiting! You can contact me through these links.',
+    explain: 'Thank you so much for visiting! You can contact me through these links.',
   },
-]
+];

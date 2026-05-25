@@ -1,41 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { publicImagePaths } from '../../constants/imagePaths'
-import IsMobile from '../../utilities/isMobile'
-import ImageComp from '../image-comp/ImageComp'
-import './styles.css'
-const LinkComponent = (props) => {
-  const { menu, pathname } = props
-  const isHome = pathname === '/'
-  const isSelectedMenu = pathname === `/${menu}`
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { publicImagePaths } from '../../constants/imagePaths';
+import useIsMobile from '../../hooks/useIsMobile';
+import ImageComp from '../image-comp/ImageComp';
+import './styles.css';
+
+const LinkComponent = ({ menu, pathname }) => {
+  const isMobile = useIsMobile(768);
+  const isHome = pathname === '/';
+  const isSelectedMenu = pathname === `/${menu}`;
+  const to = menu === 'home' ? '/' : `/${menu}`;
+  const logoHeight = isMobile ? '40px' : '60px';
 
   const logo = (
     <ImageComp
-      alt='cursor'
-      className='sign-menu'
-      height={IsMobile(768) ? '40px' : '60px'}
+      alt="cursor"
+      className="sign-menu"
+      height={logoHeight}
       src={publicImagePaths.logoBlue}
     />
-  )
+  );
 
-  const unselectedLink = (
-    <span className='arrow-menu disabled-link'>
-      {isHome && logo}
-      {menu}
-    </span>
-  )
+  return (
+    <div>
+      {isSelectedMenu ? (
+        <span className="arrow-menu disabled-link">
+          {isHome && logo}
+          {menu}
+        </span>
+      ) : (
+        <Link
+          to={to}
+          className="arrow-menu"
+        >
+          {isHome && logo}
+          {menu}
+        </Link>
+      )}
+    </div>
+  );
+};
 
-  const selectedLink = (
-    <Link
-      to={menu === 'home' ? '/' : `/${menu}`}
-      className='arrow-menu'
-    >
-      {isHome && logo}
-      {menu}
-    </Link>
-  )
-
-  return <div>{isSelectedMenu ? unselectedLink : selectedLink}</div>
-}
-
-export default LinkComponent
+export default LinkComponent;

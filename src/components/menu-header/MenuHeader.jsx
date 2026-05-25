@@ -1,34 +1,31 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import { glitchProps, menuProps } from '../../constants/properties'
-import IsMobile from '../../utilities/isMobile'
-import LinkComponent from '../link-component/LinkComponent'
-import './style.css'
+import { motion } from 'framer-motion';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { glitchProps } from '../../constants/properties';
+import LinkComponent from '../link-component/LinkComponent';
 
-const MenuHeader = (props) => {
-  const { isInView, pathname } = props
-  const menuList = ['home', 'about', 'projects', 'contact']
-  const list = IsMobile(1024) ? menuList : menuList.toReversed()
+const MENU_ITEMS = ['about', 'projects', 'contact'];
+
+/**
+ * Sebelumnya `pathname` di-pass sebagai prop dari parent.
+ * Sekarang MenuList membaca pathname sendiri via `useLocation()`
+ * agar tidak bergantung pada prop chain dari luar.
+ */
+const MenuList = () => {
+  const { pathname } = useLocation();
 
   return (
-    <motion.div
-      className='header-wrapper'
-      {...menuProps(isInView)}
-    >
-      {list.map((menu, index) => (
-        <motion.div
-          {...glitchProps('text')}
-          className={`/${menu}` === pathname ? 'selected' : ''}
-          key={index}
-        >
+    <motion.div {...glitchProps('text')}>
+      {MENU_ITEMS.map((menu) => (
+        <li key={menu}>
           <LinkComponent
             menu={menu}
             pathname={pathname}
           />
-        </motion.div>
+        </li>
       ))}
     </motion.div>
-  )
-}
+  );
+};
 
-export default MenuHeader
+export default MenuList;

@@ -1,8 +1,17 @@
-import { motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
-import { glitchProps } from '../../constants/properties'
-import IsMobile from '../../utilities/isMobile'
-import './style.css'
+import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { glitchProps } from '../../constants/properties';
+import useIsMobile from '../../hooks/useIsMobile';
+import './style.css';
+
+/**
+ * Refactor utama:
+ * - `pathname` tidak lagi dari props, tapi dari useLocation()
+ * - `itemsPerPage` tidak perlu di state, diturunkan langsung dari isMobile
+ * - `checkSelected` (array.some) diganti dengan Array.includes() yang lebih ringkas
+ * - Logic render diperjelas dengan pemisahan antara multi-response dan single-response
+ */
 const TextOptions = (props) => {
   const {
     alert,
@@ -11,169 +20,136 @@ const TextOptions = (props) => {
     isFinished,
     linkId,
     option,
-    pathname,
     setIsAvatarShow,
     setIsLinkClicked,
     setOption,
     setSelectedMultiOption,
-  } = props
+  } = props;
 
-  const isMobile = IsMobile(768)
-  const [dimmerOption, setDimmerOption] = useState([])
-  const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(isMobile ? 1 : 3)
+  const { pathname } = useLocation();
+  const isMobile = useIsMobile(768);
+  const itemsPerPage = isMobile ? 1 : 3;
 
-  const filteredSelectedOptions = [...new Set(dimmerOption)]
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const isProjectPage = pathname === '/projects';
+  const isAboutPage = pathname === '/about';
+  const isContactPage = pathname === '/contact';
+
+  const selectedResponse = choice.find(({ id }) => id === option);
+  const displayOptions = isAboutPage ? choice.filter((item) => item !== selectedResponse) : choice;
+
   const totalPages = totalChoice
     ? isMobile
       ? totalChoice - 1
       : Math.ceil(totalChoice / itemsPerPage)
-    : 1
-  const isFirstPageButton = currentPage === 1
-  const isLastPageButton = currentPage === totalPages
+    : 1;
 
-  const getPaginatedData = (data, page, itemsPerPage) => {
-    const startIndex = (page - 1) * itemsPerPage
-    const endIndex = startIndex + itemsPerPage
-    return data.slice(startIndex, endIndex)
-  }
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) =>
-      prevPage < totalPages ? prevPage + 1 : prevPage
-    )
-  }
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === totalPages;
 
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage))
-  }
+  const getPaginatedData = (data, page) => {
+    const start = (page - 1) * itemsPerPage;
+    return data.slice(start, start + itemsPerPage);
+  };
 
-  //single option
-  const selectedResponse = choice.find(({ id }) => id === option)
-  const filteredResponse = choice.filter((data) => data !== selectedResponse)
-  const isProjectPage = pathname === '/projects'
-  const isAboutPage = pathname === '/about'
-  const isContactPage = pathname === '/contact'
-  const mappedOptions = isAboutPage ? filteredResponse : choice
-  const paginatedData = getPaginatedData(
-    mappedOptions,
-    currentPage,
-    itemsPerPage
-  )
+  const paginatedData = getPaginatedData(displayOptions, currentPage);
 
-  //multi option
-  const number = linkId ? linkId : 0
-  const responses = paginatedData[number].response
-  const isResponseArray = Array.isArray(responses)
-  const filteredMap = isProjectPage
-    ? paginatedData.filter(({ id }) => id === linkId)
-    : null
-  const newOptions =
-    isResponseArray && filteredMap ? filteredMap : paginatedData
+  const index = linkId ?? 0;
+  const responses = paginatedData[index]?.response;
+  const isResponseArray = Array.isArray(responses);
+
+  const visibleOptions =
+    isProjectPage && isResponseArray
+      ? paginatedData.filter(({ id }) => id === linkId)
+      : paginatedData;
 
   useEffect(() => {
-    setDimmerOption((prev) => [...prev, option])
-  }, [option, setDimmerOption])
+    setSelectedIds((prev) => [...new Set([...prev, option])]);
+  }, [option]);
 
   useEffect(() => {
-    setItemsPerPage(isMobile ? 1 : 3)
-    setCurrentPage(1)
-  }, [isMobile])
+    setCurrentPage(1);
+  }, [isMobile]);
 
-  const checkSelected = (arr, val) => {
-    return arr.some(function (arrVal) {
-      return val === arrVal
-    })
-  }
-
-  const handleOnClick = (id, response) => {
+  const handleOptionClick = (id, response) => {
     if (isContactPage) {
-      if (response.type === 'E-mail') {
-        alert()
-        navigator.clipboard.writeText(response.link)
+      if (response?.type === 'E-mail') {
+        alert();
+        navigator.clipboard.writeText(response.link);
       } else {
-        window.open(response.link)
+        window.open(response.link);
       }
     } else if (isProjectPage) {
-      setIsAvatarShow(false)
+      setIsAvatarShow(false);
       if (isResponseArray) {
-        setSelectedMultiOption(id)
-        setIsLinkClicked(false)
+        setSelectedMultiOption(id);
+        setIsLinkClicked(false);
       }
     } else {
-      setOption(id)
+      setOption(id);
     }
-  }
+  };
 
   const renderMultiResponse = (buttonClassName) =>
     responses.map((response, index) => {
-      const isObject =
-        typeof response === 'object' &&
-        !Array.isArray(response) &&
-        response !== null
-      const text = isObject ? response.type : response
-
+      const label = typeof response === 'object' && response !== null ? response.type : response;
       return (
         <button
-          onClick={() => handleOnClick(index, response)}
           key={index}
           className={buttonClassName}
+          onClick={() => handleOptionClick(index, response)}
         >
-          {text}
+          {label}
         </button>
-      )
-    })
+      );
+    });
 
   const renderSingleResponse = (buttonClassName, id, response) => (
     <button
-      onClick={() => handleOnClick(id)}
       key={id}
       className={buttonClassName}
+      onClick={() => handleOptionClick(id)}
     >
       {response}
     </button>
-  )
+  );
 
-  const renderOptions = (
-    <div className='options-content'>
-      {newOptions.map(({ id, response }) => {
-        const isAlreadySelected = checkSelected(filteredSelectedOptions, id)
-        const buttonClassName =
-          isAlreadySelected && !isProjectPage && isAboutPage
-            ? 'dimmer-option'
-            : ''
-        const renderButton = isResponseArray
-          ? renderMultiResponse(buttonClassName)
-          : renderSingleResponse(buttonClassName, id, response)
-
-        return renderButton
-      })}
-    </div>
-  )
-
-  const renderPageButton = (
-    <div className='page-btn-container'>
-      <button
-        className={'page-btn ' + (!isFirstPageButton ? 'blue-border-btn' : '')}
-        disabled={isFirstPageButton}
-        onClick={handlePrevPage}
-      >
-        &lt;
-      </button>
-      <button
-        className={'page-btn ' + (!isLastPageButton ? 'blue-border-btn' : '')}
-        disabled={isLastPageButton}
-        onClick={handleNextPage}
-      >
-        &gt;
-      </button>
-    </div>
-  )
   return (
     <motion.div {...glitchProps('text')}>
-      {isFinished && renderOptions}
-      {totalChoice && isFinished && renderPageButton}
-    </motion.div>
-  )
-}
+      {isFinished && (
+        <div className="options-content">
+          {visibleOptions.map(({ id, response }) => {
+            const isAlreadySelected = selectedIds.includes(id);
+            const buttonClassName = isAlreadySelected && isAboutPage ? 'dimmer-option' : '';
 
-export default TextOptions
+            return isResponseArray
+              ? renderMultiResponse(buttonClassName)
+              : renderSingleResponse(buttonClassName, id, response);
+          })}
+        </div>
+      )}
+      {totalChoice && isFinished && (
+        <div className="page-btn-container">
+          <button
+            className={'page-btn ' + (!isFirstPage ? 'blue-border-btn' : '')}
+            disabled={isFirstPage}
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+          >
+            &lt;
+          </button>
+          <button
+            className={'page-btn ' + (!isLastPage ? 'blue-border-btn' : '')}
+            disabled={isLastPage}
+            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+          >
+            &gt;
+          </button>
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+export default TextOptions;

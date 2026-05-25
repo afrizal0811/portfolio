@@ -1,50 +1,46 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import ImageComp from '../../components/image-comp/ImageComp'
-import { projectVariant } from '../../constants/variants'
-import IsMobile from '../../utilities/isMobile'
-import { glitchProps } from '../../constants/properties'
-const ProjectImages = (props) => {
-  const { projectData, setIsLinkClicked, setLinkId } = props
-  const projectImageClass = IsMobile(768) ? 'project-img-content-bottom' : ''
-  const buttonMoreClass = IsMobile(768) ? 'dimmer-container-bottom' : ''
-  
-  const handleOnClick = (id) => {
-    setIsLinkClicked(true)
-    setLinkId(id)
-  }
+import { motion } from 'framer-motion';
+import React from 'react';
+import ImageComp from '../../components/image-comp/ImageComp';
+import { glitchProps } from '../../constants/properties';
+import { projectVariant } from '../../constants/variants';
+import useIsMobile from '../../hooks/useIsMobile';
+
+const ProjectImages = ({ projectList, setIsLinkClicked, setLinkId }) => {
+  const isMobile = useIsMobile(768);
+
+  const handleClick = (id) => {
+    setIsLinkClicked(true);
+    setLinkId(id);
+  };
 
   return (
-    <div className='project-img-container'>
-      {projectData.map((data) => {
-        return (
-          <motion.div
-            className={`project-img-content ${projectImageClass}`}
-            key={data.id}
-            variants={projectVariant}
-            whileHover='hover'
-            onClick={() => handleOnClick(data.id)}
-          >
-            <div className={`dimmer-container ${buttonMoreClass}`}>
-              <div
-                className='dimmer-content'
-                onClick={() => handleOnClick(data.id)}
-              >
-                click for more info
-              </div>
+    <div className="project-img-container">
+      {projectList.map((data) => (
+        <motion.div
+          className={`project-img-content ${isMobile ? 'project-img-content-bottom' : ''}`}
+          key={data.id}
+          variants={projectVariant}
+          whileHover="hover"
+          onClick={() => handleClick(data.id)}
+        >
+          <div className={`dimmer-container ${isMobile ? 'dimmer-container-bottom' : ''}`}>
+            <div
+              className="dimmer-content"
+              onClick={() => handleClick(data.id)}
+            >
+              click for more info
             </div>
-            <motion.div {...glitchProps('image')}>
-              <ImageComp
-                key={data.id}
-                src={data.image}
-                width='100%'
-              />
-            </motion.div>
+          </div>
+          <motion.div {...glitchProps('image')}>
+            <ImageComp
+              src={data.image}
+              width="100%"
+            />
           </motion.div>
-        )
-      })}
+        </motion.div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default ProjectImages
+export default ProjectImages;

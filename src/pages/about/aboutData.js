@@ -12,7 +12,7 @@ export const choicesList = [
   {
     id: 2,
     response: 'What do you like?',
-    explain: `I’m passionate when it comes to new games, technologies and always curious to learn more creative coding, especially about web development.`,
+    explain: `I'm passionate when it comes to new games, technologies and always curious to learn more creative coding, especially about web development.`,
   },
   {
     id: 3,
@@ -32,4 +32,4 @@ export const choicesList = [
     explain:
       'I focus on hands-on practice, building projects, and participating in online communities to stay updated and get feedback from other developers. Additionally, I apply what I learn in my work at Pangan Lestari to improve processes and systems.',
   },
-]
+];

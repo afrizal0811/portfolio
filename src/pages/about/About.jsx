@@ -1,24 +1,29 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import Avatar from '../../components/avatar/Avatar'
-import { menuProps } from '../../constants/properties'
-import { choicesList } from './help'
+import { motion } from 'framer-motion';
+import React from 'react';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+import Avatar from '../../components/avatar/Avatar';
+import { menuProps } from '../../constants/properties';
+import { choicesList } from './aboutData';
 
-const About = (props) => {
-  const { isInView } = props
+const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
   return (
     <motion.div
-      className='wrapper'
+      ref={ref}
+      className="wrapper"
       {...menuProps(isInView)}
     >
       <Avatar
-        {...props}
+        isInView={isInView}
         choice={choicesList}
         totalChoice={choicesList.length}
         isAvatarWave={true}
       />
     </motion.div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

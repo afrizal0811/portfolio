@@ -1,6 +1,6 @@
 import {
   colorBarVariant,
-  DisapperedFuzzyVariant,
+  disappearedFuzzyVariant,
   fuzzyVariant,
   glitchTextVariant,
   glitchImageVariant,
@@ -9,67 +9,64 @@ import {
   startButtonVariant,
   transitionVariant,
   wobbleyVariant,
-} from './variants'
+} from './variants';
+
+// Catatan: semua key 'intial' (typo lama) sudah diperbaiki ke 'initial'
 
 export const transitionProps = {
   variants: transitionVariant,
-  initial: 'intial',
+  initial: 'initial',
   animate: 'animate',
   exit: 'exit',
-}
+};
 
 export const fuzzyProps = {
   variants: fuzzyVariant,
-  initial: 'intial',
+  initial: 'initial',
   animate: 'animate',
   exit: 'exit',
-}
+};
 
-export const DisapperedFuzzyProps = {
-  variants: DisapperedFuzzyVariant,
-  initial: 'intial',
+// Sebelumnya: DisapperedFuzzyProps (typo)
+export const disappearedFuzzyProps = {
+  variants: disappearedFuzzyVariant,
+  initial: 'initial',
   animate: 'animate',
-}
+};
 
 export const scanlinesProps = {
   variants: scanlinesVariant,
-  initial: 'intial',
+  initial: 'initial',
   animate: 'animate',
   exit: 'exit',
-}
+};
 
 export const colorBarProps = {
   variants: colorBarVariant,
-  initial: 'intial',
+  initial: 'initial',
   animate: 'animate',
-}
+};
 
-export const glitchProps = (type) => {
-  return {
-    variants: type === 'text' ? glitchTextVariant : glitchImageVariant,
-    initial: 'intial',
-    animate: 'animate',
-  }
-}
+export const glitchProps = (type) => ({
+  variants: type === 'text' ? glitchTextVariant : glitchImageVariant,
+  initial: 'initial',
+  animate: 'animate',
+});
 
 export const wobbleyProps = {
   variants: wobbleyVariant,
-  initial: 'intial',
+  initial: 'initial',
   animate: 'animate',
-}
+};
 
-export const menuProps = (isInView) => {
-  return {
-    variants: isInView && menuVariant,
-    initial: 'initial',
-    animate: 'animate',
-  }
-}
+export const menuProps = (isInView) => ({
+  variants: isInView ? menuVariant : undefined,
+  initial: 'initial',
+  animate: 'animate',
+});
 
-export const startButtonProps = (isClicked) => {
-  return {
-    variants: startButtonVariant,
-    initial: 'initial',
-    animate: isClicked ? 'click' : 'unclick',
-  }
-}
+export const startButtonProps = (isClicked) => ({
+  variants: startButtonVariant,
+  initial: 'initial',
+  animate: isClicked ? 'click' : 'unclick',
+});

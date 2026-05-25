@@ -1,21 +1,19 @@
-import React from 'react'
+import React, { forwardRef } from 'react';
 
-const ImageComp = (props) => {
-  const { className, src, alt, height, width, ref, draggable, style } = props
+const ImageComp = forwardRef(({ className, src, alt, height, width, draggable, style }, ref) => (
+  <img
+    ref={ref}
+    alt={alt}
+    className={className}
+    draggable={draggable}
+    height={height}
+    loading="lazy"
+    src={src}
+    style={style}
+    width={width}
+  />
+));
 
-  return (
-    <img
-      alt={alt}
-      className={className}
-      draggable={draggable}
-      height={height}
-      loading='lazy'
-      ref={ref}
-      src={src}
-      style={style}
-      width={width}
-    />
-  )
-}
+ImageComp.displayName = 'ImageComp';
 
-export default ImageComp
+export default ImageComp;
